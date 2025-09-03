@@ -1,0 +1,20 @@
+{
+  "name": "easy-read-generator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MVP: Easy Read Generator (Node + Express + Vanilla JS)",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0"
+  }
+}

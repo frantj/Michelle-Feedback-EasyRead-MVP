@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Easy Read Generator</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Easy Read Generator</h1>
+  </header>
+
+  <main>
+    <section aria-labelledby="input-heading">
+      <h2 id="input-heading">Paste your text</h2>
+      <form id="generateForm" novalidate>
+        <label for="inputText">Text to convert</label>
+        <textarea id="inputText" name="inputText" rows="8" aria-describedby="charHelp" required></textarea>
+        <div class="row">
+          <small id="charHelp"><span id="charCount">0</span> / 10000</small>
+        </div>
+        <div class="actions">
+          <button id="generateBtn" type="submit">Generate Easy Read</button>
+        </div>
+        <div id="status" role="status" aria-live="polite" class="visually-shown" tabindex="-1"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with privacy and accessibility in mind.</p>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

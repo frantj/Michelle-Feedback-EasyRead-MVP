@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Results • Easy Read Generator</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1 id="pageTitle">Results</h1>
+  </header>
+
+  <main>
+    <div class="actions top">
+      <button id="copyAllBtn" type="button">Copy All</button>
+      <button id="backBtn" type="button">Back</button>
+    </div>
+    <div id="copyStatus" aria-live="polite" role="status" class="visually-shown"></div>
+
+    <section aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Summary</h2>
+      <pre id="summary" class="content-block"></pre>
+    </section>
+
+    <section aria-labelledby="easyread-heading">
+      <h2 id="easyread-heading">Easy Read Version</h2>
+      <pre id="easyRead" class="content-block"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>Use Back to edit your original text.</p>
+  </footer>
+
+  <script src="/js/results.js" defer></script>
+</body>
+</html>
