@@ -34,10 +34,6 @@ Call OpenAI once with a structured prompt that returns strict JSON:
   "easyRead": "Easy Read version: headings + short sentences + bullets + [IMAGE PLACEHOLDER: ...] where helpful."
 }
 
-### UX flow (MVP)
-Page 1 (Generate): Title, textarea, character counter, **Generate** button. Show spinner on submit.
-Page 2 (Results): H2 “Summary”, H2 “Easy Read Version”, **Copy All** button, **Back** button (restores original text in memory).
-
 ### Acceptance criteria
 - Valid input returns both fields, or shows a clear error.
 - Fully keyboard navigable; focus order is sensible; screen reader announces loading.
