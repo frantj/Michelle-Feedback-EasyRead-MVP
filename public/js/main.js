@@ -54,19 +54,19 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text })
       });
-      let data;
-      if (!resp.ok) {
-        // Try to extract an error message
-        try {
-          const errJson = await resp.json();
-          throw new Error(errJson && errJson.error ? errJson.error : 'Request failed');
-        } catch (_) {
-          const msg = await resp.text();
-          throw new Error(msg || 'Request failed');
-        }
-      } else {
-        data = await resp.json();
+      // Read body once to avoid double-read errors
+      const raw = await resp.text();
+      let json;
+      try {
+        json = raw ? JSON.parse(raw) : null;
+      } catch (_) {
+        json = null;
       }
+      if (!resp.ok) {
+        const message = json && json.error ? json.error : (raw || 'Request failed');
+        throw new Error(message);
+      }
+      const data = json;
       // Expect strict JSON contract: { summary, easyRead }
       if (!data || typeof data.summary !== 'string' || typeof data.easyRead !== 'string') {
         throw new Error('Invalid response format.');
