@@ -105,12 +105,12 @@ app.get('/doc/:id', (req, res) => {
   const docId = req.params.id;
   // Validate ID format (hex string)
   if (!/^[a-f0-9]{16}$/.test(docId)) {
-    return res.status(404).send('Document not found.');
+    return res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
   }
   
   const filePath = path.join(DOCS_DIR, `${docId}.json`);
   if (!fs.existsSync(filePath)) {
-    return res.status(404).send('Document not found.');
+    return res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
   }
   
   try {
@@ -118,7 +118,7 @@ app.get('/doc/:id', (req, res) => {
     // Serve the same results.html but with doc ID in URL
     res.sendFile(path.join(__dirname, 'public', 'results.html'));
   } catch (err) {
-    return res.status(500).send('Error loading document.');
+    return res.status(500).sendFile(path.join(__dirname, 'public', '404.html'));
   }
 });
 
