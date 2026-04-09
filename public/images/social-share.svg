@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#4A90E2"/>
+  
+  <!-- White content area -->
+  <rect x="100" y="100" width="1000" height="430" rx="20" fill="white"/>
+  
+  <!-- Icon circle -->
+  <circle cx="250" cy="315" r="80" fill="#4A90E2"/>
+  
+  <!-- ER text in circle -->
+  <text x="250" y="340" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">ER</text>
+  
+  <!-- Title -->
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#2C3E50">Easy Read</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#2C3E50">Generator</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="420" font-family="Arial, sans-serif" font-size="28" fill="#7F8C8D">Convert text to accessible Easy Read format</text>
+</svg>
