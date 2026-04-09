@@ -1,202 +1,773 @@
 {
   "_meta": {
-    "description": "Maps keywords to illustration filenames in public/images/library/. The AI tags each Easy Read sentence with a keyword; the client looks up matching images here.",
-    "attribution": "Starter images from easyread.demcloud.org — CC BY-SA 4.0, National Democratic Institute (NDI).",
-    "howToAdd": "Drop a new image into public/images/library/ and add an entry below: \"keyword\": { \"file\": \"filename.ext\", \"alt\": \"Description\" }"
+    "description": "Maps lowercase keywords to image files for Easy Read documents.",
+    "usage": "Look up a keyword to get { file, alt, source }. file is relative to /images/library/."
   },
   "_attribution": {
-    "mulberry": "Mulberry Symbols are copyright 2018 to 2026 Steve Lee and licensed under the Creative Commons Attribution-ShareAlike 2.0 UK: England & Wales License. See https://mulberrysymbols.org for details",
-    "openmoji": "OpenMoji emojis are designed by OpenMoji — the open-source emoji and icon project. License: CC BY-SA 4.0. See https://openmoji.org for details."
+    "mulberry": {
+      "name": "Mulberry Symbols",
+      "license": "CC BY-SA 2.0 UK",
+      "url": "https://mulberrysymbols.org"
+    },
+    "openmoji": {
+      "name": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "url": "https://openmoji.org"
+    },
+    "demcloud": {
+      "name": "Easy Read Online Dictionary",
+      "license": "CC BY-SA 4.0",
+      "url": "https://easyread.demcloud.org"
+    }
   },
-  "accessibility": {
-    "file": "accessibility.png",
-    "alt": "A white wheelchair symbol on a blue background."
-  },
-  "accessible": {
-    "file": "accessibility.png",
-    "alt": "A white wheelchair symbol on a blue background."
-  },
-  "disability": {
-    "file": "accessibility.png",
-    "alt": "A white wheelchair symbol on a blue background."
-  },
-  "wheelchair": {
-    "file": "accessibility.png",
-    "alt": "A white wheelchair symbol on a blue background."
-  },
-  "inclusion": {
-    "file": "accessibility.png",
-    "alt": "A white wheelchair symbol on a blue background."
-  },
-  "advocacy": {
-    "file": "advocacy.jpeg",
-    "alt": "A man in glasses speaks into a megaphone."
-  },
-  "advocate": {
-    "file": "advocacy.jpeg",
-    "alt": "A man in glasses speaks into a megaphone."
-  },
-  "speak up": {
-    "file": "advocacy.jpeg",
-    "alt": "A man in glasses speaks into a megaphone."
-  },
-  "campaign": {
-    "file": "advocacy.jpeg",
-    "alt": "A man in glasses speaks into a megaphone."
-  },
-  "protest": {
-    "file": "advocacy.jpeg",
-    "alt": "A man in glasses speaks into a megaphone."
-  },
-  "ballot": {
-    "file": "ballot.jpg",
-    "alt": "An election ballot with candidates listed."
-  },
-  "barrier": {
-    "file": "barrier.png",
-    "alt": "A yellow fence with a stop sign."
-  },
-  "obstacle": {
-    "file": "barrier.png",
-    "alt": "A yellow fence with a stop sign."
-  },
-  "prevent": {
-    "file": "barrier.png",
-    "alt": "A yellow fence with a stop sign."
-  },
-  "block": {
-    "file": "barrier.png",
-    "alt": "A yellow fence with a stop sign."
-  },
-  "stop": {
-    "file": "openmoji-1F6D1.svg",
-    "alt": "A stop sign.",
+  "family": {
+    "file": "openmoji-1F468-200D-1F469-200D-1F467.svg",
+    "alt": "A family.",
     "source": "openmoji"
   },
-  "restriction": {
-    "file": "barrier.png",
-    "alt": "A yellow fence with a stop sign."
-  },
-  "budget": {
-    "file": "budget.jpg",
-    "alt": "A pen and calculator on a budget document."
-  },
-  "money": {
-    "file": "budget.jpg",
-    "alt": "A pen and calculator on a budget document."
-  },
-  "finance": {
-    "file": "budget.jpg",
-    "alt": "A pen and calculator on a budget document."
-  },
-  "cost": {
-    "file": "budget.jpg",
-    "alt": "A pen and calculator on a budget document."
-  },
-  "pay": {
-    "file": "budget.jpg",
-    "alt": "A pen and calculator on a budget document."
-  },
-  "funding": {
-    "file": "budget.jpg",
-    "alt": "A pen and calculator on a budget document."
-  },
-  "tax": {
-    "file": "budget.jpg",
-    "alt": "A pen and calculator on a budget document."
-  },
-  "price": {
-    "file": "budget.jpg",
-    "alt": "A pen and calculator on a budget document."
-  },
-  "constitution": {
-    "file": "constitution.jpeg",
-    "alt": "A constitution being signed by a quill pen."
-  },
-  "document": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
+  "parent": {
+    "file": "openmoji-1F468-200D-1F469-200D-1F467.svg",
+    "alt": "A family.",
     "source": "openmoji"
   },
-  "rules": {
-    "file": "constitution.jpeg",
-    "alt": "A constitution being signed by a quill pen."
-  },
-  "policy": {
-    "file": "constitution.jpeg",
-    "alt": "A constitution being signed by a quill pen."
-  },
-  "court": {
-    "file": "court.jpeg",
-    "alt": "A person sits at a desk in a courtroom."
-  },
-  "judge": {
-    "file": "court.jpeg",
-    "alt": "A person sits at a desk in a courtroom."
-  },
-  "legal": {
-    "file": "openmoji-2696.svg",
-    "alt": "The scales of justice.",
+  "parents": {
+    "file": "openmoji-1F468-200D-1F469-200D-1F467.svg",
+    "alt": "A family.",
     "source": "openmoji"
   },
-  "law": {
-    "file": "openmoji-2696.svg",
-    "alt": "The scales of justice.",
+  "baby": {
+    "file": "openmoji-1F476.svg",
+    "alt": "A baby.",
     "source": "openmoji"
   },
-  "trial": {
-    "file": "court.jpeg",
-    "alt": "A person sits at a desk in a courtroom."
-  },
-  "judiciary": {
-    "file": "judiciary.png",
-    "alt": "The scales of justice and a judge's gavel."
-  },
-  "justice": {
-    "file": "openmoji-2696.svg",
-    "alt": "The scales of justice.",
+  "infant": {
+    "file": "openmoji-1F476.svg",
+    "alt": "A baby.",
     "source": "openmoji"
   },
-  "rights": {
-    "file": "openmoji-2696.svg",
-    "alt": "The scales of justice.",
+  "newborn": {
+    "file": "openmoji-1F476.svg",
+    "alt": "A baby.",
     "source": "openmoji"
   },
-  "fair": {
-    "file": "openmoji-2696.svg",
-    "alt": "The scales of justice.",
+  "child": {
+    "file": "openmoji-1F9D2.svg",
+    "alt": "A child.",
     "source": "openmoji"
   },
-  "election": {
-    "file": "openmoji-1F5F3.svg",
-    "alt": "A ballot box.",
+  "children": {
+    "file": "openmoji-1F9D2.svg",
+    "alt": "A child.",
     "source": "openmoji"
   },
-  "vote": {
-    "file": "openmoji-1F5F3.svg",
-    "alt": "A ballot box.",
+  "woman": {
+    "file": "openmoji-1F469.svg",
+    "alt": "A woman.",
     "source": "openmoji"
   },
-  "voting": {
-    "file": "openmoji-1F5F3.svg",
-    "alt": "A ballot box.",
+  "lady": {
+    "file": "openmoji-1F469.svg",
+    "alt": "A woman.",
     "source": "openmoji"
   },
-  "choice": {
-    "file": "voting.png",
-    "alt": "A person walks to a ballot box to vote."
+  "female": {
+    "file": "openmoji-1F469.svg",
+    "alt": "A woman.",
+    "source": "openmoji"
   },
-  "decide": {
-    "file": "voting.png",
-    "alt": "A person walks to a ballot box to vote."
+  "man": {
+    "file": "openmoji-1F468.svg",
+    "alt": "A man.",
+    "source": "openmoji"
   },
-  "choose": {
-    "file": "voting.png",
-    "alt": "A person walks to a ballot box to vote."
+  "male": {
+    "file": "openmoji-1F468.svg",
+    "alt": "A man.",
+    "source": "openmoji"
   },
-  "parliament": {
-    "file": "openmoji-1F3DB.svg",
-    "alt": "A classical building.",
+  "elderly": {
+    "file": "openmoji-1F474.svg",
+    "alt": "An older man.",
+    "source": "openmoji"
+  },
+  "senior": {
+    "file": "openmoji-1F474.svg",
+    "alt": "An older man.",
+    "source": "openmoji"
+  },
+  "pensioner": {
+    "file": "openmoji-1F474.svg",
+    "alt": "An older man.",
+    "source": "openmoji"
+  },
+  "older": {
+    "file": "openmoji-1F474.svg",
+    "alt": "An older man.",
+    "source": "openmoji"
+  },
+  "aged": {
+    "file": "openmoji-1F474.svg",
+    "alt": "An older man.",
+    "source": "openmoji"
+  },
+  "old person": {
+    "file": "openmoji-1F475.svg",
+    "alt": "An older woman.",
+    "source": "openmoji"
+  },
+  "person": {
+    "file": "openmoji-1F9D1.svg",
+    "alt": "A person.",
+    "source": "openmoji"
+  },
+  "individual": {
+    "file": "openmoji-1F9D1.svg",
+    "alt": "A person.",
+    "source": "openmoji"
+  },
+  "someone": {
+    "file": "openmoji-1F9D1.svg",
+    "alt": "A person.",
+    "source": "openmoji"
+  },
+  "everyone": {
+    "file": "openmoji-1F9D1.svg",
+    "alt": "A person.",
+    "source": "openmoji"
+  },
+  "adult": {
+    "file": "openmoji-1F9D1.svg",
+    "alt": "A person.",
+    "source": "openmoji"
+  },
+  "citizen": {
+    "file": "openmoji-1F9D1.svg",
+    "alt": "A person.",
+    "source": "openmoji"
+  },
+  "resident": {
+    "file": "openmoji-1F9D1.svg",
+    "alt": "A person.",
+    "source": "openmoji"
+  },
+  "partner": {
+    "file": "openmoji-1F46B.svg",
+    "alt": "A couple.",
+    "source": "openmoji"
+  },
+  "married": {
+    "file": "openmoji-1F46B.svg",
+    "alt": "A couple.",
+    "source": "openmoji"
+  },
+  "husband": {
+    "file": "openmoji-1F46B.svg",
+    "alt": "A couple.",
+    "source": "openmoji"
+  },
+  "wife": {
+    "file": "openmoji-1F46B.svg",
+    "alt": "A couple.",
+    "source": "openmoji"
+  },
+  "people": {
+    "file": "openmoji-1F46D.svg",
+    "alt": "Two people together.",
+    "source": "openmoji"
+  },
+  "staff": {
+    "file": "openmoji-1F46D.svg",
+    "alt": "Two people together.",
+    "source": "openmoji"
+  },
+  "guest": {
+    "file": "openmoji-1F46D.svg",
+    "alt": "Two people together.",
+    "source": "openmoji"
+  },
+  "happy": {
+    "file": "openmoji-1F600.svg",
+    "alt": "A happy face.",
+    "source": "openmoji"
+  },
+  "glad": {
+    "file": "openmoji-1F600.svg",
+    "alt": "A happy face.",
+    "source": "openmoji"
+  },
+  "pleased": {
+    "file": "openmoji-1F600.svg",
+    "alt": "A happy face.",
+    "source": "openmoji"
+  },
+  "enjoy": {
+    "file": "openmoji-1F600.svg",
+    "alt": "A happy face.",
+    "source": "openmoji"
+  },
+  "smile": {
+    "file": "openmoji-1F600.svg",
+    "alt": "A happy face.",
+    "source": "openmoji"
+  },
+  "sad": {
+    "file": "openmoji-1F622.svg",
+    "alt": "A sad face.",
+    "source": "openmoji"
+  },
+  "unhappy": {
+    "file": "openmoji-1F622.svg",
+    "alt": "A sad face.",
+    "source": "openmoji"
+  },
+  "upset": {
+    "file": "openmoji-1F622.svg",
+    "alt": "A sad face.",
+    "source": "openmoji"
+  },
+  "grief": {
+    "file": "openmoji-1F622.svg",
+    "alt": "A sad face.",
+    "source": "openmoji"
+  },
+  "loss": {
+    "file": "openmoji-1F622.svg",
+    "alt": "A sad face.",
+    "source": "openmoji"
+  },
+  "cry": {
+    "file": "openmoji-1F622.svg",
+    "alt": "A sad face.",
+    "source": "openmoji"
+  },
+  "angry": {
+    "file": "openmoji-1F620.svg",
+    "alt": "An angry face.",
+    "source": "openmoji"
+  },
+  "mad": {
+    "file": "openmoji-1F620.svg",
+    "alt": "An angry face.",
+    "source": "openmoji"
+  },
+  "annoyed": {
+    "file": "openmoji-1F620.svg",
+    "alt": "An angry face.",
+    "source": "openmoji"
+  },
+  "rude": {
+    "file": "openmoji-1F620.svg",
+    "alt": "An angry face.",
+    "source": "openmoji"
+  },
+  "mean": {
+    "file": "openmoji-1F620.svg",
+    "alt": "An angry face.",
+    "source": "openmoji"
+  },
+  "afraid": {
+    "file": "openmoji-1F628.svg",
+    "alt": "A fearful face.",
+    "source": "openmoji"
+  },
+  "scared": {
+    "file": "openmoji-1F628.svg",
+    "alt": "A fearful face.",
+    "source": "openmoji"
+  },
+  "fear": {
+    "file": "openmoji-1F628.svg",
+    "alt": "A fearful face.",
+    "source": "openmoji"
+  },
+  "frightened": {
+    "file": "openmoji-1F628.svg",
+    "alt": "A fearful face.",
+    "source": "openmoji"
+  },
+  "worried": {
+    "file": "openmoji-1F61F.svg",
+    "alt": "A worried face.",
+    "source": "openmoji"
+  },
+  "anxious": {
+    "file": "openmoji-1F61F.svg",
+    "alt": "A worried face.",
+    "source": "openmoji"
+  },
+  "nervous": {
+    "file": "openmoji-1F61F.svg",
+    "alt": "A worried face.",
+    "source": "openmoji"
+  },
+  "stress": {
+    "file": "openmoji-1F61F.svg",
+    "alt": "A worried face.",
+    "source": "openmoji"
+  },
+  "concern": {
+    "file": "openmoji-1F61F.svg",
+    "alt": "A worried face.",
+    "source": "openmoji"
+  },
+  "surprised": {
+    "file": "openmoji-1F62E.svg",
+    "alt": "A surprised face.",
+    "source": "openmoji"
+  },
+  "shocked": {
+    "file": "openmoji-1F62E.svg",
+    "alt": "A surprised face.",
+    "source": "openmoji"
+  },
+  "unexpected": {
+    "file": "openmoji-1F62E.svg",
+    "alt": "A surprised face.",
+    "source": "openmoji"
+  },
+  "wow": {
+    "file": "openmoji-1F62E.svg",
+    "alt": "A surprised face.",
+    "source": "openmoji"
+  },
+  "think": {
+    "file": "openmoji-1F914.svg",
+    "alt": "A thinking face.",
+    "source": "openmoji"
+  },
+  "thinking": {
+    "file": "openmoji-1F914.svg",
+    "alt": "A thinking face.",
+    "source": "openmoji"
+  },
+  "thought": {
+    "file": "openmoji-1F914.svg",
+    "alt": "A thinking face.",
+    "source": "openmoji"
+  },
+  "idea": {
+    "file": "openmoji-1F914.svg",
+    "alt": "A thinking face.",
+    "source": "openmoji"
+  },
+  "mind": {
+    "file": "openmoji-1F914.svg",
+    "alt": "A thinking face.",
+    "source": "openmoji"
+  },
+  "brain": {
+    "file": "openmoji-1F914.svg",
+    "alt": "A thinking face.",
+    "source": "openmoji"
+  },
+  "remember": {
+    "file": "openmoji-1F914.svg",
+    "alt": "A thinking face.",
+    "source": "openmoji"
+  },
+  "concentrating": {
+    "file": "openmoji-1F914.svg",
+    "alt": "A thinking face.",
+    "source": "openmoji"
+  },
+  "confused": {
+    "file": "openmoji-1F615.svg",
+    "alt": "A confused face.",
+    "source": "openmoji"
+  },
+  "unsure": {
+    "file": "openmoji-1F615.svg",
+    "alt": "A confused face.",
+    "source": "openmoji"
+  },
+  "puzzled": {
+    "file": "openmoji-1F615.svg",
+    "alt": "A confused face.",
+    "source": "openmoji"
+  },
+  "difficult": {
+    "file": "openmoji-1F615.svg",
+    "alt": "A confused face.",
+    "source": "openmoji"
+  },
+  "calm": {
+    "file": "openmoji-1F60A.svg",
+    "alt": "A calm smiling face.",
+    "source": "openmoji"
+  },
+  "peaceful": {
+    "file": "openmoji-1F60A.svg",
+    "alt": "A calm smiling face.",
+    "source": "openmoji"
+  },
+  "relaxed": {
+    "file": "openmoji-1F60A.svg",
+    "alt": "A calm smiling face.",
+    "source": "openmoji"
+  },
+  "frustrated": {
+    "file": "openmoji-1F62D.svg",
+    "alt": "A crying face.",
+    "source": "openmoji"
+  },
+  "love": {
+    "file": "openmoji-1F60D.svg",
+    "alt": "A face with heart eyes.",
+    "source": "openmoji"
+  },
+  "heart": {
+    "file": "openmoji-1F60D.svg",
+    "alt": "A face with heart eyes.",
+    "source": "openmoji"
+  },
+  "disgusted": {
+    "file": "openmoji-1F612.svg",
+    "alt": "An unamused face.",
+    "source": "openmoji"
+  },
+  "dislike": {
+    "file": "openmoji-1F612.svg",
+    "alt": "An unamused face.",
+    "source": "openmoji"
+  },
+  "unpleasant": {
+    "file": "openmoji-1F612.svg",
+    "alt": "An unamused face.",
+    "source": "openmoji"
+  },
+  "disagree": {
+    "file": "openmoji-1F612.svg",
+    "alt": "An unamused face.",
+    "source": "openmoji"
+  },
+  "negative": {
+    "file": "openmoji-1F612.svg",
+    "alt": "An unamused face.",
+    "source": "openmoji"
+  },
+  "bully": {
+    "file": "openmoji-1F624.svg",
+    "alt": "A face with steam from nose.",
+    "source": "openmoji"
+  },
+  "complaint": {
+    "file": "openmoji-1F621.svg",
+    "alt": "A pouting face.",
+    "source": "openmoji"
+  },
+  "positive": {
+    "file": "openmoji-1F60E.svg",
+    "alt": "A face with sunglasses.",
+    "source": "openmoji"
+  },
+  "enthusiastic": {
+    "file": "openmoji-1F60E.svg",
+    "alt": "A face with sunglasses.",
+    "source": "openmoji"
+  },
+  "excited": {
+    "file": "openmoji-1F60E.svg",
+    "alt": "A face with sunglasses.",
+    "source": "openmoji"
+  },
+  "wellbeing": {
+    "file": "openmoji-1F970.svg",
+    "alt": "A face with hearts.",
+    "source": "openmoji"
+  },
+  "feeling": {
+    "file": "openmoji-1F970.svg",
+    "alt": "A face with hearts.",
+    "source": "openmoji"
+  },
+  "emotion": {
+    "file": "openmoji-1F970.svg",
+    "alt": "A face with hearts.",
+    "source": "openmoji"
+  },
+  "sleep": {
+    "file": "openmoji-1F634.svg",
+    "alt": "A sleeping face.",
+    "source": "openmoji"
+  },
+  "rest": {
+    "file": "openmoji-1F634.svg",
+    "alt": "A sleeping face.",
+    "source": "openmoji"
+  },
+  "tired": {
+    "file": "openmoji-1F634.svg",
+    "alt": "A sleeping face.",
+    "source": "openmoji"
+  },
+  "dream": {
+    "file": "openmoji-1F634.svg",
+    "alt": "A sleeping face.",
+    "source": "openmoji"
+  },
+  "bed": {
+    "file": "openmoji-1F634.svg",
+    "alt": "A sleeping face.",
+    "source": "openmoji"
+  },
+  "danger": {
+    "file": "openmoji-1F631.svg",
+    "alt": "A face screaming in fear.",
+    "source": "openmoji"
+  },
+  "emergency": {
+    "file": "openmoji-1F631.svg",
+    "alt": "A face screaming in fear.",
+    "source": "openmoji"
+  },
+  "wait": {
+    "file": "openmoji-1F611.svg",
+    "alt": "An expressionless face.",
+    "source": "openmoji"
+  },
+  "doctor": {
+    "file": "openmoji-1FA7A.svg",
+    "alt": "A stethoscope.",
+    "source": "openmoji"
+  },
+  "GP": {
+    "file": "openmoji-1FA7A.svg",
+    "alt": "A stethoscope.",
+    "source": "openmoji"
+  },
+  "medical": {
+    "file": "openmoji-1FA7A.svg",
+    "alt": "A stethoscope.",
+    "source": "openmoji"
+  },
+  "stethoscope": {
+    "file": "openmoji-1FA7A.svg",
+    "alt": "A stethoscope.",
+    "source": "openmoji"
+  },
+  "health check": {
+    "file": "openmoji-1FA7A.svg",
+    "alt": "A stethoscope.",
+    "source": "openmoji"
+  },
+  "hospital": {
+    "file": "openmoji-1F3E5.svg",
+    "alt": "A hospital building.",
+    "source": "openmoji"
+  },
+  "clinic": {
+    "file": "openmoji-1F3E5.svg",
+    "alt": "A hospital building.",
+    "source": "openmoji"
+  },
+  "ward": {
+    "file": "openmoji-1F3E5.svg",
+    "alt": "A hospital building.",
+    "source": "openmoji"
+  },
+  "ambulance": {
+    "file": "openmoji-1F691.svg",
+    "alt": "An ambulance.",
+    "source": "openmoji"
+  },
+  "injection": {
+    "file": "openmoji-1F489.svg",
+    "alt": "A syringe.",
+    "source": "openmoji"
+  },
+  "vaccine": {
+    "file": "openmoji-1F489.svg",
+    "alt": "A syringe.",
+    "source": "openmoji"
+  },
+  "jab": {
+    "file": "openmoji-1F489.svg",
+    "alt": "A syringe.",
+    "source": "openmoji"
+  },
+  "needle": {
+    "file": "openmoji-1F489.svg",
+    "alt": "A syringe.",
+    "source": "openmoji"
+  },
+  "pill": {
+    "file": "openmoji-1F48A.svg",
+    "alt": "A pill.",
+    "source": "openmoji"
+  },
+  "medicine": {
+    "file": "openmoji-1F48A.svg",
+    "alt": "A pill.",
+    "source": "openmoji"
+  },
+  "medication": {
+    "file": "openmoji-1F48A.svg",
+    "alt": "A pill.",
+    "source": "openmoji"
+  },
+  "tablet": {
+    "file": "openmoji-1F48A.svg",
+    "alt": "A pill.",
+    "source": "openmoji"
+  },
+  "treatment": {
+    "file": "openmoji-1F48A.svg",
+    "alt": "A pill.",
+    "source": "openmoji"
+  },
+  "bandage": {
+    "file": "openmoji-1FA79.svg",
+    "alt": "An adhesive bandage.",
+    "source": "openmoji"
+  },
+  "plaster": {
+    "file": "openmoji-1FA79.svg",
+    "alt": "An adhesive bandage.",
+    "source": "openmoji"
+  },
+  "injury": {
+    "file": "openmoji-1FA79.svg",
+    "alt": "An adhesive bandage.",
+    "source": "openmoji"
+  },
+  "wound": {
+    "file": "openmoji-1FA79.svg",
+    "alt": "An adhesive bandage.",
+    "source": "openmoji"
+  },
+  "hurt": {
+    "file": "openmoji-1FA79.svg",
+    "alt": "An adhesive bandage.",
+    "source": "openmoji"
+  },
+  "ill": {
+    "file": "openmoji-1F912.svg",
+    "alt": "A face with thermometer.",
+    "source": "openmoji"
+  },
+  "sick": {
+    "file": "openmoji-1F912.svg",
+    "alt": "A face with thermometer.",
+    "source": "openmoji"
+  },
+  "unwell": {
+    "file": "openmoji-1F912.svg",
+    "alt": "A face with thermometer.",
+    "source": "openmoji"
+  },
+  "fever": {
+    "file": "openmoji-1F912.svg",
+    "alt": "A face with thermometer.",
+    "source": "openmoji"
+  },
+  "temperature": {
+    "file": "openmoji-1F912.svg",
+    "alt": "A face with thermometer.",
+    "source": "openmoji"
+  },
+  "infection": {
+    "file": "openmoji-1F912.svg",
+    "alt": "A face with thermometer.",
+    "source": "openmoji"
+  },
+  "germ": {
+    "file": "openmoji-1F912.svg",
+    "alt": "A face with thermometer.",
+    "source": "openmoji"
+  },
+  "cold": {
+    "file": "openmoji-2744.svg",
+    "alt": "A snowflake.",
+    "source": "openmoji"
+  },
+  "nurse": {
+    "file": "openmoji-1F9D1-200D-2695-FE0F.svg",
+    "alt": "A health worker.",
+    "source": "openmoji"
+  },
+  "healthcare": {
+    "file": "openmoji-1F9D1-200D-2695-FE0F.svg",
+    "alt": "A health worker.",
+    "source": "openmoji"
+  },
+  "carer": {
+    "file": "openmoji-1F9D1-200D-2695-FE0F.svg",
+    "alt": "A health worker.",
+    "source": "openmoji"
+  },
+  "mental": {
+    "file": "openmoji-1F9E0.svg",
+    "alt": "A brain.",
+    "source": "openmoji"
+  },
+  "mental health": {
+    "file": "openmoji-1F9E0.svg",
+    "alt": "A brain.",
+    "source": "openmoji"
+  },
+  "mask": {
+    "file": "openmoji-1F637.svg",
+    "alt": "A face with mask.",
+    "source": "openmoji"
+  },
+  "hygiene": {
+    "file": "openmoji-1F637.svg",
+    "alt": "A face with mask.",
+    "source": "openmoji"
+  },
+  "health": {
+    "file": "openmoji-2764.svg",
+    "alt": "A red heart.",
+    "source": "openmoji"
+  },
+  "dental": {
+    "file": "openmoji-1F9B7.svg",
+    "alt": "A tooth.",
+    "source": "openmoji"
+  },
+  "home": {
+    "file": "openmoji-1F3E0.svg",
+    "alt": "A house with garden.",
+    "source": "openmoji"
+  },
+  "house": {
+    "file": "openmoji-1F3E0.svg",
+    "alt": "A house with garden.",
+    "source": "openmoji"
+  },
+  "accommodation": {
+    "file": "openmoji-1F3E0.svg",
+    "alt": "A house with garden.",
+    "source": "openmoji"
+  },
+  "school": {
+    "file": "openmoji-1F3EB.svg",
+    "alt": "A school building.",
+    "source": "openmoji"
+  },
+  "classroom": {
+    "file": "openmoji-1F3EB.svg",
+    "alt": "A school building.",
+    "source": "openmoji"
+  },
+  "education": {
+    "file": "openmoji-1F3EB.svg",
+    "alt": "A school building.",
+    "source": "openmoji"
+  },
+  "learn": {
+    "file": "openmoji-1F3EB.svg",
+    "alt": "A school building.",
+    "source": "openmoji"
+  },
+  "learning": {
+    "file": "openmoji-1F3EB.svg",
+    "alt": "A school building.",
+    "source": "openmoji"
+  },
+  "study": {
+    "file": "openmoji-1F3EB.svg",
+    "alt": "A school building.",
     "source": "openmoji"
   },
   "government": {
@@ -204,393 +775,195 @@
     "alt": "A classical building.",
     "source": "openmoji"
   },
+  "parliament": {
+    "file": "parliament.png",
+    "alt": "The Houses of Parliament.",
+    "source": "demcloud"
+  },
+  "court": {
+    "file": "court.jpeg",
+    "alt": "A courtroom.",
+    "source": "demcloud"
+  },
   "council": {
     "file": "openmoji-1F3DB.svg",
     "alt": "A classical building.",
     "source": "openmoji"
   },
-  "authority": {
-    "file": "openmoji-1F3DB.svg",
-    "alt": "A classical building.",
+  "office": {
+    "file": "openmoji-1F3E2.svg",
+    "alt": "An office building.",
     "source": "openmoji"
   },
-  "meeting": {
-    "file": "parliament.png",
-    "alt": "Members of parliament debating."
-  },
-  "universal": {
-    "file": "universal.jpg",
-    "alt": "A view of the Earth from space."
-  },
-  "world": {
-    "file": "universal.jpg",
-    "alt": "A view of the Earth from space."
-  },
-  "global": {
-    "file": "universal.jpg",
-    "alt": "A view of the Earth from space."
-  },
-  "everyone": {
-    "file": "universal.jpg",
-    "alt": "A view of the Earth from space."
-  },
-  "country": {
-    "file": "universal.jpg",
-    "alt": "A view of the Earth from space."
-  },
-  "international": {
-    "file": "universal.jpg",
-    "alt": "A view of the Earth from space."
-  },
-  "happy": {
-    "file": "happy_lady.svg",
-    "alt": "A woman with a happy expression.",
-    "source": "mulberry"
-  },
-  "pleased": {
-    "file": "happy_man.svg",
-    "alt": "A man with a happy expression.",
-    "source": "mulberry"
-  },
-  "glad": {
-    "file": "happy_lady.svg",
-    "alt": "A woman with a happy expression.",
-    "source": "mulberry"
-  },
-  "enjoy": {
-    "file": "happy_man.svg",
-    "alt": "A man with a happy expression.",
-    "source": "mulberry"
-  },
-  "positive": {
-    "file": "happy_man.svg",
-    "alt": "A man with a happy expression.",
-    "source": "mulberry"
-  },
-  "wellbeing": {
-    "file": "happy_lady.svg",
-    "alt": "A woman with a happy expression.",
-    "source": "mulberry"
-  },
-  "smile": {
-    "file": "happy_man.svg",
-    "alt": "A man with a happy expression.",
-    "source": "mulberry"
-  },
-  "sad": {
-    "file": "sad_lady.svg",
-    "alt": "A woman with a sad expression.",
-    "source": "mulberry"
-  },
-  "unhappy": {
-    "file": "sad_man.svg",
-    "alt": "A man with a sad expression.",
-    "source": "mulberry"
-  },
-  "upset": {
-    "file": "sad_lady.svg",
-    "alt": "A woman with a sad expression.",
-    "source": "mulberry"
-  },
-  "grief": {
-    "file": "sad_man.svg",
-    "alt": "A man with a sad expression.",
-    "source": "mulberry"
-  },
-  "loss": {
-    "file": "sad_lady.svg",
-    "alt": "A woman with a sad expression.",
-    "source": "mulberry"
-  },
-  "angry": {
-    "file": "angry_lady.svg",
-    "alt": "A woman with an angry expression.",
-    "source": "mulberry"
-  },
-  "frustrated": {
-    "file": "angry_man.svg",
-    "alt": "A man with an angry expression.",
-    "source": "mulberry"
-  },
-  "annoyed": {
-    "file": "angry_lady.svg",
-    "alt": "A woman with an angry expression.",
-    "source": "mulberry"
-  },
-  "complaint": {
-    "file": "angry_man.svg",
-    "alt": "A man with an angry expression.",
-    "source": "mulberry"
-  },
-  "worried": {
-    "file": "worried_lady.svg",
-    "alt": "A woman with a worried expression.",
-    "source": "mulberry"
-  },
-  "anxious": {
-    "file": "worried_man.svg",
-    "alt": "A man with a worried expression.",
-    "source": "mulberry"
-  },
-  "concern": {
-    "file": "worried_lady.svg",
-    "alt": "A woman with a worried expression.",
-    "source": "mulberry"
-  },
-  "stress": {
-    "file": "worried_man.svg",
-    "alt": "A man with a worried expression.",
-    "source": "mulberry"
-  },
-  "nervous": {
-    "file": "worried_lady.svg",
-    "alt": "A woman with a worried expression.",
-    "source": "mulberry"
-  },
-  "afraid": {
-    "file": "afraid_lady.svg",
-    "alt": "A woman with a frightened expression.",
-    "source": "mulberry"
-  },
-  "scared": {
-    "file": "afraid_man.svg",
-    "alt": "A man with a frightened expression.",
-    "source": "mulberry"
-  },
-  "fear": {
-    "file": "afraid_lady.svg",
-    "alt": "A woman with a frightened expression.",
-    "source": "mulberry"
-  },
-  "danger": {
-    "file": "openmoji-26A0.svg",
-    "alt": "A warning triangle.",
+  "workplace": {
+    "file": "openmoji-1F3E2.svg",
+    "alt": "An office building.",
     "source": "openmoji"
   },
-  "confused": {
-    "file": "confused_lady.svg",
-    "alt": "A woman with a confused expression.",
-    "source": "mulberry"
-  },
-  "unsure": {
-    "file": "confused_man.svg",
-    "alt": "A man with a confused expression.",
-    "source": "mulberry"
-  },
-  "question": {
-    "file": "openmoji-2753.svg",
-    "alt": "A question mark.",
+  "work": {
+    "file": "openmoji-1F3E2.svg",
+    "alt": "An office building.",
     "source": "openmoji"
   },
-  "difficult": {
-    "file": "confused_man.svg",
-    "alt": "A man with a confused expression.",
-    "source": "mulberry"
-  },
-  "problem": {
-    "file": "confused_lady.svg",
-    "alt": "A woman with a confused expression.",
-    "source": "mulberry"
-  },
-  "surprised": {
-    "file": "surprised_lady.svg",
-    "alt": "A woman with a surprised expression.",
-    "source": "mulberry"
-  },
-  "shocked": {
-    "file": "surprised_man.svg",
-    "alt": "A man with a surprised expression.",
-    "source": "mulberry"
-  },
-  "unexpected": {
-    "file": "surprised_lady.svg",
-    "alt": "A woman with a surprised expression.",
-    "source": "mulberry"
-  },
-  "excited": {
-    "file": "excited_lady.svg",
-    "alt": "A woman with an excited expression.",
-    "source": "mulberry"
-  },
-  "enthusiastic": {
-    "file": "excited_man.svg",
-    "alt": "A man with an excited expression.",
-    "source": "mulberry"
-  },
-  "disgusted": {
-    "file": "disgusted_lady.svg",
-    "alt": "A woman with a disgusted expression.",
-    "source": "mulberry"
-  },
-  "unpleasant": {
-    "file": "disgusted_man.svg",
-    "alt": "A man with a disgusted expression.",
-    "source": "mulberry"
-  },
-  "calm": {
-    "file": "serene_lady.svg",
-    "alt": "A woman with a calm expression.",
-    "source": "mulberry"
-  },
-  "relaxed": {
-    "file": "serene_man.svg",
-    "alt": "A man with a calm expression.",
-    "source": "mulberry"
-  },
-  "peaceful": {
-    "file": "serene_lady.svg",
-    "alt": "A woman with a calm expression.",
-    "source": "mulberry"
-  },
-  "safe": {
-    "file": "openmoji-1F6E1.svg",
-    "alt": "A shield.",
+  "job": {
+    "file": "openmoji-1F3E2.svg",
+    "alt": "An office building.",
     "source": "openmoji"
   },
-  "laughing": {
-    "file": "laughing_lady.svg",
-    "alt": "A woman laughing.",
-    "source": "mulberry"
-  },
-  "funny": {
-    "file": "laughing_man.svg",
-    "alt": "A man laughing.",
-    "source": "mulberry"
-  },
-  "humour": {
-    "file": "laughing_lady.svg",
-    "alt": "A woman laughing.",
-    "source": "mulberry"
-  },
-  "concentrating": {
-    "file": "concentrating_lady.svg",
-    "alt": "A woman concentrating.",
-    "source": "mulberry"
-  },
-  "focus": {
-    "file": "concentrating_man.svg",
-    "alt": "A man concentrating.",
-    "source": "mulberry"
-  },
-  "thinking": {
-    "file": "concentrating_lady.svg",
-    "alt": "A woman concentrating.",
-    "source": "mulberry"
-  },
-  "learning": {
-    "file": "concentrating_man.svg",
-    "alt": "A man concentrating.",
-    "source": "mulberry"
-  },
-  "study": {
-    "file": "concentrating_lady.svg",
-    "alt": "A woman concentrating.",
-    "source": "mulberry"
-  },
-  "education": {
-    "file": "openmoji-1F3EB.svg",
-    "alt": "A school building.",
+  "employed": {
+    "file": "openmoji-1F3E2.svg",
+    "alt": "An office building.",
     "source": "openmoji"
   },
-  "jealous": {
-    "file": "jealous_lady.svg",
-    "alt": "A woman with a jealous expression.",
-    "source": "mulberry"
+  "shop": {
+    "file": "openmoji-1F3EA.svg",
+    "alt": "A convenience store.",
+    "source": "openmoji"
   },
-  "envious": {
-    "file": "jealous_man.svg",
-    "alt": "A man with a jealous expression.",
-    "source": "mulberry"
+  "store": {
+    "file": "openmoji-1F3EA.svg",
+    "alt": "A convenience store.",
+    "source": "openmoji"
   },
-  "sneering": {
-    "file": "sneering_lady.svg",
-    "alt": "A woman sneering.",
-    "source": "mulberry"
+  "church": {
+    "file": "openmoji-26EA.svg",
+    "alt": "A church.",
+    "source": "openmoji"
   },
-  "bully": {
-    "file": "sneering_man.svg",
-    "alt": "A man sneering.",
-    "source": "mulberry"
+  "worship": {
+    "file": "openmoji-26EA.svg",
+    "alt": "A church.",
+    "source": "openmoji"
   },
-  "rude": {
-    "file": "sneering_lady.svg",
-    "alt": "A woman sneering.",
-    "source": "mulberry"
+  "religion": {
+    "file": "openmoji-26EA.svg",
+    "alt": "A church.",
+    "source": "openmoji"
   },
-  "mean": {
-    "file": "sneering_man.svg",
-    "alt": "A man sneering.",
-    "source": "mulberry"
+  "hotel": {
+    "file": "openmoji-1F3E8.svg",
+    "alt": "A hotel.",
+    "source": "openmoji"
   },
-  "wanting": {
-    "file": "desiring_lady.svg",
-    "alt": "A woman with a longing expression.",
-    "source": "mulberry"
+  "builder": {
+    "file": "openmoji-1F3D7.svg",
+    "alt": "A building construction.",
+    "source": "openmoji"
   },
-  "wish": {
-    "file": "desiring_man.svg",
-    "alt": "A man with a longing expression.",
-    "source": "mulberry"
+  "building": {
+    "file": "openmoji-1F3D7.svg",
+    "alt": "A building construction.",
+    "source": "openmoji"
   },
-  "hope": {
-    "file": "desiring_lady.svg",
-    "alt": "A woman with a longing expression.",
-    "source": "mulberry"
+  "car": {
+    "file": "openmoji-1F697.svg",
+    "alt": "A car.",
+    "source": "openmoji"
   },
-  "need": {
-    "file": "desiring_man.svg",
-    "alt": "A man with a longing expression.",
-    "source": "mulberry"
+  "vehicle": {
+    "file": "openmoji-1F697.svg",
+    "alt": "A car.",
+    "source": "openmoji"
   },
-  "woman": {
-    "file": "lady_-_face.svg",
-    "alt": "A woman's face.",
-    "source": "mulberry"
+  "drive": {
+    "file": "openmoji-1F697.svg",
+    "alt": "A car.",
+    "source": "openmoji"
   },
-  "lady": {
-    "file": "lady_-_face.svg",
-    "alt": "A woman's face.",
-    "source": "mulberry"
+  "bus": {
+    "file": "openmoji-1F68C.svg",
+    "alt": "A bus.",
+    "source": "openmoji"
   },
-  "female": {
-    "file": "lady_-_face.svg",
-    "alt": "A woman's face.",
-    "source": "mulberry"
+  "transport": {
+    "file": "openmoji-1F68C.svg",
+    "alt": "A bus.",
+    "source": "openmoji"
   },
-  "man": {
-    "file": "man_-_face.svg",
-    "alt": "A man's face.",
-    "source": "mulberry"
+  "train": {
+    "file": "openmoji-1F686.svg",
+    "alt": "A train.",
+    "source": "openmoji"
   },
-  "male": {
-    "file": "man_-_face.svg",
-    "alt": "A man's face.",
-    "source": "mulberry"
+  "railway": {
+    "file": "openmoji-1F686.svg",
+    "alt": "A train.",
+    "source": "openmoji"
   },
-  "person": {
-    "file": "man_-_face.svg",
-    "alt": "A man's face.",
-    "source": "mulberry"
+  "airplane": {
+    "file": "openmoji-2708.svg",
+    "alt": "An airplane.",
+    "source": "openmoji"
   },
-  "people": {
-    "file": "lady_-_face.svg",
-    "alt": "A woman's face.",
-    "source": "mulberry"
+  "aeroplane": {
+    "file": "openmoji-2708.svg",
+    "alt": "An airplane.",
+    "source": "openmoji"
   },
-  "someone": {
-    "file": "man_-_face.svg",
-    "alt": "A man's face.",
-    "source": "mulberry"
+  "flight": {
+    "file": "openmoji-2708.svg",
+    "alt": "An airplane.",
+    "source": "openmoji"
   },
-  "resident": {
-    "file": "lady_-_face.svg",
-    "alt": "A woman's face.",
-    "source": "mulberry"
+  "travel": {
+    "file": "openmoji-2708.svg",
+    "alt": "An airplane.",
+    "source": "openmoji"
   },
-  "citizen": {
-    "file": "man_-_face.svg",
-    "alt": "A man's face.",
-    "source": "mulberry"
+  "walk": {
+    "file": "openmoji-1F6B6.svg",
+    "alt": "A person walking.",
+    "source": "openmoji"
+  },
+  "walking": {
+    "file": "openmoji-1F6B6.svg",
+    "alt": "A person walking.",
+    "source": "openmoji"
+  },
+  "pedestrian": {
+    "file": "openmoji-1F6B6.svg",
+    "alt": "A person walking.",
+    "source": "openmoji"
+  },
+  "wheelchair": {
+    "file": "openmoji-267F.svg",
+    "alt": "The wheelchair symbol.",
+    "source": "openmoji"
+  },
+  "disability": {
+    "file": "openmoji-267F.svg",
+    "alt": "The wheelchair symbol.",
+    "source": "openmoji"
+  },
+  "accessible": {
+    "file": "openmoji-267F.svg",
+    "alt": "The wheelchair symbol.",
+    "source": "openmoji"
+  },
+  "accessibility": {
+    "file": "accessibility.png",
+    "alt": "The accessibility symbol.",
+    "source": "demcloud"
+  },
+  "inclusion": {
+    "file": "openmoji-267F.svg",
+    "alt": "The wheelchair symbol.",
+    "source": "openmoji"
+  },
+  "wheelchair manual": {
+    "file": "openmoji-1F9BD.svg",
+    "alt": "A manual wheelchair.",
+    "source": "openmoji"
+  },
+  "wheelchair electric": {
+    "file": "openmoji-1F9BC.svg",
+    "alt": "A motorised wheelchair.",
+    "source": "openmoji"
+  },
+  "motorised": {
+    "file": "openmoji-1F9BC.svg",
+    "alt": "A motorised wheelchair.",
+    "source": "openmoji"
   },
   "talk": {
     "file": "openmoji-1F4AC.svg",
@@ -612,242 +985,72 @@
     "alt": "A speech bubble.",
     "source": "openmoji"
   },
+  "speech": {
+    "file": "openmoji-1F4AC.svg",
+    "alt": "A speech bubble.",
+    "source": "openmoji"
+  },
+  "conversation": {
+    "file": "openmoji-1F4AC.svg",
+    "alt": "A speech bubble.",
+    "source": "openmoji"
+  },
   "communicate": {
     "file": "openmoji-1F4AC.svg",
     "alt": "A speech bubble.",
     "source": "openmoji"
   },
-  "language": {
-    "file": "mouth.svg",
-    "alt": "An open mouth speaking.",
-    "source": "mulberry"
-  },
-  "doctor": {
-    "file": "doctor_1a.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "medical": {
-    "file": "doctor_1b.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "GP": {
-    "file": "doctor_2a.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "health": {
-    "file": "doctor_1a.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "healthcare": {
-    "file": "doctor_1b.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "treatment": {
-    "file": "doctor_2a.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "diagnosis": {
-    "file": "doctor_2b.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "appointment": {
-    "file": "openmoji-1F4C5.svg",
-    "alt": "A calendar.",
+  "announcement": {
+    "file": "openmoji-1F4E2.svg",
+    "alt": "A loudspeaker.",
     "source": "openmoji"
   },
-  "clinic": {
-    "file": "doctor_1b.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "medicine": {
-    "file": "doctor_2a.svg",
-    "alt": "A doctor in a white coat.",
-    "source": "mulberry"
-  },
-  "nurse": {
-    "file": "nurse_1a.svg",
-    "alt": "A nurse in uniform.",
-    "source": "mulberry"
-  },
-  "nursing": {
-    "file": "nurse_1b.svg",
-    "alt": "A nurse in uniform.",
-    "source": "mulberry"
-  },
-  "patient": {
-    "file": "nurse_2a.svg",
-    "alt": "A nurse in uniform.",
-    "source": "mulberry"
-  },
-  "hospital": {
-    "file": "openmoji-1F3E5.svg",
-    "alt": "A hospital building.",
+  "loudspeaker": {
+    "file": "openmoji-1F4E2.svg",
+    "alt": "A loudspeaker.",
     "source": "openmoji"
   },
-  "ward": {
-    "file": "porter_hospital_1b.svg",
-    "alt": "A hospital porter.",
-    "source": "mulberry"
-  },
-  "emergency": {
-    "file": "openmoji-1F691.svg",
-    "alt": "An ambulance.",
+  "broadcast": {
+    "file": "openmoji-1F4E2.svg",
+    "alt": "A loudspeaker.",
     "source": "openmoji"
   },
-  "care": {
-    "file": "care_assistant_1a.svg",
-    "alt": "A care assistant helping someone.",
-    "source": "mulberry"
-  },
-  "support": {
-    "file": "care_assistant_1b.svg",
-    "alt": "A care assistant helping someone.",
-    "source": "mulberry"
-  },
-  "help": {
-    "file": "care_assistant_2a.svg",
-    "alt": "A care assistant helping someone.",
-    "source": "mulberry"
-  },
-  "assist": {
-    "file": "care_assistant_2b.svg",
-    "alt": "A care assistant helping someone.",
-    "source": "mulberry"
-  },
-  "carer": {
-    "file": "care_assistant_3a.svg",
-    "alt": "A care assistant helping someone.",
-    "source": "mulberry"
-  },
-  "service": {
-    "file": "care_assistant_3b.svg",
-    "alt": "A care assistant helping someone.",
-    "source": "mulberry"
-  },
-  "social worker": {
-    "file": "care_assistant_4a.svg",
-    "alt": "A care assistant helping someone.",
-    "source": "mulberry"
-  },
-  "keyworker": {
-    "file": "care_assistant_4b.svg",
-    "alt": "A care assistant helping someone.",
-    "source": "mulberry"
-  },
-  "caretaker": {
-    "file": "caretaker_1a.svg",
-    "alt": "A caretaker with tools.",
-    "source": "mulberry"
-  },
-  "maintenance": {
-    "file": "caretaker_1b.svg",
-    "alt": "A caretaker with tools.",
-    "source": "mulberry"
-  },
-  "repair": {
-    "file": "caretaker_2a.svg",
-    "alt": "A caretaker with tools.",
-    "source": "mulberry"
-  },
-  "fix": {
-    "file": "caretaker_2b.svg",
-    "alt": "A caretaker with tools.",
-    "source": "mulberry"
-  },
-  "carpenter": {
-    "file": "carpenter_1a.svg",
-    "alt": "A carpenter working with wood.",
-    "source": "mulberry"
-  },
-  "builder": {
-    "file": "carpenter_1b.svg",
-    "alt": "A carpenter working with wood.",
-    "source": "mulberry"
-  },
-  "building": {
-    "file": "carpenter_2a.svg",
-    "alt": "A carpenter working with wood.",
-    "source": "mulberry"
-  },
-  "cook": {
-    "file": "cook_school_1a.svg",
-    "alt": "A cook in a kitchen.",
-    "source": "mulberry"
-  },
-  "food": {
-    "file": "openmoji-1F35E.svg",
-    "alt": "A loaf of bread.",
+  "news": {
+    "file": "openmoji-1F4E2.svg",
+    "alt": "A loudspeaker.",
     "source": "openmoji"
   },
-  "meal": {
-    "file": "openmoji-1F37D.svg",
-    "alt": "A plate with cutlery.",
+  "phone": {
+    "file": "openmoji-1F4DE.svg",
+    "alt": "A telephone receiver.",
     "source": "openmoji"
   },
-  "eat": {
-    "file": "openmoji-1F37D.svg",
-    "alt": "A plate with cutlery.",
+  "telephone": {
+    "file": "openmoji-1F4DE.svg",
+    "alt": "A telephone receiver.",
     "source": "openmoji"
   },
-  "lunch": {
-    "file": "openmoji-1F37D.svg",
-    "alt": "A plate with cutlery.",
+  "call": {
+    "file": "openmoji-1F4DE.svg",
+    "alt": "A telephone receiver.",
     "source": "openmoji"
   },
-  "dinner": {
-    "file": "openmoji-1F37D.svg",
-    "alt": "A plate with cutlery.",
+  "mobile": {
+    "file": "openmoji-1F4DE.svg",
+    "alt": "A telephone receiver.",
     "source": "openmoji"
   },
-  "breakfast": {
-    "file": "openmoji-1F37D.svg",
-    "alt": "A plate with cutlery.",
+  "smartphone": {
+    "file": "openmoji-1F4DE.svg",
+    "alt": "A telephone receiver.",
     "source": "openmoji"
   },
-  "school": {
-    "file": "openmoji-1F3EB.svg",
-    "alt": "A school building.",
+  "email": {
+    "file": "openmoji-1F4E7.svg",
+    "alt": "An email symbol.",
     "source": "openmoji"
   },
-  "classroom": {
-    "file": "openmoji-1F3EB.svg",
-    "alt": "A school building.",
-    "source": "openmoji"
-  },
-  "teacher": {
-    "file": "openmoji-1F3EB.svg",
-    "alt": "A school building.",
-    "source": "openmoji"
-  },
-  "delivery": {
-    "file": "delivery_person_1a.svg",
-    "alt": "A delivery person carrying a package.",
-    "source": "mulberry"
-  },
-  "parcel": {
-    "file": "delivery_person_1b.svg",
-    "alt": "A delivery person carrying a package.",
-    "source": "mulberry"
-  },
-  "package": {
-    "file": "delivery_person_2a.svg",
-    "alt": "A delivery person carrying a package.",
-    "source": "mulberry"
-  },
-  "post": {
-    "file": "post_person_1a.svg",
-    "alt": "A postal worker delivering letters.",
-    "source": "mulberry"
-  },
-  "mail": {
+  "envelope": {
     "file": "openmoji-2709.svg",
     "alt": "An envelope.",
     "source": "openmoji"
@@ -857,222 +1060,12 @@
     "alt": "An envelope.",
     "source": "openmoji"
   },
-  "milk": {
-    "file": "milk_person_1a.svg",
-    "alt": "A milk delivery person.",
-    "source": "mulberry"
-  },
-  "drink": {
-    "file": "openmoji-1F4A7.svg",
-    "alt": "A water droplet.",
+  "mail": {
+    "file": "openmoji-2709.svg",
+    "alt": "An envelope.",
     "source": "openmoji"
   },
-  "visitor": {
-    "file": "visitor_1a.svg",
-    "alt": "A visitor at a door.",
-    "source": "mulberry"
-  },
-  "visit": {
-    "file": "visitor_1b.svg",
-    "alt": "A visitor at a door.",
-    "source": "mulberry"
-  },
-  "guest": {
-    "file": "visitor_1a.svg",
-    "alt": "A visitor at a door.",
-    "source": "mulberry"
-  },
-  "welcome": {
-    "file": "visitor_1b.svg",
-    "alt": "A visitor at a door.",
-    "source": "mulberry"
-  },
-  "baker": {
-    "file": "baker_1a.svg",
-    "alt": "A baker making bread.",
-    "source": "mulberry"
-  },
-  "bread": {
-    "file": "baker_1b.svg",
-    "alt": "A baker making bread.",
-    "source": "mulberry"
-  },
-  "baking": {
-    "file": "baker_2a.svg",
-    "alt": "A baker making bread.",
-    "source": "mulberry"
-  },
-  "mechanic": {
-    "file": "car_mechanic_1a.svg",
-    "alt": "A mechanic working on a car.",
-    "source": "mulberry"
-  },
-  "car": {
-    "file": "openmoji-1F697.svg",
-    "alt": "A car.",
-    "source": "openmoji"
-  },
-  "vehicle": {
-    "file": "openmoji-1F697.svg",
-    "alt": "A car.",
-    "source": "openmoji"
-  },
-  "transport": {
-    "file": "openmoji-1F68C.svg",
-    "alt": "A bus.",
-    "source": "openmoji"
-  },
-  "travel": {
-    "file": "openmoji-2708.svg",
-    "alt": "An aeroplane.",
-    "source": "openmoji"
-  },
-  "newspaper": {
-    "file": "newspaper_person_1a.svg",
-    "alt": "A person reading a newspaper.",
-    "source": "mulberry"
-  },
-  "news": {
-    "file": "newspaper_person_1b.svg",
-    "alt": "A person reading a newspaper.",
-    "source": "mulberry"
-  },
-  "read": {
-    "file": "newspaper_person_2a.svg",
-    "alt": "A person reading a newspaper.",
-    "source": "mulberry"
-  },
-  "information": {
-    "file": "newspaper_person_2b.svg",
-    "alt": "A person reading a newspaper.",
-    "source": "mulberry"
-  },
-  "report": {
-    "file": "newspaper_person_1a.svg",
-    "alt": "A person reading a newspaper.",
-    "source": "mulberry"
-  },
-  "research": {
-    "file": "newspaper_person_1b.svg",
-    "alt": "A person reading a newspaper.",
-    "source": "mulberry"
-  },
-  "job": {
-    "file": "carpenter_1a.svg",
-    "alt": "A worker using tools.",
-    "source": "mulberry"
-  },
-  "work": {
-    "file": "carpenter_1b.svg",
-    "alt": "A worker using tools.",
-    "source": "mulberry"
-  },
-  "employed": {
-    "file": "carpenter_2a.svg",
-    "alt": "A worker using tools.",
-    "source": "mulberry"
-  },
-  "staff": {
-    "file": "carpenter_2b.svg",
-    "alt": "A worker using tools.",
-    "source": "mulberry"
-  },
-  "steward": {
-    "file": "air_steward_1a.svg",
-    "alt": "A flight attendant.",
-    "source": "mulberry"
-  },
-  "flight": {
-    "file": "air_steward_1b.svg",
-    "alt": "A flight attendant.",
-    "source": "mulberry"
-  },
-  "airport": {
-    "file": "air_person_1a.svg",
-    "alt": "An airport worker.",
-    "source": "mulberry"
-  },
-  "aeroplane": {
-    "file": "air_person_1b.svg",
-    "alt": "An airport worker.",
-    "source": "mulberry"
-  },
-  "register": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
-    "source": "openmoji"
-  },
-  "registration": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
-    "source": "openmoji"
-  },
-  "sign up": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
-    "source": "openmoji"
-  },
-  "form": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
-    "source": "openmoji"
-  },
-  "apply": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
-    "source": "openmoji"
-  },
-  "application": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
-    "source": "openmoji"
-  },
-  "computer": {
-    "file": "openmoji-1F4BB.svg",
-    "alt": "A laptop computer.",
-    "source": "openmoji"
-  },
-  "online": {
-    "file": "openmoji-1F4BB.svg",
-    "alt": "A laptop computer.",
-    "source": "openmoji"
-  },
-  "website": {
-    "file": "openmoji-1F4BB.svg",
-    "alt": "A laptop computer.",
-    "source": "openmoji"
-  },
-  "internet": {
-    "file": "openmoji-1F4BB.svg",
-    "alt": "A laptop computer.",
-    "source": "openmoji"
-  },
-  "calendar": {
-    "file": "openmoji-1F4C5.svg",
-    "alt": "A calendar.",
-    "source": "openmoji"
-  },
-  "date": {
-    "file": "openmoji-1F4C5.svg",
-    "alt": "A calendar.",
-    "source": "openmoji"
-  },
-  "deadline": {
-    "file": "openmoji-1F4C5.svg",
-    "alt": "A calendar.",
-    "source": "openmoji"
-  },
-  "schedule": {
-    "file": "openmoji-1F4C5.svg",
-    "alt": "A calendar.",
-    "source": "openmoji"
-  },
-  "time": {
-    "file": "openmoji-23F0.svg",
-    "alt": "An alarm clock.",
-    "source": "openmoji"
-  },
-  "envelope": {
+  "post": {
     "file": "openmoji-2709.svg",
     "alt": "An envelope.",
     "source": "openmoji"
@@ -1082,184 +1075,9 @@
     "alt": "An envelope.",
     "source": "openmoji"
   },
-  "shield": {
-    "file": "openmoji-1F6E1.svg",
-    "alt": "A shield.",
-    "source": "openmoji"
-  },
-  "protect": {
-    "file": "openmoji-1F6E1.svg",
-    "alt": "A shield.",
-    "source": "openmoji"
-  },
-  "protection": {
-    "file": "openmoji-1F6E1.svg",
-    "alt": "A shield.",
-    "source": "openmoji"
-  },
-  "safety": {
-    "file": "openmoji-1F6E1.svg",
-    "alt": "A shield.",
-    "source": "openmoji"
-  },
-  "official": {
-    "file": "openmoji-1F3DB.svg",
-    "alt": "A classical building.",
-    "source": "openmoji"
-  },
-  "organisation": {
-    "file": "openmoji-1F3DB.svg",
-    "alt": "A classical building.",
-    "source": "openmoji"
-  },
-  "organization": {
-    "file": "openmoji-1F3DB.svg",
-    "alt": "A classical building.",
-    "source": "openmoji"
-  },
-  "department": {
-    "file": "openmoji-1F3DB.svg",
-    "alt": "A classical building.",
-    "source": "openmoji"
-  },
-  "agency": {
-    "file": "openmoji-1F3DB.svg",
-    "alt": "A classical building.",
-    "source": "openmoji"
-  },
-  "child": {
-    "file": "openmoji-1F46A.svg",
-    "alt": "A family.",
-    "source": "openmoji"
-  },
-  "family": {
-    "file": "openmoji-1F46A.svg",
-    "alt": "A family.",
-    "source": "openmoji"
-  },
-  "parent": {
-    "file": "openmoji-1F46A.svg",
-    "alt": "A family.",
-    "source": "openmoji"
-  },
-  "home": {
-    "file": "openmoji-1F3E0.svg",
-    "alt": "A house with a garden.",
-    "source": "openmoji"
-  },
-  "house": {
-    "file": "openmoji-1F3E0.svg",
-    "alt": "A house with a garden.",
-    "source": "openmoji"
-  },
-  "feeling": {
-    "file": "happy_lady.svg",
-    "alt": "A woman with a happy expression.",
-    "source": "mulberry"
-  },
-  "emotion": {
-    "file": "sad_man.svg",
-    "alt": "A man with a sad expression.",
-    "source": "mulberry"
-  },
-  "mental health": {
-    "file": "worried_lady.svg",
-    "alt": "A woman with a worried expression.",
-    "source": "mulberry"
-  },
-  "important": {
-    "file": "openmoji-2757.svg",
-    "alt": "An exclamation mark.",
-    "source": "openmoji"
-  },
-  "attention": {
-    "file": "concentrating_man.svg",
-    "alt": "A man concentrating.",
-    "source": "mulberry"
-  },
-  "remember": {
-    "file": "concentrating_lady.svg",
-    "alt": "A woman concentrating.",
-    "source": "mulberry"
-  },
-  "understand": {
-    "file": "concentrating_man.svg",
-    "alt": "A man concentrating.",
-    "source": "mulberry"
-  },
-  "explain": {
-    "file": "concentrating_lady.svg",
-    "alt": "A woman concentrating.",
-    "source": "mulberry"
-  },
-  "agree": {
-    "file": "happy_man.svg",
-    "alt": "A man with a happy expression.",
-    "source": "mulberry"
-  },
-  "yes": {
-    "file": "happy_lady.svg",
-    "alt": "A woman with a happy expression.",
-    "source": "mulberry"
-  },
-  "no": {
-    "file": "angry_man.svg",
-    "alt": "A man with an angry expression.",
-    "source": "mulberry"
-  },
-  "disagree": {
-    "file": "angry_lady.svg",
-    "alt": "A woman with an angry expression.",
-    "source": "mulberry"
-  },
-  "wait": {
-    "file": "serene_man.svg",
-    "alt": "A man with a calm expression.",
-    "source": "mulberry"
-  },
-  "free": {
-    "file": "happy_lady.svg",
-    "alt": "A woman with a happy expression.",
-    "source": "mulberry"
-  },
-  "available": {
-    "file": "happy_man.svg",
-    "alt": "A man with a happy expression.",
-    "source": "mulberry"
-  },
-  "benefit": {
-    "file": "happy_man.svg",
-    "alt": "A man with a happy expression.",
-    "source": "mulberry"
-  },
-  "phone": {
-    "file": "openmoji-1F4DE.svg",
-    "alt": "A telephone.",
-    "source": "openmoji"
-  },
-  "telephone": {
-    "file": "openmoji-1F4DE.svg",
-    "alt": "A telephone.",
-    "source": "openmoji"
-  },
-  "call": {
-    "file": "openmoji-1F4DE.svg",
-    "alt": "A telephone.",
-    "source": "openmoji"
-  },
-  "mobile": {
-    "file": "openmoji-1F4F1.svg",
-    "alt": "A mobile phone.",
-    "source": "openmoji"
-  },
-  "smartphone": {
-    "file": "openmoji-1F4F1.svg",
-    "alt": "A mobile phone.",
-    "source": "openmoji"
-  },
-  "laptop": {
-    "file": "openmoji-1F4BB.svg",
-    "alt": "A laptop computer.",
+  "newspaper": {
+    "file": "openmoji-1F4F0.svg",
+    "alt": "A newspaper.",
     "source": "openmoji"
   },
   "television": {
@@ -1272,7 +1090,112 @@
     "alt": "A television.",
     "source": "openmoji"
   },
+  "internet": {
+    "file": "openmoji-1F310.svg",
+    "alt": "A globe with meridians.",
+    "source": "openmoji"
+  },
+  "website": {
+    "file": "openmoji-1F310.svg",
+    "alt": "A globe with meridians.",
+    "source": "openmoji"
+  },
+  "online": {
+    "file": "openmoji-1F310.svg",
+    "alt": "A globe with meridians.",
+    "source": "openmoji"
+  },
+  "global": {
+    "file": "openmoji-1F310.svg",
+    "alt": "A globe with meridians.",
+    "source": "openmoji"
+  },
+  "world": {
+    "file": "openmoji-1F310.svg",
+    "alt": "A globe with meridians.",
+    "source": "openmoji"
+  },
+  "international": {
+    "file": "openmoji-1F310.svg",
+    "alt": "A globe with meridians.",
+    "source": "openmoji"
+  },
+  "document": {
+    "file": "openmoji-1F4C4.svg",
+    "alt": "A page facing up.",
+    "source": "openmoji"
+  },
+  "form": {
+    "file": "openmoji-1F4C4.svg",
+    "alt": "A page facing up.",
+    "source": "openmoji"
+  },
+  "page": {
+    "file": "openmoji-1F4C4.svg",
+    "alt": "A page facing up.",
+    "source": "openmoji"
+  },
+  "paper": {
+    "file": "openmoji-1F4C4.svg",
+    "alt": "A page facing up.",
+    "source": "openmoji"
+  },
+  "clipboard": {
+    "file": "openmoji-1F4CB.svg",
+    "alt": "A clipboard.",
+    "source": "openmoji"
+  },
+  "checklist": {
+    "file": "openmoji-1F4CB.svg",
+    "alt": "A clipboard.",
+    "source": "openmoji"
+  },
+  "list": {
+    "file": "openmoji-1F4CB.svg",
+    "alt": "A clipboard.",
+    "source": "openmoji"
+  },
+  "register": {
+    "file": "openmoji-1F4CB.svg",
+    "alt": "A clipboard.",
+    "source": "openmoji"
+  },
+  "registration": {
+    "file": "openmoji-1F4CB.svg",
+    "alt": "A clipboard.",
+    "source": "openmoji"
+  },
+  "sign up": {
+    "file": "openmoji-1F4CB.svg",
+    "alt": "A clipboard.",
+    "source": "openmoji"
+  },
+  "write": {
+    "file": "openmoji-1F4DD.svg",
+    "alt": "A memo pad with pen.",
+    "source": "openmoji"
+  },
+  "writing": {
+    "file": "openmoji-1F4DD.svg",
+    "alt": "A memo pad with pen.",
+    "source": "openmoji"
+  },
+  "note": {
+    "file": "openmoji-1F4DD.svg",
+    "alt": "A memo pad with pen.",
+    "source": "openmoji"
+  },
+  "pen": {
+    "file": "openmoji-1F4DD.svg",
+    "alt": "A memo pad with pen.",
+    "source": "openmoji"
+  },
   "book": {
+    "file": "openmoji-1F4D6.svg",
+    "alt": "An open book.",
+    "source": "openmoji"
+  },
+  "read": {
     "file": "openmoji-1F4D6.svg",
     "alt": "An open book.",
     "source": "openmoji"
@@ -1282,29 +1205,84 @@
     "alt": "An open book.",
     "source": "openmoji"
   },
-  "write": {
-    "file": "openmoji-1F4DD.svg",
-    "alt": "A pen writing on paper.",
+  "guide": {
+    "file": "openmoji-1F4D6.svg",
+    "alt": "An open book.",
     "source": "openmoji"
   },
-  "writing": {
-    "file": "openmoji-1F4DD.svg",
-    "alt": "A pen writing on paper.",
+  "pencil": {
+    "file": "openmoji-270F.svg",
+    "alt": "A pencil.",
     "source": "openmoji"
   },
-  "note": {
-    "file": "openmoji-1F4DD.svg",
-    "alt": "A pen writing on paper.",
+  "information": {
+    "file": "openmoji-1F4DA.svg",
+    "alt": "A stack of books.",
     "source": "openmoji"
   },
-  "pen": {
-    "file": "openmoji-1F4DD.svg",
-    "alt": "A pen writing on paper.",
+  "info": {
+    "file": "openmoji-1F4DA.svg",
+    "alt": "A stack of books.",
     "source": "openmoji"
   },
-  "email": {
-    "file": "openmoji-1F4E7.svg",
-    "alt": "An email message.",
+  "details": {
+    "file": "openmoji-1F4DA.svg",
+    "alt": "A stack of books.",
+    "source": "openmoji"
+  },
+  "research": {
+    "file": "openmoji-1F4DA.svg",
+    "alt": "A stack of books.",
+    "source": "openmoji"
+  },
+  "money": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
+    "source": "openmoji"
+  },
+  "pay": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
+    "source": "openmoji"
+  },
+  "cost": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
+    "source": "openmoji"
+  },
+  "price": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
+    "source": "openmoji"
+  },
+  "finance": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
+    "source": "openmoji"
+  },
+  "budget": {
+    "file": "budget.jpg",
+    "alt": "A budget document with calculator.",
+    "source": "demcloud"
+  },
+  "banknote": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
+    "source": "openmoji"
+  },
+  "sterling": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
+    "source": "openmoji"
+  },
+  "pound": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
+    "source": "openmoji"
+  },
+  "cash": {
+    "file": "openmoji-1F4B7.svg",
+    "alt": "A pound banknote.",
     "source": "openmoji"
   },
   "money bag": {
@@ -1317,154 +1295,59 @@
     "alt": "A bag of money.",
     "source": "openmoji"
   },
-  "pound": {
-    "file": "openmoji-1F4B7.svg",
-    "alt": "A pound banknote.",
+  "funding": {
+    "file": "openmoji-1F4B0.svg",
+    "alt": "A bag of money.",
     "source": "openmoji"
   },
-  "sterling": {
-    "file": "openmoji-1F4B7.svg",
-    "alt": "A pound banknote.",
+  "benefit": {
+    "file": "openmoji-1F4B0.svg",
+    "alt": "A bag of money.",
     "source": "openmoji"
   },
-  "dollar": {
-    "file": "openmoji-1F4B5.svg",
-    "alt": "A dollar banknote.",
-    "source": "openmoji"
-  },
-  "cash": {
-    "file": "openmoji-1F4B5.svg",
-    "alt": "A dollar banknote.",
-    "source": "openmoji"
-  },
-  "banknote": {
-    "file": "openmoji-1F4B5.svg",
-    "alt": "A dollar banknote.",
-    "source": "openmoji"
-  },
-  "key": {
-    "file": "openmoji-1F511.svg",
-    "alt": "A key.",
-    "source": "openmoji"
-  },
-  "lock": {
-    "file": "openmoji-1F511.svg",
-    "alt": "A key.",
-    "source": "openmoji"
-  },
-  "locked": {
-    "file": "openmoji-1F512.svg",
-    "alt": "A locked padlock.",
-    "source": "openmoji"
-  },
-  "secure": {
-    "file": "openmoji-1F512.svg",
-    "alt": "A locked padlock.",
-    "source": "openmoji"
-  },
-  "private": {
-    "file": "openmoji-1F512.svg",
-    "alt": "A locked padlock.",
-    "source": "openmoji"
-  },
-  "unlocked": {
-    "file": "openmoji-1F513.svg",
-    "alt": "An unlocked padlock.",
-    "source": "openmoji"
-  },
-  "office": {
-    "file": "openmoji-1F3E2.svg",
-    "alt": "An office building.",
-    "source": "openmoji"
-  },
-  "workplace": {
-    "file": "openmoji-1F3E2.svg",
-    "alt": "An office building.",
-    "source": "openmoji"
-  },
-  "shop": {
-    "file": "openmoji-1F3EA.svg",
-    "alt": "A shop.",
-    "source": "openmoji"
-  },
-  "store": {
-    "file": "openmoji-1F3EA.svg",
-    "alt": "A shop.",
+  "tax": {
+    "file": "openmoji-1F4B0.svg",
+    "alt": "A bag of money.",
     "source": "openmoji"
   },
   "bank": {
     "file": "openmoji-1F3E6.svg",
-    "alt": "A bank building.",
+    "alt": "A bank.",
     "source": "openmoji"
   },
-  "hotel": {
-    "file": "openmoji-1F3E8.svg",
-    "alt": "A hotel.",
+  "bread": {
+    "file": "openmoji-1F35E.svg",
+    "alt": "A loaf of bread.",
     "source": "openmoji"
   },
-  "accommodation": {
-    "file": "openmoji-1F3E8.svg",
-    "alt": "A hotel.",
+  "food": {
+    "file": "openmoji-1F35E.svg",
+    "alt": "A loaf of bread.",
     "source": "openmoji"
   },
-  "church": {
-    "file": "openmoji-26EA.svg",
-    "alt": "A church.",
+  "meal": {
+    "file": "openmoji-1F35E.svg",
+    "alt": "A loaf of bread.",
     "source": "openmoji"
   },
-  "worship": {
-    "file": "openmoji-26EA.svg",
-    "alt": "A church.",
+  "lunch": {
+    "file": "openmoji-1F35E.svg",
+    "alt": "A loaf of bread.",
     "source": "openmoji"
   },
-  "religion": {
-    "file": "openmoji-26EA.svg",
-    "alt": "A church.",
+  "dinner": {
+    "file": "openmoji-1F35E.svg",
+    "alt": "A loaf of bread.",
     "source": "openmoji"
   },
-  "drive": {
-    "file": "openmoji-1F697.svg",
-    "alt": "A car.",
+  "breakfast": {
+    "file": "openmoji-1F35E.svg",
+    "alt": "A loaf of bread.",
     "source": "openmoji"
   },
-  "bus": {
-    "file": "openmoji-1F68C.svg",
-    "alt": "A bus.",
-    "source": "openmoji"
-  },
-  "train": {
-    "file": "openmoji-1F682.svg",
-    "alt": "A train.",
-    "source": "openmoji"
-  },
-  "railway": {
-    "file": "openmoji-1F682.svg",
-    "alt": "A train.",
-    "source": "openmoji"
-  },
-  "airplane": {
-    "file": "openmoji-2708.svg",
-    "alt": "An aeroplane.",
-    "source": "openmoji"
-  },
-  "walk": {
-    "file": "openmoji-1F6B6.svg",
-    "alt": "A person walking.",
-    "source": "openmoji"
-  },
-  "walking": {
-    "file": "openmoji-1F6B6.svg",
-    "alt": "A person walking.",
-    "source": "openmoji"
-  },
-  "pedestrian": {
-    "file": "openmoji-1F6B6.svg",
-    "alt": "A person walking.",
-    "source": "openmoji"
-  },
-  "ambulance": {
-    "file": "openmoji-1F691.svg",
-    "alt": "An ambulance.",
+  "eat": {
+    "file": "openmoji-1F35E.svg",
+    "alt": "A loaf of bread.",
     "source": "openmoji"
   },
   "apple": {
@@ -1502,12 +1385,22 @@
     "alt": "A water droplet.",
     "source": "openmoji"
   },
-  "drop": {
+  "drink": {
+    "file": "openmoji-1F4A7.svg",
+    "alt": "A water droplet.",
+    "source": "openmoji"
+  },
+  "wash": {
     "file": "openmoji-1F4A7.svg",
     "alt": "A water droplet.",
     "source": "openmoji"
   },
   "cooking": {
+    "file": "openmoji-1F372.svg",
+    "alt": "A pot of food.",
+    "source": "openmoji"
+  },
+  "cook": {
     "file": "openmoji-1F372.svg",
     "alt": "A pot of food.",
     "source": "openmoji"
@@ -1522,164 +1415,44 @@
     "alt": "A pot of food.",
     "source": "openmoji"
   },
-  "stethoscope": {
-    "file": "openmoji-1FA7A.svg",
-    "alt": "A stethoscope.",
+  "mix": {
+    "file": "openmoji-1F372.svg",
+    "alt": "A pot of food.",
     "source": "openmoji"
   },
-  "health check": {
-    "file": "openmoji-1FA7A.svg",
-    "alt": "A stethoscope.",
+  "mixing": {
+    "file": "openmoji-1F372.svg",
+    "alt": "A pot of food.",
     "source": "openmoji"
   },
-  "injection": {
-    "file": "openmoji-1F489.svg",
-    "alt": "A syringe.",
+  "blend": {
+    "file": "openmoji-1F372.svg",
+    "alt": "A pot of food.",
     "source": "openmoji"
   },
-  "vaccine": {
-    "file": "openmoji-1F489.svg",
-    "alt": "A syringe.",
+  "calendar": {
+    "file": "openmoji-1F4C5.svg",
+    "alt": "A calendar.",
     "source": "openmoji"
   },
-  "needle": {
-    "file": "openmoji-1F489.svg",
-    "alt": "A syringe.",
+  "date": {
+    "file": "openmoji-1F4C5.svg",
+    "alt": "A calendar.",
     "source": "openmoji"
   },
-  "jab": {
-    "file": "openmoji-1F489.svg",
-    "alt": "A syringe.",
+  "schedule": {
+    "file": "openmoji-1F4C5.svg",
+    "alt": "A calendar.",
     "source": "openmoji"
   },
-  "pill": {
-    "file": "openmoji-1F48A.svg",
-    "alt": "A medicine pill.",
+  "deadline": {
+    "file": "openmoji-1F4C5.svg",
+    "alt": "A calendar.",
     "source": "openmoji"
   },
-  "tablet": {
-    "file": "openmoji-1F48A.svg",
-    "alt": "A medicine pill.",
-    "source": "openmoji"
-  },
-  "medication": {
-    "file": "openmoji-1F48A.svg",
-    "alt": "A medicine pill.",
-    "source": "openmoji"
-  },
-  "bandage": {
-    "file": "openmoji-1FA79.svg",
-    "alt": "A bandage.",
-    "source": "openmoji"
-  },
-  "plaster": {
-    "file": "openmoji-1FA79.svg",
-    "alt": "A bandage.",
-    "source": "openmoji"
-  },
-  "injury": {
-    "file": "openmoji-1FA79.svg",
-    "alt": "A bandage.",
-    "source": "openmoji"
-  },
-  "wound": {
-    "file": "openmoji-1FA79.svg",
-    "alt": "A bandage.",
-    "source": "openmoji"
-  },
-  "hurt": {
-    "file": "openmoji-1FA79.svg",
-    "alt": "A bandage.",
-    "source": "openmoji"
-  },
-  "sick": {
-    "file": "openmoji-1F912.svg",
-    "alt": "A face with a thermometer, feeling unwell.",
-    "source": "openmoji"
-  },
-  "ill": {
-    "file": "openmoji-1F912.svg",
-    "alt": "A face with a thermometer, feeling unwell.",
-    "source": "openmoji"
-  },
-  "unwell": {
-    "file": "openmoji-1F912.svg",
-    "alt": "A face with a thermometer, feeling unwell.",
-    "source": "openmoji"
-  },
-  "temperature": {
-    "file": "openmoji-1F912.svg",
-    "alt": "A face with a thermometer, feeling unwell.",
-    "source": "openmoji"
-  },
-  "fever": {
-    "file": "openmoji-1F912.svg",
-    "alt": "A face with a thermometer, feeling unwell.",
-    "source": "openmoji"
-  },
-  "mask": {
-    "file": "openmoji-1F637.svg",
-    "alt": "A face wearing a medical mask.",
-    "source": "openmoji"
-  },
-  "infection": {
-    "file": "openmoji-1F637.svg",
-    "alt": "A face wearing a medical mask.",
-    "source": "openmoji"
-  },
-  "germ": {
-    "file": "openmoji-1F637.svg",
-    "alt": "A face wearing a medical mask.",
-    "source": "openmoji"
-  },
-  "wheelchair manual": {
-    "file": "openmoji-1F9BD.svg",
-    "alt": "A manual wheelchair.",
-    "source": "openmoji"
-  },
-  "wheelchair electric": {
-    "file": "openmoji-1F9BC.svg",
-    "alt": "An electric wheelchair.",
-    "source": "openmoji"
-  },
-  "motorised": {
-    "file": "openmoji-1F9BC.svg",
-    "alt": "An electric wheelchair.",
-    "source": "openmoji"
-  },
-  "guide cane": {
-    "file": "openmoji-1F9AF.svg",
-    "alt": "A white cane for the blind.",
-    "source": "openmoji"
-  },
-  "blind": {
-    "file": "openmoji-1F9AF.svg",
-    "alt": "A white cane for the blind.",
-    "source": "openmoji"
-  },
-  "vision": {
-    "file": "openmoji-1F9AF.svg",
-    "alt": "A white cane for the blind.",
-    "source": "openmoji"
-  },
-  "ear aid": {
-    "file": "openmoji-1F9BB.svg",
-    "alt": "An ear with a hearing aid.",
-    "source": "openmoji"
-  },
-  "hearing": {
-    "file": "openmoji-1F9BB.svg",
-    "alt": "An ear with a hearing aid.",
-    "source": "openmoji"
-  },
-  "deaf": {
-    "file": "openmoji-1F9BB.svg",
-    "alt": "An ear with a hearing aid.",
-    "source": "openmoji"
-  },
-  "alarm": {
-    "file": "openmoji-23F0.svg",
-    "alt": "An alarm clock.",
+  "appointment": {
+    "file": "openmoji-1F4C5.svg",
+    "alt": "A calendar.",
     "source": "openmoji"
   },
   "clock": {
@@ -1687,9 +1460,309 @@
     "alt": "An alarm clock.",
     "source": "openmoji"
   },
-  "wake": {
+  "time": {
     "file": "openmoji-23F0.svg",
     "alt": "An alarm clock.",
+    "source": "openmoji"
+  },
+  "alarm": {
+    "file": "openmoji-23F0.svg",
+    "alt": "An alarm clock.",
+    "source": "openmoji"
+  },
+  "stop": {
+    "file": "openmoji-1F6D1.svg",
+    "alt": "A stop sign.",
+    "source": "openmoji"
+  },
+  "halt": {
+    "file": "openmoji-1F6D1.svg",
+    "alt": "A stop sign.",
+    "source": "openmoji"
+  },
+  "warning": {
+    "file": "openmoji-26A0.svg",
+    "alt": "A warning sign.",
+    "source": "openmoji"
+  },
+  "caution": {
+    "file": "openmoji-26A0.svg",
+    "alt": "A warning sign.",
+    "source": "openmoji"
+  },
+  "risk": {
+    "file": "openmoji-26A0.svg",
+    "alt": "A warning sign.",
+    "source": "openmoji"
+  },
+  "alert": {
+    "file": "openmoji-26A0.svg",
+    "alt": "A warning sign.",
+    "source": "openmoji"
+  },
+  "shield": {
+    "file": "openmoji-1F6E1.svg",
+    "alt": "A shield.",
+    "source": "openmoji"
+  },
+  "protect": {
+    "file": "openmoji-1F6E1.svg",
+    "alt": "A shield.",
+    "source": "openmoji"
+  },
+  "protection": {
+    "file": "openmoji-1F6E1.svg",
+    "alt": "A shield.",
+    "source": "openmoji"
+  },
+  "safe": {
+    "file": "openmoji-1F6E1.svg",
+    "alt": "A shield.",
+    "source": "openmoji"
+  },
+  "safety": {
+    "file": "openmoji-1F6E1.svg",
+    "alt": "A shield.",
+    "source": "openmoji"
+  },
+  "security": {
+    "file": "openmoji-1F6E1.svg",
+    "alt": "A shield.",
+    "source": "openmoji"
+  },
+  "secure": {
+    "file": "openmoji-1F6E1.svg",
+    "alt": "A shield.",
+    "source": "openmoji"
+  },
+  "lock": {
+    "file": "openmoji-1F512.svg",
+    "alt": "A locked padlock.",
+    "source": "openmoji"
+  },
+  "locked": {
+    "file": "openmoji-1F512.svg",
+    "alt": "A locked padlock.",
+    "source": "openmoji"
+  },
+  "private": {
+    "file": "openmoji-1F512.svg",
+    "alt": "A locked padlock.",
+    "source": "openmoji"
+  },
+  "unlocked": {
+    "file": "openmoji-1F513.svg",
+    "alt": "An unlocked padlock.",
+    "source": "openmoji"
+  },
+  "legal": {
+    "file": "openmoji-2696.svg",
+    "alt": "The scales of justice.",
+    "source": "openmoji"
+  },
+  "law": {
+    "file": "openmoji-2696.svg",
+    "alt": "The scales of justice.",
+    "source": "openmoji"
+  },
+  "justice": {
+    "file": "openmoji-2696.svg",
+    "alt": "The scales of justice.",
+    "source": "openmoji"
+  },
+  "rights": {
+    "file": "openmoji-2696.svg",
+    "alt": "The scales of justice.",
+    "source": "openmoji"
+  },
+  "fair": {
+    "file": "openmoji-2696.svg",
+    "alt": "The scales of justice.",
+    "source": "openmoji"
+  },
+  "scales": {
+    "file": "openmoji-2696.svg",
+    "alt": "The scales of justice.",
+    "source": "openmoji"
+  },
+  "vote": {
+    "file": "openmoji-1F5F3.svg",
+    "alt": "A ballot box.",
+    "source": "openmoji"
+  },
+  "voting": {
+    "file": "voting.png",
+    "alt": "A person putting a ballot in a box.",
+    "source": "demcloud"
+  },
+  "election": {
+    "file": "election.jpg",
+    "alt": "An election polling station.",
+    "source": "demcloud"
+  },
+  "ballot": {
+    "file": "ballot.jpg",
+    "alt": "A ballot paper.",
+    "source": "demcloud"
+  },
+  "question": {
+    "file": "openmoji-2753.svg",
+    "alt": "A question mark.",
+    "source": "openmoji"
+  },
+  "ask": {
+    "file": "openmoji-2753.svg",
+    "alt": "A question mark.",
+    "source": "openmoji"
+  },
+  "important": {
+    "file": "openmoji-2757.svg",
+    "alt": "An exclamation mark.",
+    "source": "openmoji"
+  },
+  "attention": {
+    "file": "openmoji-2757.svg",
+    "alt": "An exclamation mark.",
+    "source": "openmoji"
+  },
+  "correct": {
+    "file": "openmoji-2705.svg",
+    "alt": "A green check mark.",
+    "source": "openmoji"
+  },
+  "yes": {
+    "file": "openmoji-2705.svg",
+    "alt": "A green check mark.",
+    "source": "openmoji"
+  },
+  "approve": {
+    "file": "openmoji-2705.svg",
+    "alt": "A green check mark.",
+    "source": "openmoji"
+  },
+  "approved": {
+    "file": "openmoji-2705.svg",
+    "alt": "A green check mark.",
+    "source": "openmoji"
+  },
+  "agree": {
+    "file": "openmoji-2705.svg",
+    "alt": "A green check mark.",
+    "source": "openmoji"
+  },
+  "tick": {
+    "file": "openmoji-2705.svg",
+    "alt": "A green check mark.",
+    "source": "openmoji"
+  },
+  "no": {
+    "file": "openmoji-274C.svg",
+    "alt": "A red cross mark.",
+    "source": "openmoji"
+  },
+  "wrong": {
+    "file": "openmoji-274C.svg",
+    "alt": "A red cross mark.",
+    "source": "openmoji"
+  },
+  "cross": {
+    "file": "openmoji-274C.svg",
+    "alt": "A red cross mark.",
+    "source": "openmoji"
+  },
+  "rejected": {
+    "file": "openmoji-274C.svg",
+    "alt": "A red cross mark.",
+    "source": "openmoji"
+  },
+  "notice": {
+    "file": "openmoji-2139.svg",
+    "alt": "An information symbol.",
+    "source": "openmoji"
+  },
+  "thumbs up": {
+    "file": "openmoji-1F44D.svg",
+    "alt": "A thumbs up.",
+    "source": "openmoji"
+  },
+  "good": {
+    "file": "openmoji-1F44D.svg",
+    "alt": "A thumbs up.",
+    "source": "openmoji"
+  },
+  "thumbs down": {
+    "file": "openmoji-1F44E.svg",
+    "alt": "A thumbs down.",
+    "source": "openmoji"
+  },
+  "bad": {
+    "file": "openmoji-1F44E.svg",
+    "alt": "A thumbs down.",
+    "source": "openmoji"
+  },
+  "handshake": {
+    "file": "openmoji-1F91D.svg",
+    "alt": "A handshake.",
+    "source": "openmoji"
+  },
+  "agreement": {
+    "file": "openmoji-1F91D.svg",
+    "alt": "A handshake.",
+    "source": "openmoji"
+  },
+  "deal": {
+    "file": "openmoji-1F91D.svg",
+    "alt": "A handshake.",
+    "source": "openmoji"
+  },
+  "greet": {
+    "file": "openmoji-1F91D.svg",
+    "alt": "A handshake.",
+    "source": "openmoji"
+  },
+  "hello": {
+    "file": "openmoji-1F91D.svg",
+    "alt": "A handshake.",
+    "source": "openmoji"
+  },
+  "welcome": {
+    "file": "openmoji-1F91D.svg",
+    "alt": "A handshake.",
+    "source": "openmoji"
+  },
+  "meet": {
+    "file": "openmoji-1F91D.svg",
+    "alt": "A handshake.",
+    "source": "openmoji"
+  },
+  "meeting": {
+    "file": "openmoji-1F91D.svg",
+    "alt": "A handshake.",
+    "source": "openmoji"
+  },
+  "wave": {
+    "file": "openmoji-1F44B.svg",
+    "alt": "A waving hand.",
+    "source": "openmoji"
+  },
+  "goodbye": {
+    "file": "openmoji-1F44B.svg",
+    "alt": "A waving hand.",
+    "source": "openmoji"
+  },
+  "raise hand": {
+    "file": "openmoji-270B.svg",
+    "alt": "A raised hand.",
+    "source": "openmoji"
+  },
+  "hand": {
+    "file": "openmoji-270B.svg",
+    "alt": "A raised hand.",
+    "source": "openmoji"
+  },
+  "point": {
+    "file": "openmoji-270B.svg",
+    "alt": "A raised hand.",
     "source": "openmoji"
   },
   "sun": {
@@ -1702,17 +1775,12 @@
     "alt": "The sun.",
     "source": "openmoji"
   },
-  "weather": {
+  "hot": {
     "file": "openmoji-2600.svg",
     "alt": "The sun.",
     "source": "openmoji"
   },
   "warm": {
-    "file": "openmoji-2600.svg",
-    "alt": "The sun.",
-    "source": "openmoji"
-  },
-  "hot": {
     "file": "openmoji-2600.svg",
     "alt": "The sun.",
     "source": "openmoji"
@@ -1737,11 +1805,6 @@
     "alt": "A snowflake.",
     "source": "openmoji"
   },
-  "cold": {
-    "file": "openmoji-2744.svg",
-    "alt": "A snowflake.",
-    "source": "openmoji"
-  },
   "winter": {
     "file": "openmoji-2744.svg",
     "alt": "A snowflake.",
@@ -1752,324 +1815,109 @@
     "alt": "A snowflake.",
     "source": "openmoji"
   },
+  "weather": {
+    "file": "openmoji-26C5.svg",
+    "alt": "A sun behind cloud.",
+    "source": "openmoji"
+  },
   "tree": {
     "file": "openmoji-1F333.svg",
-    "alt": "A tree.",
+    "alt": "A deciduous tree.",
     "source": "openmoji"
   },
   "nature": {
     "file": "openmoji-1F333.svg",
-    "alt": "A tree.",
+    "alt": "A deciduous tree.",
     "source": "openmoji"
   },
   "park": {
     "file": "openmoji-1F333.svg",
-    "alt": "A tree.",
+    "alt": "A deciduous tree.",
+    "source": "openmoji"
+  },
+  "garden": {
+    "file": "openmoji-1F3E1.svg",
+    "alt": "A house with garden.",
     "source": "openmoji"
   },
   "outdoors": {
     "file": "openmoji-1F333.svg",
-    "alt": "A tree.",
+    "alt": "A deciduous tree.",
     "source": "openmoji"
   },
-  "garden": {
-    "file": "openmoji-1F333.svg",
-    "alt": "A tree.",
+  "flower": {
+    "file": "openmoji-1F33B.svg",
+    "alt": "A sunflower.",
     "source": "openmoji"
   },
   "dog": {
-    "file": "openmoji-1F436.svg",
-    "alt": "A dog face.",
+    "file": "openmoji-1F415.svg",
+    "alt": "A dog.",
     "source": "openmoji"
   },
   "pet": {
-    "file": "openmoji-1F436.svg",
-    "alt": "A dog face.",
-    "source": "openmoji"
-  },
-  "animal": {
-    "file": "openmoji-1F436.svg",
-    "alt": "A dog face.",
+    "file": "openmoji-1F415.svg",
+    "alt": "A dog.",
     "source": "openmoji"
   },
   "cat": {
-    "file": "openmoji-1F431.svg",
-    "alt": "A cat face.",
+    "file": "openmoji-1F408.svg",
+    "alt": "A cat.",
     "source": "openmoji"
   },
-  "correct": {
-    "file": "openmoji-2705.svg",
-    "alt": "A green tick mark.",
+  "animal": {
+    "file": "openmoji-1F414.svg",
+    "alt": "A chicken.",
     "source": "openmoji"
   },
-  "tick": {
-    "file": "openmoji-2705.svg",
-    "alt": "A green tick mark.",
+  "computer": {
+    "file": "openmoji-1F4BB.svg",
+    "alt": "A laptop computer.",
     "source": "openmoji"
   },
-  "check": {
-    "file": "openmoji-2705.svg",
-    "alt": "A green tick mark.",
+  "laptop": {
+    "file": "openmoji-1F4BB.svg",
+    "alt": "A laptop computer.",
     "source": "openmoji"
   },
-  "approved": {
-    "file": "openmoji-2705.svg",
-    "alt": "A green tick mark.",
+  "scissors": {
+    "file": "openmoji-2702.svg",
+    "alt": "Scissors.",
     "source": "openmoji"
   },
-  "wrong": {
-    "file": "openmoji-274C.svg",
-    "alt": "A red cross mark.",
+  "cut": {
+    "file": "openmoji-2702.svg",
+    "alt": "Scissors.",
     "source": "openmoji"
   },
-  "cross": {
-    "file": "openmoji-274C.svg",
-    "alt": "A red cross mark.",
+  "haircut": {
+    "file": "openmoji-2702.svg",
+    "alt": "Scissors.",
     "source": "openmoji"
   },
-  "rejected": {
-    "file": "openmoji-274C.svg",
-    "alt": "A red cross mark.",
+  "trim": {
+    "file": "openmoji-2702.svg",
+    "alt": "Scissors.",
     "source": "openmoji"
   },
-  "warning": {
-    "file": "openmoji-26A0.svg",
-    "alt": "A warning triangle.",
+  "hair": {
+    "file": "openmoji-1F487.svg",
+    "alt": "A person getting a haircut.",
     "source": "openmoji"
   },
-  "caution": {
-    "file": "openmoji-26A0.svg",
-    "alt": "A warning triangle.",
+  "grooming": {
+    "file": "openmoji-1F487.svg",
+    "alt": "A person getting a haircut.",
     "source": "openmoji"
   },
-  "risk": {
-    "file": "openmoji-26A0.svg",
-    "alt": "A warning triangle.",
+  "shave": {
+    "file": "openmoji-1F487.svg",
+    "alt": "A person getting a haircut.",
     "source": "openmoji"
   },
-  "info": {
-    "file": "openmoji-2139.svg",
-    "alt": "An information symbol.",
-    "source": "openmoji"
-  },
-  "details": {
-    "file": "openmoji-2139.svg",
-    "alt": "An information symbol.",
-    "source": "openmoji"
-  },
-  "ask": {
-    "file": "openmoji-2753.svg",
-    "alt": "A question mark.",
-    "source": "openmoji"
-  },
-  "alert": {
-    "file": "openmoji-2757.svg",
-    "alt": "An exclamation mark.",
-    "source": "openmoji"
-  },
-  "notice": {
-    "file": "openmoji-2757.svg",
-    "alt": "An exclamation mark.",
-    "source": "openmoji"
-  },
-  "halt": {
-    "file": "openmoji-1F6D1.svg",
-    "alt": "A stop sign.",
-    "source": "openmoji"
-  },
-  "love": {
-    "file": "openmoji-2764.svg",
-    "alt": "A red heart.",
-    "source": "openmoji"
-  },
-  "heart": {
-    "file": "openmoji-2764.svg",
-    "alt": "A red heart.",
-    "source": "openmoji"
-  },
-  "handshake": {
-    "file": "openmoji-1F91D.svg",
-    "alt": "A handshake.",
-    "source": "openmoji"
-  },
-  "agreement": {
-    "file": "openmoji-1F91D.svg",
-    "alt": "A handshake.",
-    "source": "openmoji"
-  },
-  "deal": {
-    "file": "openmoji-1F91D.svg",
-    "alt": "A handshake.",
-    "source": "openmoji"
-  },
-  "partner": {
-    "file": "openmoji-1F91D.svg",
-    "alt": "A handshake.",
-    "source": "openmoji"
-  },
-  "strong": {
-    "file": "openmoji-1F4AA.svg",
-    "alt": "A flexed bicep.",
-    "source": "openmoji"
-  },
-  "strength": {
-    "file": "openmoji-1F4AA.svg",
-    "alt": "A flexed bicep.",
-    "source": "openmoji"
-  },
-  "power": {
-    "file": "openmoji-1F4AA.svg",
-    "alt": "A flexed bicep.",
-    "source": "openmoji"
-  },
-  "exercise": {
-    "file": "openmoji-1F4AA.svg",
-    "alt": "A flexed bicep.",
-    "source": "openmoji"
-  },
-  "brain": {
-    "file": "openmoji-1F9E0.svg",
-    "alt": "A brain.",
-    "source": "openmoji"
-  },
-  "think": {
-    "file": "openmoji-1F9E0.svg",
-    "alt": "A brain.",
-    "source": "openmoji"
-  },
-  "mental": {
-    "file": "openmoji-1F9E0.svg",
-    "alt": "A brain.",
-    "source": "openmoji"
-  },
-  "mind": {
-    "file": "openmoji-1F9E0.svg",
-    "alt": "A brain.",
-    "source": "openmoji"
-  },
-  "learn": {
-    "file": "openmoji-1F9E0.svg",
-    "alt": "A brain.",
-    "source": "openmoji"
-  },
-  "thumbs up": {
-    "file": "openmoji-1F44D.svg",
-    "alt": "A thumbs up.",
-    "source": "openmoji"
-  },
-  "approve": {
-    "file": "openmoji-1F44D.svg",
-    "alt": "A thumbs up.",
-    "source": "openmoji"
-  },
-  "thumbs down": {
-    "file": "openmoji-1F44E.svg",
-    "alt": "A thumbs down.",
-    "source": "openmoji"
-  },
-  "bad": {
-    "file": "openmoji-1F44E.svg",
-    "alt": "A thumbs down.",
-    "source": "openmoji"
-  },
-  "dislike": {
-    "file": "openmoji-1F44E.svg",
-    "alt": "A thumbs down.",
-    "source": "openmoji"
-  },
-  "negative": {
-    "file": "openmoji-1F44E.svg",
-    "alt": "A thumbs down.",
-    "source": "openmoji"
-  },
-  "wave": {
-    "file": "openmoji-1F44B.svg",
-    "alt": "A waving hand.",
-    "source": "openmoji"
-  },
-  "hello": {
-    "file": "openmoji-1F44B.svg",
-    "alt": "A waving hand.",
-    "source": "openmoji"
-  },
-  "goodbye": {
-    "file": "openmoji-1F44B.svg",
-    "alt": "A waving hand.",
-    "source": "openmoji"
-  },
-  "greet": {
-    "file": "openmoji-1F44B.svg",
-    "alt": "A waving hand.",
-    "source": "openmoji"
-  },
-  "hand": {
-    "file": "openmoji-270B.svg",
-    "alt": "A raised hand.",
-    "source": "openmoji"
-  },
-  "raise hand": {
-    "file": "openmoji-270B.svg",
-    "alt": "A raised hand.",
-    "source": "openmoji"
-  },
-  "point": {
-    "file": "openmoji-1F449.svg",
-    "alt": "A hand pointing right.",
-    "source": "openmoji"
-  },
-  "direction": {
-    "file": "openmoji-1F449.svg",
-    "alt": "A hand pointing right.",
-    "source": "openmoji"
-  },
-  "this way": {
-    "file": "openmoji-1F449.svg",
-    "alt": "A hand pointing right.",
-    "source": "openmoji"
-  },
-  "speech": {
-    "file": "openmoji-1F4AC.svg",
-    "alt": "A speech bubble.",
-    "source": "openmoji"
-  },
-  "conversation": {
-    "file": "openmoji-1F4AC.svg",
-    "alt": "A speech bubble.",
-    "source": "openmoji"
-  },
-  "thought": {
-    "file": "openmoji-1F4AD.svg",
-    "alt": "A thought bubble.",
-    "source": "openmoji"
-  },
-  "idea": {
-    "file": "openmoji-1F4AD.svg",
-    "alt": "A thought bubble.",
-    "source": "openmoji"
-  },
-  "dream": {
-    "file": "openmoji-1F4AD.svg",
-    "alt": "A thought bubble.",
-    "source": "openmoji"
-  },
-  "bed": {
-    "file": "openmoji-1F6CF.svg",
-    "alt": "A bed.",
-    "source": "openmoji"
-  },
-  "sleep": {
-    "file": "openmoji-1F6CF.svg",
-    "alt": "A bed.",
-    "source": "openmoji"
-  },
-  "rest": {
-    "file": "openmoji-1F6CF.svg",
-    "alt": "A bed.",
-    "source": "openmoji"
-  },
-  "tired": {
-    "file": "openmoji-1F6CF.svg",
-    "alt": "A bed.",
+  "razor": {
+    "file": "openmoji-1F487.svg",
+    "alt": "A person getting a haircut.",
     "source": "openmoji"
   },
   "shower": {
@@ -2077,17 +1925,7 @@
     "alt": "A shower.",
     "source": "openmoji"
   },
-  "wash": {
-    "file": "openmoji-1F6BF.svg",
-    "alt": "A shower.",
-    "source": "openmoji"
-  },
-  "clean": {
-    "file": "openmoji-1F6BF.svg",
-    "alt": "A shower.",
-    "source": "openmoji"
-  },
-  "hygiene": {
+  "rinse": {
     "file": "openmoji-1F6BF.svg",
     "alt": "A shower.",
     "source": "openmoji"
@@ -2097,249 +1935,909 @@
     "alt": "A shower.",
     "source": "openmoji"
   },
-  "razor": {
-    "file": "openmoji-1FA92.svg",
-    "alt": "A razor.",
-    "source": "openmoji"
-  },
-  "shave": {
-    "file": "openmoji-1FA92.svg",
-    "alt": "A razor.",
-    "source": "openmoji"
-  },
-  "grooming": {
-    "file": "openmoji-1FA92.svg",
-    "alt": "A razor.",
-    "source": "openmoji"
-  },
-  "hair": {
-    "file": "openmoji-1FA77.svg",
-    "alt": "A pair of scissors.",
-    "source": "openmoji"
-  },
-  "scissors": {
-    "file": "openmoji-1FA77.svg",
-    "alt": "A pair of scissors.",
-    "source": "openmoji"
-  },
-  "cut": {
-    "file": "openmoji-1FA77.svg",
-    "alt": "A pair of scissors.",
-    "source": "openmoji"
-  },
-  "haircut": {
-    "file": "openmoji-1FA77.svg",
-    "alt": "A pair of scissors.",
-    "source": "openmoji"
-  },
-  "trim": {
-    "file": "openmoji-1FA77.svg",
-    "alt": "A pair of scissors.",
-    "source": "openmoji"
-  },
-  "children": {
-    "file": "openmoji-1F46A.svg",
-    "alt": "A family.",
-    "source": "openmoji"
-  },
-  "baby": {
-    "file": "openmoji-1F476.svg",
-    "alt": "A baby.",
-    "source": "openmoji"
-  },
-  "infant": {
-    "file": "openmoji-1F476.svg",
-    "alt": "A baby.",
-    "source": "openmoji"
-  },
-  "newborn": {
-    "file": "openmoji-1F476.svg",
-    "alt": "A baby.",
-    "source": "openmoji"
-  },
-  "elderly": {
-    "file": "openmoji-1F9D3.svg",
-    "alt": "An older person.",
-    "source": "openmoji"
-  },
-  "older": {
-    "file": "openmoji-1F9D3.svg",
-    "alt": "An older person.",
-    "source": "openmoji"
-  },
-  "senior": {
-    "file": "openmoji-1F9D3.svg",
-    "alt": "An older person.",
-    "source": "openmoji"
-  },
-  "aged": {
-    "file": "openmoji-1F9D3.svg",
-    "alt": "An older person.",
-    "source": "openmoji"
-  },
-  "pensioner": {
-    "file": "openmoji-1F9D3.svg",
-    "alt": "An older person.",
-    "source": "openmoji"
-  },
-  "adult": {
-    "file": "openmoji-1F9D1.svg",
-    "alt": "A person.",
-    "source": "openmoji"
-  },
-  "individual": {
-    "file": "openmoji-1F9D1.svg",
-    "alt": "A person.",
-    "source": "openmoji"
-  },
-  "cry": {
-    "file": "openmoji-1F622.svg",
-    "alt": "A sad crying face.",
-    "source": "openmoji"
-  },
-  "mad": {
-    "file": "openmoji-1F621.svg",
-    "alt": "An angry face.",
-    "source": "openmoji"
-  },
-  "frightened": {
-    "file": "openmoji-1F628.svg",
-    "alt": "A fearful face.",
-    "source": "openmoji"
-  },
-  "puzzled": {
-    "file": "openmoji-1F615.svg",
-    "alt": "A confused face.",
-    "source": "openmoji"
-  },
-  "wow": {
-    "file": "openmoji-1F62E.svg",
-    "alt": "A surprised face.",
-    "source": "openmoji"
-  },
-  "page": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
-    "source": "openmoji"
-  },
-  "paper": {
-    "file": "openmoji-1F4C4.svg",
-    "alt": "A document.",
-    "source": "openmoji"
-  },
-  "clipboard": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "checklist": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "list": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "plan": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "announcement": {
-    "file": "openmoji-1F4E2.svg",
-    "alt": "A loudspeaker.",
-    "source": "openmoji"
-  },
-  "loudspeaker": {
-    "file": "openmoji-1F4E2.svg",
-    "alt": "A loudspeaker.",
-    "source": "openmoji"
-  },
-  "broadcast": {
-    "file": "openmoji-1F4E2.svg",
-    "alt": "A loudspeaker.",
-    "source": "openmoji"
-  },
-  "label": {
-    "file": "openmoji-1F3F7.svg",
-    "alt": "A label tag.",
-    "source": "openmoji"
-  },
-  "tag": {
-    "file": "openmoji-1F3F7.svg",
-    "alt": "A label tag.",
-    "source": "openmoji"
-  },
-  "security": {
-    "file": "openmoji-1F6E1.svg",
-    "alt": "A shield.",
-    "source": "openmoji"
-  },
-  "scales": {
-    "file": "openmoji-2696.svg",
-    "alt": "The scales of justice.",
-    "source": "openmoji"
-  },
-  "mix": {
-    "file": "openmoji-1F372.svg",
-    "alt": "A pot of food.",
-    "source": "openmoji"
-  },
-  "mixing": {
-    "file": "openmoji-1F372.svg",
-    "alt": "A pot of food.",
-    "source": "openmoji"
-  },
-  "blend": {
-    "file": "openmoji-1F372.svg",
-    "alt": "A pot of food.",
-    "source": "openmoji"
-  },
-  "combine": {
-    "file": "openmoji-1F372.svg",
-    "alt": "A pot of food.",
-    "source": "openmoji"
-  },
-  "supplies": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "items": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "things": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "gather": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "collect": {
-    "file": "openmoji-1F4CB.svg",
-    "alt": "A clipboard.",
-    "source": "openmoji"
-  },
-  "rinse": {
+  "clean": {
     "file": "openmoji-1F6BF.svg",
     "alt": "A shower.",
     "source": "openmoji"
   },
+  "gloves": {
+    "file": "openmoji-1F9E4.svg",
+    "alt": "Gloves.",
+    "source": "openmoji"
+  },
   "look": {
-    "file": "openmoji-1F469.svg",
-    "alt": "A woman.",
+    "file": "openmoji-1F441.svg",
+    "alt": "An eye.",
     "source": "openmoji"
   },
   "appearance": {
-    "file": "openmoji-1F469.svg",
-    "alt": "A woman.",
+    "file": "openmoji-1F441.svg",
+    "alt": "An eye.",
+    "source": "openmoji"
+  },
+  "vision": {
+    "file": "openmoji-1F441.svg",
+    "alt": "An eye.",
+    "source": "openmoji"
+  },
+  "hearing": {
+    "file": "openmoji-1F442.svg",
+    "alt": "An ear.",
+    "source": "openmoji"
+  },
+  "ear aid": {
+    "file": "openmoji-1F442.svg",
+    "alt": "An ear.",
+    "source": "openmoji"
+  },
+  "deaf": {
+    "file": "openmoji-1F442.svg",
+    "alt": "An ear.",
+    "source": "openmoji"
+  },
+  "listen": {
+    "file": "openmoji-1F442.svg",
+    "alt": "An ear.",
+    "source": "openmoji"
+  },
+  "focus": {
+    "file": "openmoji-1F3AF.svg",
+    "alt": "A bullseye target.",
+    "source": "openmoji"
+  },
+  "plan": {
+    "file": "openmoji-1F3AF.svg",
+    "alt": "A bullseye target.",
+    "source": "openmoji"
+  },
+  "choose": {
+    "file": "openmoji-1F3AF.svg",
+    "alt": "A bullseye target.",
+    "source": "openmoji"
+  },
+  "choice": {
+    "file": "openmoji-1F3AF.svg",
+    "alt": "A bullseye target.",
+    "source": "openmoji"
+  },
+  "decide": {
+    "file": "openmoji-1F3AF.svg",
+    "alt": "A bullseye target.",
+    "source": "openmoji"
+  },
+  "fix": {
+    "file": "openmoji-1F527.svg",
+    "alt": "A wrench.",
+    "source": "openmoji"
+  },
+  "repair": {
+    "file": "openmoji-1F527.svg",
+    "alt": "A wrench.",
+    "source": "openmoji"
+  },
+  "mechanic": {
+    "file": "openmoji-1F527.svg",
+    "alt": "A wrench.",
+    "source": "openmoji"
+  },
+  "maintenance": {
+    "file": "openmoji-1F527.svg",
+    "alt": "A wrench.",
+    "source": "openmoji"
+  },
+  "key": {
+    "file": "openmoji-1F511.svg",
+    "alt": "A key.",
+    "source": "openmoji"
+  },
+  "keyworker": {
+    "file": "openmoji-1F511.svg",
+    "alt": "A key.",
+    "source": "openmoji"
+  },
+  "police": {
+    "file": "openmoji-1F6A8.svg",
+    "alt": "A police car light.",
+    "source": "openmoji"
+  },
+  "authority": {
+    "file": "openmoji-1F6A8.svg",
+    "alt": "A police car light.",
+    "source": "openmoji"
+  },
+  "official": {
+    "file": "openmoji-1F6A8.svg",
+    "alt": "A police car light.",
+    "source": "openmoji"
+  },
+  "exercise": {
+    "file": "openmoji-1F3C3.svg",
+    "alt": "A person running.",
+    "source": "openmoji"
+  },
+  "sport": {
+    "file": "openmoji-1F3C3.svg",
+    "alt": "A person running.",
+    "source": "openmoji"
+  },
+  "strong": {
+    "file": "openmoji-1F3C3.svg",
+    "alt": "A person running.",
+    "source": "openmoji"
+  },
+  "strength": {
+    "file": "openmoji-1F3C3.svg",
+    "alt": "A person running.",
+    "source": "openmoji"
+  },
+  "explain": {
+    "file": "openmoji-1F4A1.svg",
+    "alt": "A light bulb.",
+    "source": "openmoji"
+  },
+  "understand": {
+    "file": "openmoji-1F4A1.svg",
+    "alt": "A light bulb.",
+    "source": "openmoji"
+  },
+  "support": {
+    "file": "openmoji-1F4A1.svg",
+    "alt": "A light bulb.",
+    "source": "openmoji"
+  },
+  "help": {
+    "file": "openmoji-1F4A1.svg",
+    "alt": "A light bulb.",
+    "source": "openmoji"
+  },
+  "label": {
+    "file": "openmoji-1F3F7.svg",
+    "alt": "A label.",
+    "source": "openmoji"
+  },
+  "tag": {
+    "file": "openmoji-1F3F7.svg",
+    "alt": "A label.",
+    "source": "openmoji"
+  },
+  "package": {
+    "file": "openmoji-1F4E6.svg",
+    "alt": "A package.",
+    "source": "openmoji"
+  },
+  "parcel": {
+    "file": "openmoji-1F4E6.svg",
+    "alt": "A package.",
+    "source": "openmoji"
+  },
+  "delivery": {
+    "file": "openmoji-1F4E6.svg",
+    "alt": "A package.",
+    "source": "openmoji"
+  },
+  "visit": {
+    "file": "openmoji-1F6AA.svg",
+    "alt": "A door.",
+    "source": "openmoji"
+  },
+  "visitor": {
+    "file": "openmoji-1F6AA.svg",
+    "alt": "A door.",
+    "source": "openmoji"
+  },
+  "hope": {
+    "file": "openmoji-1F52E.svg",
+    "alt": "A crystal ball.",
+    "source": "openmoji"
+  },
+  "wish": {
+    "file": "openmoji-1F52E.svg",
+    "alt": "A crystal ball.",
+    "source": "openmoji"
+  },
+  "wanting": {
+    "file": "openmoji-1F52E.svg",
+    "alt": "A crystal ball.",
+    "source": "openmoji"
+  },
+  "judge": {
+    "file": "openmoji-1F46E.svg",
+    "alt": "A police officer.",
+    "source": "openmoji"
+  },
+  "judiciary": {
+    "file": "judiciary.png",
+    "alt": "A judge's gavel.",
+    "source": "demcloud"
+  },
+  "teacher": {
+    "file": "openmoji-1F9D1-200D-1F3EB.svg",
+    "alt": "A teacher.",
+    "source": "openmoji"
+  },
+  "report": {
+    "file": "openmoji-1F4CA.svg",
+    "alt": "A bar chart.",
+    "source": "openmoji"
+  },
+  "policy": {
+    "file": "openmoji-1F4CA.svg",
+    "alt": "A bar chart.",
+    "source": "openmoji"
+  },
+  "speak up": {
+    "file": "openmoji-1F509.svg",
+    "alt": "A speaker with sound.",
+    "source": "openmoji"
+  },
+  "advocacy": {
+    "file": "advocacy.jpeg",
+    "alt": "People advocating together.",
+    "source": "demcloud"
+  },
+  "advocate": {
+    "file": "openmoji-1F64B.svg",
+    "alt": "A person raising hand.",
+    "source": "openmoji"
+  },
+  "campaign": {
+    "file": "openmoji-1F64B.svg",
+    "alt": "A person raising hand.",
+    "source": "openmoji"
+  },
+  "protest": {
+    "file": "openmoji-1F64B.svg",
+    "alt": "A person raising hand.",
+    "source": "openmoji"
+  },
+  "application": {
+    "file": "openmoji-1F4C8.svg",
+    "alt": "A chart increasing.",
+    "source": "openmoji"
+  },
+  "apply": {
+    "file": "openmoji-1F4C8.svg",
+    "alt": "A chart increasing.",
+    "source": "openmoji"
+  },
+  "available": {
+    "file": "openmoji-1F4CC.svg",
+    "alt": "A pushpin.",
+    "source": "openmoji"
+  },
+  "need": {
+    "file": "openmoji-1F4CC.svg",
+    "alt": "A pushpin.",
+    "source": "openmoji"
+  },
+  "care": {
+    "file": "openmoji-1F9D3.svg",
+    "alt": "An older person.",
+    "source": "openmoji"
+  },
+  "patient": {
+    "file": "openmoji-1F9D3.svg",
+    "alt": "An older person.",
+    "source": "openmoji"
+  },
+  "nursing": {
+    "file": "openmoji-1F9D3.svg",
+    "alt": "An older person.",
+    "source": "openmoji"
+  },
+  "free": {
+    "file": "openmoji-1F3E1.svg",
+    "alt": "A house with garden.",
+    "source": "openmoji"
+  },
+  "funny": {
+    "file": "openmoji-1F3A8.svg",
+    "alt": "An artist palette.",
+    "source": "openmoji"
+  },
+  "humour": {
+    "file": "openmoji-1F3A8.svg",
+    "alt": "An artist palette.",
+    "source": "openmoji"
+  },
+  "laughing": {
+    "file": "openmoji-1F3A8.svg",
+    "alt": "An artist palette.",
+    "source": "openmoji"
+  },
+  "department": {
+    "file": "openmoji-1F5D3.svg",
+    "alt": "A spiral calendar.",
+    "source": "openmoji"
+  },
+  "organisation": {
+    "file": "openmoji-1F5D3.svg",
+    "alt": "A spiral calendar.",
+    "source": "openmoji"
+  },
+  "organization": {
+    "file": "openmoji-1F5D3.svg",
+    "alt": "A spiral calendar.",
+    "source": "openmoji"
+  },
+  "agency": {
+    "file": "openmoji-1F5D3.svg",
+    "alt": "A spiral calendar.",
+    "source": "openmoji"
+  },
+  "service": {
+    "file": "openmoji-1F5D3.svg",
+    "alt": "A spiral calendar.",
+    "source": "openmoji"
+  },
+  "country": {
+    "file": "openmoji-1F3C6.svg",
+    "alt": "A trophy.",
+    "source": "openmoji"
+  },
+  "power": {
+    "file": "openmoji-1F3C6.svg",
+    "alt": "A trophy.",
+    "source": "openmoji"
+  },
+  "mobile phone": {
+    "file": "openmoji-1F4F1.svg",
+    "alt": "A mobile phone.",
+    "source": "openmoji"
+  },
+  "app": {
+    "file": "openmoji-1F4F1.svg",
+    "alt": "A mobile phone.",
+    "source": "openmoji"
+  },
+  "please": {
+    "file": "openmoji-1F64F.svg",
+    "alt": "Folded hands.",
+    "source": "openmoji"
+  },
+  "grateful": {
+    "file": "openmoji-1F64F.svg",
+    "alt": "Folded hands.",
+    "source": "openmoji"
+  },
+  "pray": {
+    "file": "openmoji-1F64F.svg",
+    "alt": "Folded hands.",
+    "source": "openmoji"
+  },
+  "check": {
+    "file": "openmoji-1F440.svg",
+    "alt": "Eyes.",
+    "source": "openmoji"
+  },
+  "diagnosis": {
+    "file": "openmoji-1F440.svg",
+    "alt": "Eyes.",
+    "source": "openmoji"
+  },
+  "gentleman": {
+    "file": "openmoji-1F6B9.svg",
+    "alt": "A men symbol.",
+    "source": "openmoji"
+  },
+  "ladies": {
+    "file": "openmoji-1F6BA.svg",
+    "alt": "A women symbol.",
+    "source": "openmoji"
+  },
+  "certificate": {
+    "file": "openmoji-1F4C3.svg",
+    "alt": "A page with curl.",
+    "source": "openmoji"
+  },
+  "language": {
+    "file": "openmoji-1F4C3.svg",
+    "alt": "A page with curl.",
+    "source": "openmoji"
+  },
+  "constitution": {
+    "file": "constitution.jpeg",
+    "alt": "A constitution document.",
+    "source": "demcloud"
+  },
+  "barrier": {
+    "file": "barrier.png",
+    "alt": "A barrier blocking access.",
+    "source": "demcloud"
+  },
+  "universal": {
+    "file": "universal.jpg",
+    "alt": "Universal access symbol.",
+    "source": "demcloud"
+  },
+  "dollar": {
+    "file": "money.svg",
+    "alt": "Coins and banknotes.",
+    "source": "mulberry"
+  },
+  "group": {
+    "file": "openmoji-1F465.svg",
+    "alt": "Two silhouettes.",
+    "source": "openmoji"
+  },
+  "community": {
+    "file": "openmoji-1F465.svg",
+    "alt": "Two silhouettes.",
+    "source": "openmoji"
+  },
+  "social": {
+    "file": "openmoji-1F465.svg",
+    "alt": "Two silhouettes.",
+    "source": "openmoji"
+  },
+  "public": {
+    "file": "openmoji-1F465.svg",
+    "alt": "Two silhouettes.",
+    "source": "openmoji"
+  },
+  "together": {
+    "file": "openmoji-1F465.svg",
+    "alt": "Two silhouettes.",
+    "source": "openmoji"
+  },
+  "meeting room": {
+    "file": "assembly.svg",
+    "alt": "A group of people meeting.",
+    "source": "mulberry"
+  },
+  "assemble": {
+    "file": "assembly.svg",
+    "alt": "A group of people meeting.",
+    "source": "mulberry"
+  },
+  "share": {
+    "file": "share_,_to.svg",
+    "alt": "A person sharing.",
+    "source": "mulberry"
+  },
+  "sharing": {
+    "file": "share_,_to.svg",
+    "alt": "A person sharing.",
+    "source": "mulberry"
+  },
+  "change": {
+    "file": "openmoji-1F504.svg",
+    "alt": "Counterclockwise arrows.",
+    "source": "openmoji"
+  },
+  "changing": {
+    "file": "openmoji-1F504.svg",
+    "alt": "Counterclockwise arrows.",
+    "source": "openmoji"
+  },
+  "swap": {
+    "file": "openmoji-1F504.svg",
+    "alt": "Counterclockwise arrows.",
+    "source": "openmoji"
+  },
+  "replace": {
+    "file": "openmoji-1F504.svg",
+    "alt": "Counterclockwise arrows.",
+    "source": "openmoji"
+  },
+  "review": {
+    "file": "openmoji-1F504.svg",
+    "alt": "Counterclockwise arrows.",
+    "source": "openmoji"
+  },
+  "update": {
+    "file": "openmoji-1F504.svg",
+    "alt": "Counterclockwise arrows.",
+    "source": "openmoji"
+  },
+  "step": {
+    "file": "step_by_step.svg",
+    "alt": "Step-by-step instructions.",
+    "source": "mulberry"
+  },
+  "steps": {
+    "file": "step_by_step.svg",
+    "alt": "Step-by-step instructions.",
+    "source": "mulberry"
+  },
+  "procedure": {
+    "file": "step_by_step.svg",
+    "alt": "Step-by-step instructions.",
+    "source": "mulberry"
+  },
+  "process": {
+    "file": "step_by_step.svg",
+    "alt": "Step-by-step instructions.",
+    "source": "mulberry"
+  },
+  "instructions": {
+    "file": "step_by_step.svg",
+    "alt": "Step-by-step instructions.",
+    "source": "mulberry"
+  },
+  "follow": {
+    "file": "step_by_step.svg",
+    "alt": "Step-by-step instructions.",
+    "source": "mulberry"
+  },
+  "assess": {
+    "file": "openmoji-1F50D.svg",
+    "alt": "A magnifying glass.",
+    "source": "openmoji"
+  },
+  "assessment": {
+    "file": "openmoji-1F50D.svg",
+    "alt": "A magnifying glass.",
+    "source": "openmoji"
+  },
+  "inspect": {
+    "file": "openmoji-1F50D.svg",
+    "alt": "A magnifying glass.",
+    "source": "openmoji"
+  },
+  "examine": {
+    "file": "openmoji-1F50D.svg",
+    "alt": "A magnifying glass.",
+    "source": "openmoji"
+  },
+  "criteria": {
+    "file": "openmoji-1F50D.svg",
+    "alt": "A magnifying glass.",
+    "source": "openmoji"
+  },
+  "eligible": {
+    "file": "openmoji-1F50D.svg",
+    "alt": "A magnifying glass.",
+    "source": "openmoji"
+  },
+  "feedback": {
+    "file": "openmoji-1F4DD.svg",
+    "alt": "A memo pad with pen.",
+    "source": "openmoji"
+  },
+  "referral": {
+    "file": "openmoji-1F4DD.svg",
+    "alt": "A memo pad with pen.",
+    "source": "openmoji"
+  },
+  "outcome": {
+    "file": "openmoji-1F3C1.svg",
+    "alt": "A chequered flag.",
+    "source": "openmoji"
+  },
+  "result": {
+    "file": "openmoji-1F3C1.svg",
+    "alt": "A chequered flag.",
+    "source": "openmoji"
+  },
+  "achieve": {
+    "file": "openmoji-1F3C1.svg",
+    "alt": "A chequered flag.",
+    "source": "openmoji"
+  },
+  "complete": {
+    "file": "openmoji-1F3C1.svg",
+    "alt": "A chequered flag.",
+    "source": "openmoji"
+  },
+  "finish": {
+    "file": "openmoji-1F3C1.svg",
+    "alt": "A chequered flag.",
+    "source": "openmoji"
+  },
+  "discharge": {
+    "file": "openmoji-1F4C2.svg",
+    "alt": "An open file folder.",
+    "source": "openmoji"
+  },
+  "record": {
+    "file": "openmoji-1F4C2.svg",
+    "alt": "An open file folder.",
+    "source": "openmoji"
+  },
+  "file": {
+    "file": "openmoji-1F4C2.svg",
+    "alt": "An open file folder.",
+    "source": "openmoji"
+  },
+  "rules": {
+    "file": "openmoji-1F4D5.svg",
+    "alt": "A closed book.",
+    "source": "openmoji"
+  },
+  "rule": {
+    "file": "openmoji-1F4D5.svg",
+    "alt": "A closed book.",
+    "source": "openmoji"
+  },
+  "regulation": {
+    "file": "openmoji-1F4D5.svg",
+    "alt": "A closed book.",
+    "source": "openmoji"
+  },
+  "equality": {
+    "file": "openmoji-1F3F3.svg",
+    "alt": "A white flag.",
+    "source": "openmoji"
+  },
+  "equal": {
+    "file": "openmoji-1F3F3.svg",
+    "alt": "A white flag.",
+    "source": "openmoji"
+  },
+  "diversity": {
+    "file": "openmoji-1F3F3.svg",
+    "alt": "A white flag.",
+    "source": "openmoji"
+  },
+  "discrimination": {
+    "file": "openmoji-1F6AB.svg",
+    "alt": "A prohibited sign.",
+    "source": "openmoji"
+  },
+  "abuse": {
+    "file": "openmoji-1F6AB.svg",
+    "alt": "A prohibited sign.",
+    "source": "openmoji"
+  },
+  "prohibited": {
+    "file": "openmoji-1F6AB.svg",
+    "alt": "A prohibited sign.",
+    "source": "openmoji"
+  },
+  "forbidden": {
+    "file": "openmoji-1F6AB.svg",
+    "alt": "A prohibited sign.",
+    "source": "openmoji"
+  },
+  "safeguarding": {
+    "file": "openmoji-2694.svg",
+    "alt": "Crossed swords.",
+    "source": "openmoji"
+  },
+  "duty": {
+    "file": "openmoji-2694.svg",
+    "alt": "Crossed swords.",
+    "source": "openmoji"
+  },
+  "independent": {
+    "file": "walking_stick.svg",
+    "alt": "A person with a walking stick.",
+    "source": "mulberry"
+  },
+  "independence": {
+    "file": "walking_stick.svg",
+    "alt": "A person with a walking stick.",
+    "source": "mulberry"
+  },
+  "ability": {
+    "file": "walking_stick.svg",
+    "alt": "A person with a walking stick.",
+    "source": "mulberry"
+  },
+  "move": {
+    "file": "walking_stick.svg",
+    "alt": "A person with a walking stick.",
+    "source": "mulberry"
+  },
+  "mobility": {
+    "file": "walking_stick.svg",
+    "alt": "A person with a walking stick.",
+    "source": "mulberry"
+  },
+  "wheelchair mulberry": {
+    "file": "wheelchair.svg",
+    "alt": "A wheelchair.",
+    "source": "mulberry"
+  },
+  "hearing aid": {
+    "file": "hearing_aid_1.svg",
+    "alt": "A hearing aid.",
+    "source": "mulberry"
+  },
+  "blind": {
+    "file": "blind.svg",
+    "alt": "A person with a white cane.",
+    "source": "mulberry"
+  },
+  "sight": {
+    "file": "blind.svg",
+    "alt": "A person with a white cane.",
+    "source": "mulberry"
+  },
+  "visual": {
+    "file": "blind.svg",
+    "alt": "A person with a white cane.",
+    "source": "mulberry"
+  },
+  "mouth": {
+    "file": "mouth.svg",
+    "alt": "A mouth.",
+    "source": "mulberry"
+  },
+  "rash": {
+    "file": "rash.svg",
+    "alt": "Skin with a rash.",
+    "source": "mulberry"
+  },
+  "allergy": {
+    "file": "rash.svg",
+    "alt": "Skin with a rash.",
+    "source": "mulberry"
+  },
+  "allergic": {
+    "file": "rash.svg",
+    "alt": "Skin with a rash.",
+    "source": "mulberry"
+  },
+  "reaction": {
+    "file": "rash.svg",
+    "alt": "Skin with a rash.",
+    "source": "mulberry"
+  },
+  "skin": {
+    "file": "rash.svg",
+    "alt": "Skin with a rash.",
+    "source": "mulberry"
+  },
+  "cream": {
+    "file": "cream_ointment.svg",
+    "alt": "A tube of cream.",
+    "source": "mulberry"
+  },
+  "ointment": {
+    "file": "cream_ointment.svg",
+    "alt": "A tube of cream.",
+    "source": "mulberry"
+  },
+  "lotion": {
+    "file": "cream_ointment.svg",
+    "alt": "A tube of cream.",
+    "source": "mulberry"
+  },
+  "teeth": {
+    "file": "teeth.svg",
+    "alt": "Teeth.",
+    "source": "mulberry"
+  },
+  "brush teeth": {
+    "file": "teeth.svg",
+    "alt": "Teeth.",
+    "source": "mulberry"
+  },
+  "plaster mulberry": {
+    "file": "plaster.svg",
+    "alt": "A plaster on skin.",
+    "source": "mulberry"
+  },
+  "recipe": {
+    "file": "recipe.svg",
+    "alt": "A recipe card.",
+    "source": "mulberry"
+  },
+  "ingredients": {
+    "file": "ingredients.svg",
+    "alt": "Cooking ingredients.",
+    "source": "mulberry"
+  },
+  "supplies": {
+    "file": "ingredients.svg",
+    "alt": "Cooking ingredients.",
+    "source": "mulberry"
+  },
+  "supply": {
+    "file": "ingredients.svg",
+    "alt": "Cooking ingredients.",
+    "source": "mulberry"
+  },
+  "gather": {
+    "file": "ingredients.svg",
+    "alt": "Cooking ingredients.",
+    "source": "mulberry"
+  },
+  "collect": {
+    "file": "ingredients.svg",
+    "alt": "Cooking ingredients.",
+    "source": "mulberry"
+  },
+  "prepare": {
+    "file": "ingredients.svg",
+    "alt": "Cooking ingredients.",
+    "source": "mulberry"
+  },
+  "preparation": {
+    "file": "ingredients.svg",
+    "alt": "Cooking ingredients.",
+    "source": "mulberry"
+  },
+  "collect items": {
+    "file": "collect_,_to.svg",
+    "alt": "A person collecting items.",
+    "source": "mulberry"
+  },
+  "assist": {
+    "file": "help_,_to.svg",
+    "alt": "A person helping another.",
+    "source": "mulberry"
+  },
+  "assistance": {
+    "file": "help_,_to.svg",
+    "alt": "A person helping another.",
+    "source": "mulberry"
+  },
+  "safeguard": {
+    "file": "protect_,_to.svg",
+    "alt": "A person protecting another.",
+    "source": "mulberry"
+  },
+  "communicate mulberry": {
+    "file": "communicate_,_to.svg",
+    "alt": "Two people communicating.",
+    "source": "mulberry"
+  },
+  "exercise mulberry": {
+    "file": "exercise_,_to.svg",
+    "alt": "A person exercising.",
+    "source": "mulberry"
+  },
+  "activity": {
+    "file": "exercise_,_to.svg",
+    "alt": "A person exercising.",
+    "source": "mulberry"
+  },
+  "active": {
+    "file": "exercise_,_to.svg",
+    "alt": "A person exercising.",
+    "source": "mulberry"
+  },
+  "consent": {
+    "file": "openmoji-1F4DD.svg",
+    "alt": "A memo pad with pen.",
+    "source": "openmoji"
+  },
+  "capacity": {
+    "file": "openmoji-1F9E0.svg",
+    "alt": "A brain.",
+    "source": "openmoji"
+  },
+  "mental capacity": {
+    "file": "openmoji-1F9E0.svg",
+    "alt": "A brain.",
+    "source": "openmoji"
+  },
+  "local": {
+    "file": "openmoji-1F3D8.svg",
+    "alt": "Houses.",
+    "source": "openmoji"
+  },
+  "neighbourhood": {
+    "file": "openmoji-1F3D8.svg",
+    "alt": "Houses.",
+    "source": "openmoji"
+  },
+  "area": {
+    "file": "openmoji-1F3D8.svg",
+    "alt": "Houses.",
+    "source": "openmoji"
+  },
+  "provider": {
+    "file": "openmoji-1F9D1-200D-1F4BC.svg",
+    "alt": "A person in office.",
+    "source": "openmoji"
+  },
+  "provide": {
+    "file": "openmoji-1F9D1-200D-1F4BC.svg",
+    "alt": "A person in office.",
+    "source": "openmoji"
+  },
+  "service provider": {
+    "file": "openmoji-1F9D1-200D-1F4BC.svg",
+    "alt": "A person in office.",
+    "source": "openmoji"
+  },
+  "professional": {
+    "file": "openmoji-1F9D1-200D-1F4BC.svg",
+    "alt": "A person in office.",
     "source": "openmoji"
   }
 }

@@ -217,17 +217,22 @@ AVAILABLE IMAGES (keyword: description):
 ${keywordCatalog.join('\n')}
 
 INSTRUCTIONS:
-- Consider the document's topic: "${title}"
-- For each sentence, pick the keyword whose image best illustrates the sentence in context
-- Prefer concrete, relevant images over abstract ones
-- If multiple keywords fit, pick the most specific one
+- This document is about: "${title}"
+- For each sentence, pick the keyword whose image best helps a reader VISUALLY UNDERSTAND that sentence
+- Think about what a reader would expect to SEE next to each sentence
+- VARY your choices — do NOT repeat the same keyword for many sentences. Use different images to keep the document visually interesting
+- Prefer images of OBJECTS, ACTIONS, and PEOPLE over abstract symbols like "document" or "information"
+- "document" and "clipboard" should only be used for sentences literally about documents, forms, or lists
+- For sentences about body parts or personal care, prefer: hair, scissors, shower, wash, grooming
+- For sentences about safety or protection, prefer: gloves, shield, warning, caution
+- For sentences about time or waiting, prefer: clock, time, calendar, wait
+- For sentences about mixing or preparing, prefer: cooking, mix, food
 - ONLY use keywords from the list above
 
 OUTPUT FORMAT — respond with ONLY valid JSON mapping sentence numbers to keywords:
 {
   "1": "keyword",
-  "2": "keyword",
-  ...
+  "2": "keyword"
 }`;
 
   const sentenceList = sentences.map((s, i) => `${i + 1}. ${s}`).join('\n');
