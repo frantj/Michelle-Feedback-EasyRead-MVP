@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#4A90E2"/>
+  
+  <!-- ER text -->
+  <text x="32" y="44" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">ER</text>
+</svg>
