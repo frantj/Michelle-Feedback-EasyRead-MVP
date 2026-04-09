@@ -1,10 +1,22 @@
 {
   "name": "easy-read-generator",
-  "version": "0.1.0",
-  "private": true,
-  "description": "MVP: Easy Read Generator (Node + Express + Vanilla JS)",
+  "version": "1.0.0",
+  "description": "Convert complex text into Easy Read format using AI. Features image-left/text-right layout, curated illustration library, and shareable links.",
   "main": "server.js",
   "license": "MIT",
+  "author": "Jesper Frant",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jesperfrant/easy-read-generator"
+  },
+  "keywords": [
+    "easy-read",
+    "accessibility",
+    "ai",
+    "openai",
+    "learning-disabilities",
+    "plain-language"
+  ],
   "scripts": {
     "dev": "node server.js",
     "start": "NODE_ENV=production node server.js"

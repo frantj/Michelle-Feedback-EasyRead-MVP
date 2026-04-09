@@ -3,34 +3,126 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Results • Easy Read Generator</title>
+  <title>Results — Easy Read Generator</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <header>
-    <h1 id="pageTitle">Results</h1>
+  <div class="top-bar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="/" class="site-logo">
+      <span class="site-logo-icon" aria-hidden="true">ER</span>
+      Easy Read Generator
+    </a>
   </header>
 
   <main>
-    <div class="actions top">
-      <button id="copyAllBtn" type="button">Copy All</button>
-      <button id="backBtn" type="button">Back</button>
+    <div class="results-header">
+      <h1 id="pageTitle">Easy Read Document</h1>
     </div>
-    <div id="copyStatus" aria-live="polite" role="status" class="visually-shown"></div>
 
-    <section aria-labelledby="summary-heading">
+    <div class="actions">
+      <button id="copyAllBtn" class="btn btn-secondary" type="button">Copy Text</button>
+      <button id="downloadWordBtn" class="btn btn-secondary" type="button">Download to Edit</button>
+      <button id="printBtn" class="btn btn-secondary" type="button">Print / Save PDF</button>
+    </div>
+    <div class="actions actions-secondary">
+      <button id="backBtn" class="btn btn-outline" type="button">Back to Edit</button>
+      <button id="shareBtn" class="btn btn-outline" type="button">Copy Share Link</button>
+    </div>
+    <div id="copyStatus" aria-live="polite" role="status" class="copy-status"></div>
+
+    <section class="summary-box" aria-labelledby="summary-heading">
       <h2 id="summary-heading">Summary</h2>
-      <pre id="summary" class="content-block"></pre>
+      <p id="summary"></p>
     </section>
 
-    <section aria-labelledby="easyread-heading">
-      <h2 id="easyread-heading">Easy Read Version</h2>
-      <pre id="easyRead" class="content-block"></pre>
-    </section>
+    <div id="easyReadContent" aria-label="Easy Read document content">
+      <!-- JS renders sections here -->
+    </div>
   </main>
 
-  <footer>
-    <p>Use Back to edit your original text.</p>
+  <!-- Download Instructions Modal -->
+  <div id="downloadModal" class="support-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+    <div class="support-modal">
+      <button class="support-modal-close" aria-label="Close" id="closeDownloadModal">×</button>
+      <h3 id="downloadModalTitle">📄 How to Edit Your Document</h3>
+      <div style="text-align: left; margin: 1.5rem 0;">
+        <p style="margin-bottom: 1rem;"><strong>Your document is downloading...</strong></p>
+        
+        <p style="margin-bottom: 0.5rem;"><strong>To open and edit:</strong></p>
+        <ol style="margin-left: 1.5rem; line-height: 1.8;">
+          <li>Find the downloaded <code>.html</code> file in your Downloads folder</li>
+          <li>Right-click the file and choose <strong>"Open With"</strong>:
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+              <li><strong>Microsoft Word</strong></li>
+              <li><strong>Apple Pages</strong></li>
+              <li><strong>LibreOffice</strong></li>
+            </ul>
+          </li>
+          <li><strong>For Google Docs:</strong>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+              <li>Upload the file to Google Drive</li>
+              <li>Right-click the file in Drive</li>
+              <li>Choose <strong>"Open with → Google Docs"</strong></li>
+            </ul>
+          </li>
+        </ol>
+        
+        <p style="margin-top: 1rem; padding: 0.75rem; background: #fffaed; border-left: 3px solid #f7a823; font-size: 0.95rem;">
+          💡 <strong>Tip:</strong> Once open, you can edit the text and images, then save as .docx or .pdf
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support Modal -->
+  <div id="supportModal" class="support-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="supportModalTitle">
+    <div class="support-modal">
+      <button class="support-modal-close" aria-label="Close" id="closeModal">×</button>
+      <div class="copy-confirmation">✓ Text copied to clipboard!</div>
+      <h3 id="supportModalTitle">☕ Enjoying this free tool?</h3>
+      <p>
+        This is a free service, but the website costs money to host. 
+        If you are able to support this project, please buy me a coffee. 
+        Your support helps keep this tool free and accessible for everyone.
+      </p>
+      <a href="https://www.buymeacoffee.com/jesperfrant" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+    </div>
+  </div>
+
+  <!-- Share Link Modal -->
+  <div id="shareLinkModal" class="support-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="shareLinkModalTitle">
+    <div class="support-modal">
+      <button class="support-modal-close" aria-label="Close" id="closeShareModal">×</button>
+      <h3 id="shareLinkModalTitle">🔗 Share Link Created!</h3>
+      <p style="margin-bottom: 1rem;">Your document has been saved and is ready to share.</p>
+      <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin: 1rem 0; word-break: break-all;">
+        <input type="text" id="shareUrlInput" readonly style="width: 100%; padding: 0.5rem; border: 2px solid #ddd; border-radius: 4px; font-size: 0.9rem; font-family: monospace;" />
+      </div>
+      <button id="copyShareUrlBtn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Copy Link</button>
+      <div id="shareCopyConfirmation" style="margin-top: 0.75rem; color: #059669; font-weight: 600; text-align: center; min-height: 1.5rem;"></div>
+      
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid #e5e5e5; text-align: center;">
+        <p style="font-size: 0.95rem; margin-bottom: 1rem;">☕ <strong>Enjoying this free tool?</strong></p>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
+          Your support helps keep this tool free and accessible for everyone.
+        </p>
+        <a href="https://www.buymeacoffee.com/jesperfrant" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 50px !important;width: 181px !important;" ></a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Easy Read Generator — built with accessibility and privacy in mind.</p>
+    <p class="attribution">
+      Illustrations from <a href="https://easyread.demcloud.org/" target="_blank" rel="noopener">NDI Easy Read Project</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>,
+      <a href="https://mulberrysymbols.org" target="_blank" rel="noopener">Mulberry Symbols</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/2.0/uk/" target="_blank" rel="noopener">CC BY-SA 2.0 UK</a>,
+      and <a href="https://openmoji.org" target="_blank" rel="noopener">OpenMoji</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+    </p>
   </footer>
 
   <script src="/js/results.js" defer></script>

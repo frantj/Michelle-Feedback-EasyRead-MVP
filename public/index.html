@@ -7,29 +7,59 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Easy Read Generator</h1>
+  <div class="top-bar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="/" class="site-logo">
+      <span class="site-logo-icon" aria-hidden="true">ER</span>
+      Easy Read Generator
+    </a>
   </header>
 
+  <section class="hero" aria-labelledby="hero-heading">
+    <h1 id="hero-heading">Convert your text into an Easy Read document.</h1>
+    <p style="font-size:1.2rem; line-height:1.6; max-width:600px;">
+      Paste your text below and we will convert it into Easy Read format
+      with short sentences, simple words, and image suggestions.
+    </p>
+  </section>
+
   <main>
-    <section aria-labelledby="input-heading">
+    <section class="input-section" aria-labelledby="input-heading">
       <h2 id="input-heading">Paste your text</h2>
       <form id="generateForm" novalidate>
-        <label for="inputText">Text to convert</label>
-        <textarea id="inputText" name="inputText" rows="8" aria-describedby="charHelp" required></textarea>
-        <div class="row">
-          <small id="charHelp"><span id="charCount">0</span> / 10000</small>
+        <label for="inputText">Text to convert into Easy Read</label>
+        <textarea
+          id="inputText"
+          name="inputText"
+          rows="10"
+          placeholder="Paste or type the text you want to convert..."
+          aria-describedby="charHelp"
+          required
+        ></textarea>
+        <div class="char-row">
+          <span id="charHelp"><span id="charCount">0</span> / 10,000 characters</span>
         </div>
         <div class="actions">
-          <button id="generateBtn" type="submit">Generate Easy Read</button>
+          <button id="generateBtn" class="btn btn-primary" type="submit" disabled>
+            Generate Easy Read
+          </button>
         </div>
-        <div id="status" role="status" aria-live="polite" class="visually-shown" tabindex="-1"></div>
+        <div id="status" role="status" aria-live="polite" class="status-msg" tabindex="-1"></div>
       </form>
     </section>
   </main>
 
-  <footer>
-    <p>Built with privacy and accessibility in mind.</p>
+  <footer class="site-footer">
+    <p>Easy Read Generator — built with accessibility and privacy in mind.</p>
+    <p class="attribution">
+      Illustrations from <a href="https://easyread.demcloud.org/" target="_blank" rel="noopener">NDI Easy Read Project</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>,
+      <a href="https://mulberrysymbols.org" target="_blank" rel="noopener">Mulberry Symbols</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/2.0/uk/" target="_blank" rel="noopener">CC BY-SA 2.0 UK</a>,
+      and <a href="https://openmoji.org" target="_blank" rel="noopener">OpenMoji</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+    </p>
   </footer>
 
   <script src="/js/main.js" defer></script>

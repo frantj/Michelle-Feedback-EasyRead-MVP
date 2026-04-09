@@ -1,84 +1,103 @@
 (function() {
-  const form = document.getElementById('generateForm');
-  const textarea = document.getElementById('inputText');
-  const charCount = document.getElementById('charCount');
-  const statusEl = document.getElementById('status');
-  const btn = document.getElementById('generateBtn');
+  var form = document.getElementById('generateForm');
+  var textarea = document.getElementById('inputText');
+  var charCount = document.getElementById('charCount');
+  var statusEl = document.getElementById('status');
+  var btn = document.getElementById('generateBtn');
 
-  const MAX = 10000;
-  const MIN = 1;
+  var MAX = 10000;
+  var MIN = 1;
 
-  // Restore previous input if navigating back
-  const prior = sessionStorage.getItem('originalInput');
+  var prior = sessionStorage.getItem('originalInput');
   if (prior) textarea.value = prior;
-  charCount.textContent = String(textarea.value.length);
-  btn.disabled = textarea.value.length < MIN || textarea.value.length > MAX;
+  updateCharCount();
 
-  textarea.addEventListener('input', () => {
-    const len = textarea.value.length;
+  textarea.addEventListener('input', updateCharCount);
+
+  function updateCharCount() {
+    var len = textarea.value.trim().length;
     charCount.textContent = String(len);
     btn.disabled = len < MIN || len > MAX;
-    if (len < MIN) {
-      statusEl.textContent = 'Please enter some text to begin.';
-    } else if (len > MAX) {
-      statusEl.textContent = `Too long. Please reduce to ${MAX} characters or less.`;
+    if (len > MAX) {
+      setStatus('Too long. Please reduce to 10,000 characters or less.', true);
     } else {
-      statusEl.textContent = '';
+      setStatus('');
     }
-  });
-
-  function setStatus(msg) {
-    statusEl.textContent = msg || '';
   }
 
-  form.addEventListener('submit', async (e) => {
+  function setStatus(msg, isError) {
+    statusEl.textContent = msg || '';
+    statusEl.classList.toggle('error', !!isError);
+  }
+
+  function setLoading(on) {
+    if (on) {
+      btn.disabled = true;
+      btn.innerHTML = '<span class="loading-spinner"></span> Converting\u2026';
+      setStatus('Converting your text into Easy Read format. This may take a moment.');
+      statusEl.focus();
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Generate Easy Read';
+    }
+  }
+
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
     setStatus('');
 
-    const text = textarea.value || '';
-    const len = text.length;
-    if (len < MIN || len > MAX) {
-      setStatus(`Please enter between ${MIN} and ${MAX} characters.`);
+    var text = textarea.value.trim();
+    if (text.length < MIN || text.length > MAX) {
+      setStatus('Please enter between 1 and 10,000 characters.', true);
       return;
     }
 
-    // Save original input for Back navigation
-    sessionStorage.setItem('originalInput', text);
+    sessionStorage.setItem('originalInput', textarea.value);
+    setLoading(true);
 
-    btn.disabled = true;
-    setStatus('Processing…');
-    statusEl.focus && statusEl.focus();
-    try {
-      const resp = await fetch('/api/transform', {
+    fetch('/api/transform', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text })
+    })
+    .then(function(resp) {
+      return resp.text().then(function(raw) {
+        var json;
+        try { json = JSON.parse(raw); } catch (_) { json = null; }
+        if (!resp.ok) {
+          throw new Error(json && json.error ? json.error : 'Request failed.');
+        }
+        return json;
+      });
+    })
+    .then(function(data) {
+      if (!data || typeof data.title !== 'string' || !Array.isArray(data.sections)) {
+        throw new Error('Invalid response format. Please try again.');
+      }
+      
+      // Auto-save document to get a unique URL
+      setStatus('Saving your document...');
+      return fetch('/api/save-document', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text })
+        body: JSON.stringify({
+          title: data.title,
+          summary: data.summary,
+          sections: data.sections,
+          originalText: textarea.value
+        })
+      })
+      .then(function(saveResp) {
+        if (!saveResp.ok) throw new Error('Failed to save document.');
+        return saveResp.json();
+      })
+      .then(function(saveData) {
+        window.location.href = saveData.url;
       });
-      // Read body once to avoid double-read errors
-      const raw = await resp.text();
-      let json;
-      try {
-        json = raw ? JSON.parse(raw) : null;
-      } catch (_) {
-        json = null;
-      }
-      if (!resp.ok) {
-        const message = json && json.error ? json.error : (raw || 'Request failed');
-        throw new Error(message);
-      }
-      const data = json;
-      // Expect strict JSON contract: { summary, easyRead }
-      if (!data || typeof data.summary !== 'string' || typeof data.easyRead !== 'string') {
-        throw new Error('Invalid response format.');
-      }
-      const payload = { summary: data.summary, easyRead: data.easyRead, originalText: text };
-      sessionStorage.setItem('results', JSON.stringify(payload));
-      window.location.href = '/results.html';
-    } catch (err) {
-      setStatus(err && err.message ? err.message : 'Something went wrong.');
-      btn.disabled = false;
-    } finally {
-      // leave status text for screen readers
-    }
+    })
+    .catch(function(err) {
+      setStatus(err.message || 'Something went wrong. Please try again.', true);
+      setLoading(false);
+    });
   });
 })();

@@ -1,81 +1,154 @@
-# Easy Read Generator (MVP)
+# Easy Read Generator
 
-Minimal, production-ready web app scaffold. Node.js + Express on the server, vanilla JS on the client. No persistence.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
 
-## Features (scaffold)
-- Paste text, character counter, Generate button
-- Results page with Summary, Easy Read Version, Copy All, and Back
-- Accessible UI: semantic HTML, keyboard operable, visible focus, aria-live for loading
-- Privacy: API key server-side only; rate limit included; no payload logging in production
-- Security stance: never inject untrusted HTML; render via `textContent` to avoid XSS
-- Performance/UX: one OpenAI call; 12s server-side timeout with friendly errors
+A web tool that converts complex text into Easy Read format using AI. Easy Read uses short sentences, simple words, and images to make information accessible to people with learning disabilities and others who find standard text difficult.
+
+Styled after [Easy Read Online](https://www.easy-read-online.co.uk/). Built with Node.js + Express + vanilla JS.
+
+## ✨ Demo
+
+Try it live: [Your deployment URL here]
+
+## 📸 Screenshots
+
+![Input Page](docs/screenshot-input.png)
+*Simple, accessible input form*
+
+![Results Page](docs/screenshot-results.png)
+*Easy Read output with image-left/text-right layout*
+
+## Features
+- Paste text → AI converts it to structured Easy Read (short sentences, headings, image keywords)
+- Results page with authentic Easy Read layout: **image on left, text on right**
+- Curated illustration library with keyword matching (expandable)
+- Styled placeholders where no matching image exists
+- **Multiple export options:**
+  - Copy text to clipboard
+  - Download as HTML (opens in Word, Pages, Google Docs with images)
+  - Print or Save as PDF (with images)
+- **Persistent share links** — save and share Easy Read documents via URL
+- Accessible: semantic HTML, keyboard operable, visible focus, `aria-live` for loading
+- Privacy: API key server-side only; rate-limited
 
 ## Getting Started
 
-1. Install dependencies
-
+1. **Install dependencies**
 ```bash
-npm i
+npm install
 ```
 
-2. Set environment variables
+2. **Set environment variables** — copy `.env.example` to `.env` and add your OpenAI API key:
+```
+OPENAI_API_KEY=sk-...
+PORT=3000
+```
 
-- In the project root, create `.env` (or edit the existing one)
-- Set `OPENAI_API_KEY`
-- Optionally set `PORT` (defaults to 3000)
-
-3. Run the server (dev)
-
+3. **Run the server**
 ```bash
 npm run dev
 ```
+Open http://localhost:3000
 
-Then open http://localhost:3000
-
-If port 3000 is busy, you can override for this run:
-
-```bash
-PORT=3001 npm run dev
+## Project Structure
+```
+server.js                    # Express server + OpenAI API
+data/
+  image-map.json             # Keyword → image lookup (edit to add images)
+public/
+  index.html                 # Input page
+  results.html               # Easy Read results page
+  css/styles.css             # Amber/teal design system
+  js/main.js                 # Form handling + API call
+  js/results.js              # Render Easy Read layout + image matching
+  images/library/            # Curated illustration files
+reference docs/              # Easy Read guides (not served)
 ```
 
-Then open http://localhost:3001
+## Adding Images to the Library
 
-4. Production start
+1. Drop the image file into `public/images/library/`
+2. Open `data/image-map.json`
+3. Add an entry: `"keyword": { "file": "filename.ext", "alt": "Description" }`
+4. Restart the server
 
+The AI tags each Easy Read sentence with a keyword. The client looks up that keyword in the image map. If found, the image is shown; otherwise a placeholder appears.
+
+## API
+
+**POST /api/transform** — converts text to Easy Read
+```bash
+curl -X POST http://localhost:3000/api/transform \
+  -H 'Content-Type: application/json' \
+  -d '{"text": "Your text here."}'
+```
+
+Returns:
+```json
+{
+  "title": "Easy Read Title",
+  "summary": "Plain-language summary.",
+  "sections": [
+    {
+      "heading": "Section Heading",
+      "sentences": [
+        { "text": "Short sentence.", "imageKeyword": "keyword" }
+      ]
+    }
+  ]
+}
+```
+
+**GET /api/image-map** — returns the keyword → image lookup table
+
+**POST /api/save-document** — saves an Easy Read document and returns a shareable ID
+```bash
+curl -X POST http://localhost:3000/api/save-document \
+  -H 'Content-Type: application/json' \
+  -d '{"title": "...", "summary": "...", "sections": [...]}'
+```
+
+Returns: `{"id": "abc123...", "url": "/doc/abc123..."}`
+
+**GET /doc/:id** — view a saved Easy Read document by its ID
+
+**GET /api/document/:id** — fetch document data as JSON
+
+## 🚀 Deployment
+
+### Environment Variables
+Create a `.env` file:
+```
+OPENAI_API_KEY=your_key_here
+PORT=3000
+```
+
+### Deploy to Netlify/Vercel/Railway
+This is a standard Node.js/Express app. Set the environment variable and run:
 ```bash
 npm start
 ```
 
-## Project Structure
+## 🤝 Contributing
 
-```
-server.js               # Express server (static + rate limit)
-.env.example            # Environment variable example
-public/
-  index.html            # Input page
-  results.html          # Results page
-  css/styles.css        # Styles (high-contrast, accessible)
-  js/main.js            # Client logic for generate flow
-  js/results.js         # Client logic for results + copy/back
-```
+Contributions welcome! Please feel free to submit a Pull Request.
 
-## Notes
-- The `POST /api/transform` endpoint is implemented. It validates input (1–10000 chars), rate-limits per IP, calls OpenAI once, and returns strict JSON `{ summary, easyRead }` with one retry on malformed output.
-- Client renders with `textContent` only; no untrusted HTML injection.
-- Server-side request timeout is 12 seconds; timeouts return a friendly error message.
+## 📄 License
 
-### API quick test
+MIT License - see [LICENSE](LICENSE) file for details.
 
-```bash
-curl -sS -X POST http://localhost:3000/api/transform \
-  -H 'Content-Type: application/json' \
-  -d '{"text": "Paste your sample text here."}'
-```
+## 🙏 Attribution
 
-If you started the server on port 3001, use:
+Illustrations from:
+- [NDI Easy Read Project](https://easyread.demcloud.org/) — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+- [Mulberry Symbols](https://mulberrysymbols.org) by Steve Lee — [CC BY-SA 2.0 UK](https://creativecommons.org/licenses/by-sa/2.0/uk/)
+- [OpenMoji](https://openmoji.org) — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
-```bash
-curl -sS -X POST http://localhost:3001/api/transform \
-  -H 'Content-Type: application/json' \
-  -d '{"text": "Paste your sample text here."}'
-```
+Design inspired by [Easy Read Online](https://www.easy-read-online.co.uk/).
+
+Easy Read format guidance from the [CHANGE guide](https://www.changepeople.org/) "How To Make Information Accessible."
+
+## ☕ Support
+
+If you find this tool helpful, consider [buying me a coffee](https://www.buymeacoffee.com/jesperfrant)!

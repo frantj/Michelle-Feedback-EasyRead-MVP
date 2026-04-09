@@ -29,3 +29,11 @@ coverage/
 # Build output
 dist/
 build/
+
+# Saved documents (user-generated content)
+data/documents/*.json
+
+# Reference materials (not needed in repo)
+reference docs/
+easyreadukwebsite/
+easyreaddemcloudwebsite/
