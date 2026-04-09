@@ -214,7 +214,7 @@
   function generateWordDocument() {
     var html = buildWordHTML();
     var blob = new Blob([html], {
-      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      type: 'application/msword'
     });
     
     var url = URL.createObjectURL(blob);
