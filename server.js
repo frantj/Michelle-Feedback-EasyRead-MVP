@@ -13,6 +13,40 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const IMAGE_MAP_PATH = path.join(__dirname, 'data', 'image-map.json');
 const DOCS_DIR = path.join(__dirname, 'data', 'documents');
 
+// Automatic cleanup of old documents (older than 24 hours)
+function cleanupOldDocuments() {
+  try {
+    const files = fs.readdirSync(DOCS_DIR);
+    const now = Date.now();
+    const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    let deleted = 0;
+
+    files.forEach(file => {
+      if (file.endsWith('.json')) {
+        const filePath = path.join(DOCS_DIR, file);
+        const stats = fs.statSync(filePath);
+        
+        if (now - stats.mtime.getTime() > oneDay) {
+          fs.unlinkSync(filePath);
+          deleted++;
+        }
+      }
+    });
+
+    if (deleted > 0) {
+      console.log(`[Cleanup] Deleted ${deleted} old documents (${new Date().toISOString()})`);
+    }
+  } catch (err) {
+    console.error('[Cleanup] Error:', err.message);
+  }
+}
+
+// Run cleanup immediately on startup
+cleanupOldDocuments();
+
+// Run cleanup every 24 hours
+setInterval(cleanupOldDocuments, 24 * 60 * 60 * 1000);
+
 function loadImageMap() {
   try {
     const raw = fs.readFileSync(IMAGE_MAP_PATH, 'utf-8');
