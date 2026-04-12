@@ -7,30 +7,23 @@ A web tool that converts complex text into Easy Read format using AI. Easy Read 
 
 Styled after [Easy Read Online](https://www.easy-read-online.co.uk/). Built with Node.js + Express + vanilla JS.
 
-## ✨ Demo
-
-Try it live: [Your deployment URL here]
-
-## 📸 Screenshots
-
-![Input Page](docs/screenshot-input.png)
-*Simple, accessible input form*
-
-![Results Page](docs/screenshot-results.png)
-*Easy Read output with image-left/text-right layout*
+**Try it live:** [easyreadgenerator.com](https://easyreadgenerator.com/)
 
 ## Features
-- Paste text → AI converts it to structured Easy Read (short sentences, headings, image keywords)
+
+- Paste text → AI converts it to structured Easy Read (short sentences, headings, bullet points)
+- **Two-pass AI pipeline:** text generation + intelligent image selection (GPT-4o-mini)
 - Results page with authentic Easy Read layout: **image on left, text on right**
-- Curated illustration library with keyword matching (expandable)
+- Curated illustration library with keyword matching (expandable — drop images in folder + update JSON)
 - Styled placeholders where no matching image exists
 - **Multiple export options:**
   - Copy text to clipboard
   - Download as HTML (opens in Word, Pages, Google Docs with images)
   - Print or Save as PDF (with images)
-- **Persistent share links** — save and share Easy Read documents via URL
+- **Shareable links** — save and share Easy Read documents via URL (documents auto-delete after 24 hours)
+- Custom 404 page for expired or missing documents
 - Accessible: semantic HTML, keyboard operable, visible focus, `aria-live` for loading
-- Privacy: API key server-side only; rate-limited
+- Privacy: API key server-side only; rate-limited; content processed by OpenAI per their [data policy](https://developers.openai.com/api/docs/guides/your-data)
 
 ## Getting Started
 
@@ -42,7 +35,6 @@ npm install
 2. **Set environment variables** — copy `.env.example` to `.env` and add your OpenAI API key:
 ```
 OPENAI_API_KEY=sk-...
-PORT=3000
 ```
 
 3. **Run the server**
@@ -52,28 +44,46 @@ npm run dev
 Open http://localhost:3000
 
 ## Project Structure
+
 ```
-server.js                    # Express server + OpenAI API
+server.js                    # Express server, OpenAI API, document cleanup
 data/
   image-map.json             # Keyword → image lookup (edit to add images)
+  documents/                 # Saved documents (auto-deleted after 24h)
 public/
   index.html                 # Input page
   results.html               # Easy Read results page
+  404.html                   # Document-not-found page
+  favicon.svg                # Site favicon
   css/styles.css             # Amber/teal design system
   js/main.js                 # Form handling + API call
-  js/results.js              # Render Easy Read layout + image matching
+  js/results.js              # Render Easy Read layout + export
   images/library/            # Curated illustration files
-reference docs/              # Easy Read guides (not served)
+  images/social-share.svg    # Open Graph share image
+scripts/
+  rebuild-image-map.js       # Rebuild image-map.json from library
+  import-mulberry-symbols.js # Import Mulberry symbol set
+  fill-image-gaps.js         # Find keywords missing images
 ```
+
+## How It Works
+
+1. User pastes text and clicks "Generate Easy Read"
+2. **Pass 1:** Server sends text to GPT-4o-mini → returns structured Easy Read JSON (title, summary, sections with short sentences)
+3. **Pass 2:** Server sends all sentences + the image catalog to GPT-4o-mini → returns best image keyword per sentence
+4. Client renders the Easy Read layout with matched images
+5. User can copy, download, print, or share via link
+
+Documents saved via share links are stored as JSON files and **automatically deleted 24 hours after creation** (per-document scheduling, not batch).
 
 ## Adding Images to the Library
 
 1. Drop the image file into `public/images/library/`
 2. Open `data/image-map.json`
 3. Add an entry: `"keyword": { "file": "filename.ext", "alt": "Description" }`
-4. Restart the server
+4. No restart needed — the image map is re-read on each request
 
-The AI tags each Easy Read sentence with a keyword. The client looks up that keyword in the image map. If found, the image is shown; otherwise a placeholder appears.
+The AI tags each Easy Read sentence with a keyword. The client looks up that keyword in the image map. If found, the image is shown; otherwise a styled placeholder appears.
 
 ## API
 
@@ -102,43 +112,41 @@ Returns:
 
 **GET /api/image-map** — returns the keyword → image lookup table
 
-**POST /api/save-document** — saves an Easy Read document and returns a shareable ID
-```bash
-curl -X POST http://localhost:3000/api/save-document \
-  -H 'Content-Type: application/json' \
-  -d '{"title": "...", "summary": "...", "sections": [...]}'
-```
+**POST /api/save-document** — saves a document and returns a shareable URL (24h TTL)
 
-Returns: `{"id": "abc123...", "url": "/doc/abc123..."}`
-
-**GET /doc/:id** — view a saved Easy Read document by its ID
+**GET /doc/:id** — view a saved Easy Read document
 
 **GET /api/document/:id** — fetch document data as JSON
 
-## 🚀 Deployment
+**GET /health** — health check
+
+## Deployment
+
+Currently deployed on **DigitalOcean App Platform**.
 
 ### Environment Variables
-Create a `.env` file:
 ```
-OPENAI_API_KEY=your_key_here
-PORT=3000
+OPENAI_API_KEY=your_key_here    # Required
+NODE_ENV=production              # Optional (suppresses dev logging)
+PORT=3000                        # Optional (default 3000, DO sets 8080)
 ```
 
-### Deploy to Netlify/Vercel/Railway
-This is a standard Node.js/Express app. Set the environment variable and run:
+This is a standard Node.js/Express app. To deploy elsewhere:
 ```bash
 npm start
 ```
 
-## 🤝 Contributing
+Note: Saved documents use the local filesystem (`data/documents/`). On platforms with ephemeral storage (e.g. App Platform), documents are lost on redeploy — the 24-hour auto-cleanup handles this gracefully.
+
+## Contributing
 
 Contributions welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
+## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT License — see [LICENSE](LICENSE) file for details.
 
-## 🙏 Attribution
+## Attribution
 
 Illustrations from:
 - [NDI Easy Read Project](https://easyread.demcloud.org/) — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
@@ -149,6 +157,6 @@ Design inspired by [Easy Read Online](https://www.easy-read-online.co.uk/).
 
 Easy Read format guidance from the [CHANGE guide](https://www.changepeople.org/) "How To Make Information Accessible."
 
-## ☕ Support
+## Support
 
-If you find this tool helpful, consider [buying me a coffee](https://www.buymeacoffee.com/jesperfrant)!
+Created by [Jesper Frant](https://secondhandworlds.org/). If you find this tool helpful, consider [buying me a coffee](https://www.buymeacoffee.com/jesperfrant)!

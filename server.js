@@ -13,39 +13,57 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const IMAGE_MAP_PATH = path.join(__dirname, 'data', 'image-map.json');
 const DOCS_DIR = path.join(__dirname, 'data', 'documents');
 
-// Automatic cleanup of old documents (older than 24 hours)
-function cleanupOldDocuments() {
+// Per-document cleanup: delete each document 24 hours after creation
+const DOC_TTL = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+function scheduleDocumentDeletion(filePath, delayMs) {
+  setTimeout(() => {
+    try {
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+        console.log(`[Cleanup] Deleted ${path.basename(filePath)} (${new Date().toISOString()})`);
+      }
+    } catch (err) {
+      console.error(`[Cleanup] Error deleting ${path.basename(filePath)}:`, err.message);
+    }
+  }, delayMs);
+}
+
+// On startup, schedule deletion for any existing documents based on their age
+function scheduleExistingDocuments() {
+  if (!fs.existsSync(DOCS_DIR)) return;
   try {
     const files = fs.readdirSync(DOCS_DIR);
     const now = Date.now();
-    const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-    let deleted = 0;
 
     files.forEach(file => {
-      if (file.endsWith('.json')) {
+      if (!file.endsWith('.json')) return;
+      try {
         const filePath = path.join(DOCS_DIR, file);
         const stats = fs.statSync(filePath);
-        
-        if (now - stats.mtime.getTime() > oneDay) {
+        const age = now - stats.mtime.getTime();
+
+        if (age >= DOC_TTL) {
           fs.unlinkSync(filePath);
-          deleted++;
+          console.log(`[Cleanup] Deleted expired ${file} (${new Date().toISOString()})`);
+        } else {
+          scheduleDocumentDeletion(filePath, DOC_TTL - age);
         }
+      } catch (fileErr) {
+        console.error(`[Cleanup] Error processing ${file}:`, fileErr.message);
       }
     });
-
-    if (deleted > 0) {
-      console.log(`[Cleanup] Deleted ${deleted} old documents (${new Date().toISOString()})`);
-    }
   } catch (err) {
-    console.error('[Cleanup] Error:', err.message);
+    console.error('[Cleanup] Error reading documents:', err.message);
   }
 }
 
-// Run cleanup immediately on startup
-cleanupOldDocuments();
+// Ensure documents directory exists
+if (!fs.existsSync(DOCS_DIR)) {
+  fs.mkdirSync(DOCS_DIR, { recursive: true });
+}
 
-// Run cleanup every 24 hours
-setInterval(cleanupOldDocuments, 24 * 60 * 60 * 1000);
+scheduleExistingDocuments();
 
 function loadImageMap() {
   try {
@@ -60,11 +78,6 @@ function loadImageMap() {
     console.error('Warning: could not load image-map.json', e.message);
     return {};
   }
-}
-
-// Ensure documents directory exists
-if (!fs.existsSync(DOCS_DIR)) {
-  fs.mkdirSync(DOCS_DIR, { recursive: true });
 }
 
 // Basic security/limits
@@ -124,6 +137,7 @@ app.post('/api/save-document', rateLimit({
     
     const filePath = path.join(DOCS_DIR, `${docId}.json`);
     fs.writeFileSync(filePath, JSON.stringify(docData, null, 2), 'utf-8');
+    scheduleDocumentDeletion(filePath, DOC_TTL);
     
     return res.json({ id: docId, url: `/doc/${docId}` });
   } catch (err) {
@@ -147,13 +161,7 @@ app.get('/doc/:id', (req, res) => {
     return res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
   }
   
-  try {
-    const docData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-    // Serve the same results.html but with doc ID in URL
-    res.sendFile(path.join(__dirname, 'public', 'results.html'));
-  } catch (err) {
-    return res.status(500).sendFile(path.join(__dirname, 'public', '404.html'));
-  }
+  res.sendFile(path.join(__dirname, 'public', 'results.html'));
 });
 
 // API to fetch document data by ID
@@ -337,7 +345,7 @@ async function callOpenAI(messages) {
     throw err;
   }
   const data = await resp.json();
-  const content = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+  const content = data?.choices?.[0]?.message?.content;
   return typeof content === 'string' ? content : '';
 }
 
