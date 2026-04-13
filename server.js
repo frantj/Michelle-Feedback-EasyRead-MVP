@@ -250,7 +250,9 @@ function buildImageSelectionMessages(title, sentences, imageMap) {
     
     // Group keywords that share the same image
     const relatedKws = Object.keys(imageMap).filter(k => imageMap[k].file === img.file);
-    keywordCatalog.push(`"${relatedKws[0]}": ${img.alt} (also: ${relatedKws.slice(1, 5).join(', ')})`);
+    const desc = img.desc || img.alt || kw;
+    const aliases = relatedKws.slice(1, 4).join(', ');
+    keywordCatalog.push(`"${relatedKws[0]}": ${desc}${aliases ? ' — also: ' + aliases : ''}`);
   });
 
   const system = `You are an image selection expert for Easy Read documents. Your job is to pick the best illustrative image for each sentence.
