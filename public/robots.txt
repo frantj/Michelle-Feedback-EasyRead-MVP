@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /doc/
+
+Sitemap: https://easyreadgenerator.com/sitemap.xml
