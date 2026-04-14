@@ -25,28 +25,15 @@ const SERVER = 'http://localhost:3000';
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const MAX_ROUNDS = 5;
 
-// Diverse test prompts covering many Easy Read topics
+// Diverse test prompts covering many Easy Read topics (reduced to fit rate limits)
 const TEST_PROMPTS = [
   'explain about interviews for a job, skills and qualities that employers want',
   'importance of keeping your home and kitchen tidy that also touches on the health risks that could potentially come from a untidy home',
   'The NHS Long Term Plan sets out how the health service will improve care for patients over the next ten years. It focuses on preventing illness, improving mental health services, and making better use of technology.',
   'explain what happens when you go to court and what your rights are as a defendant',
   'how to manage your money and budget when you are on benefits or a low income',
-  'the importance of exercise and eating well for people with learning disabilities',
-  'explain about voting in elections and why it matters for everyone in a democracy',
   'how to stay safe online and protect your personal information on the internet',
   'explain about renting a home, your rights as a tenant, and what to do if something goes wrong',
-  'what happens at a hospital appointment and how to prepare for seeing a specialist doctor',
-  'how to make a complaint about a service you are unhappy with',
-  'explain about fire safety in the home and what to do in an emergency',
-  'the importance of friendships and social activities for mental wellbeing',
-  'explain about public transport including buses and trains and how to plan a journey',
-  'what to expect when starting a new school or college and how to get support',
-  'explain about climate change and what people can do to help the environment',
-  'how to look after a pet and the responsibilities of pet ownership',
-  'explain about different types of housing including supported living and care homes',
-  'the importance of getting enough sleep and tips for a good bedtime routine',
-  'explain about volunteering and how it can help you and your community',
 ];
 
 function loadMap() {
