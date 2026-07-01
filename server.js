@@ -208,7 +208,7 @@ EASY READ RULES:
 - Use simple, everyday words — no jargon
 - Use active voice (say "we will do" not "it will be done")
 - Use "do not" instead of "don't" (no contractions)
-- Use "you" for the reader and "we" for the author/organisation
+- Use "you" for the reader and "we" for the author/organization
 - Write numbers as figures (3, not three)
 - If a hard word is unavoidable, define it simply in the next sentence
 - Use clear headings to break up sections

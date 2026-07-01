@@ -37,3 +37,6 @@ data/documents/*.json
 reference docs/
 easyreadukwebsite/
 easyreaddemcloudwebsite/
+
+# Private notes / drafts
+private-notes/
