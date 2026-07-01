@@ -225,6 +225,7 @@ textarea:focus {
   margin-bottom: 2.5rem;
 }
 .er-section-heading {
+  display: inline-block;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--black);
