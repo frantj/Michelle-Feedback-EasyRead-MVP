@@ -5,7 +5,7 @@
   var statusEl = document.getElementById('status');
   var btn = document.getElementById('generateBtn');
 
-  var MAX = 10000;
+  var MAX = 30000;
   var MIN = 1;
 
   var prior = sessionStorage.getItem('originalInput');
@@ -19,7 +19,7 @@
     charCount.textContent = String(len);
     btn.disabled = len < MIN || len > MAX;
     if (len > MAX) {
-      setStatus('Too long. Please reduce to 10,000 characters or less.', true);
+      setStatus('Too long. Please reduce to 30,000 characters or less.', true);
     } else {
       setStatus('');
     }
@@ -48,7 +48,7 @@
 
     var text = textarea.value.trim();
     if (text.length < MIN || text.length > MAX) {
-      setStatus('Please enter between 1 and 10,000 characters.', true);
+      setStatus('Please enter between 1 and 30,000 characters.', true);
       return;
     }
 

@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -185,7 +186,7 @@ app.get('/api/document/:id', (req, res) => {
 });
 
 // --- Helpers ---
-const MAX_CHARS = 10000;
+const MAX_CHARS = 30000;
 const MIN_CHARS = 1;
 
 function validateInput(body) {
@@ -353,7 +354,7 @@ async function callOpenAI(messages) {
 
 const transformLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
-  max: 30,
+  max: 10,
   standardHeaders: true,
   legacyHeaders: false,
 });
