@@ -4,9 +4,22 @@ const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
 const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 
 const app = express();
 app.set('trust proxy', 1);
+
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:", "https://cdn.buymeacoffee.com"],
+      scriptSrc: ["'self'"],
+      connectSrc: ["'self'"],
+    },
+  },
+}));
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
