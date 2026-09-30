@@ -65,7 +65,7 @@ scripts/
   import-mulberry-symbols.js # Import Mulberry symbol set
   fill-image-gaps.js         # Find keywords missing images
 skill/
-  package_skill.py           # Builds dist/easy-read.zip from the site's files
+  package_skill.py           # Builds dist/easy-read-<version>.zip from the site's files
   easy-read/                 # Claude skill (see "Claude Skill" below)
     SKILL.md                 # Instructions Claude follows: workflow, rules, image guidance
     LICENSE.md               # Skill license + image attributions
@@ -138,9 +138,20 @@ This command:
 
 1. Copies `data/image-map.json` into `skill/easy-read/assets/`, and packs the images it uses from `public/images/library/` into one file, `assets/images.zip`. Claude accepts at most 200 files in a skill, so the images cannot go in one by one.
 2. Regenerates `skill/easy-read/references/image-catalog.md`, the list of images Claude chooses from. It stops with an error if any keyword points to a missing image.
-3. Writes `dist/easy-read.zip`, with `easy-read/` at the zip root, ready to upload to Claude. It stops with an error if the skill has more than 200 files.
+3. Writes `dist/easy-read-<version>.zip` (for example `dist/easy-read-1.0.0.zip`), with `easy-read/` at the zip root, ready to upload to Claude. It stops with an error if the skill has more than 200 files.
 
 Upload the zip to Claude as a custom skill.
+
+### Versioning
+
+The skill's version is in the frontmatter at the top of `skill/easy-read/SKILL.md`:
+
+```yaml
+metadata:
+  version: "1.0.0"
+```
+
+Raise it before you package a changed skill, so each uploaded zip can be told apart. Use the patch number (1.0.1) for fixes, the minor number (1.1.0) for new features or changed rules, and the major number (2.0.0) for changes to the JSON format.
 
 ### Keeping the skill in sync with the site
 

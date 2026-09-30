@@ -1,6 +1,8 @@
 ---
 name: easy-read
 description: Converts complex text or uploaded documents (PDF, Word) into an illustrated Easy Read Word document, with one picture beside each short sentence. Use when the user asks to make text or a document "Easy Read", "easy to read", "accessible", "plain language with pictures", or suitable for people with intellectual or learning disabilities, or when they ask for an Easy Read version, leaflet or summary.
+metadata:
+  version: "1.0.0"
 ---
 
 # Easy Read
