@@ -319,6 +319,11 @@ textarea:focus {
   font-size: 0.85rem;
   color: #555;
 }
+.copyright {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #555;
+}
 
 /* === Responsive === */
 @media (max-width: 700px) {
