@@ -2,11 +2,13 @@
 
 import json
 import sys
+import zipfile
 from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 MAP_PATH = SKILL_DIR / "assets" / "image-map.json"
-IMAGES_DIR = SKILL_DIR / "assets" / "images"
+# The images are packed in one zip, because a skill upload is limited to 200 files
+IMAGES_ZIP = SKILL_DIR / "assets" / "images.zip"
 
 
 def load_json(path):
@@ -25,6 +27,14 @@ def load_image_map():
     image_map = {k: v for k, v in data.items()
                  if not k.startswith("_") and isinstance(v, dict) and v.get("file")}
     return image_map, data.get("_attribution", {})
+
+
+def open_images():
+    """Open the image archive; read a file with .read(name), list with .namelist()."""
+    try:
+        return zipfile.ZipFile(IMAGES_ZIP)
+    except FileNotFoundError:
+        sys.exit(f"ERROR: image archive not found: {IMAGES_ZIP}")
 
 
 def schema_errors(doc):

@@ -116,7 +116,7 @@ For worked examples and more detail, read `SKILL_DIR/references/easy-read-rules.
 
 No single image may appear next to more than 3 sentences in one document. Aliases of the same image count as the same image.
 
-When two catalog entries seem equally good, you may look at the image files in `SKILL_DIR/assets/images/` before choosing. This is slower, so only do it when it matters.
+When two catalog entries seem equally good, you may look at the image files before choosing. They are packed in `SKILL_DIR/assets/images.zip`; the file name is in `assets/image-map.json`. Extract one with `unzip -o SKILL_DIR/assets/images.zip <file> -d /tmp/easy-read-images`. This is slower, so only do it when it matters.
 
 ## Image credits
 

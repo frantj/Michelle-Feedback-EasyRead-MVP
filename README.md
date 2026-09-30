@@ -136,9 +136,9 @@ python3 skill/package_skill.py
 
 This command:
 
-1. Copies `public/images/library/` and `data/image-map.json` into `skill/easy-read/assets/`
+1. Copies `data/image-map.json` into `skill/easy-read/assets/`, and packs the images it uses from `public/images/library/` into one file, `assets/images.zip`. Claude accepts at most 200 files in a skill, so the images cannot go in one by one.
 2. Regenerates `skill/easy-read/references/image-catalog.md`, the list of images Claude chooses from. It stops with an error if any keyword points to a missing image.
-3. Writes `dist/easy-read.zip`, with `easy-read/` at the zip root, ready to upload to Claude
+3. Writes `dist/easy-read.zip`, with `easy-read/` at the zip root, ready to upload to Claude. It stops with an error if the skill has more than 200 files.
 
 Upload the zip to Claude as a custom skill.
 

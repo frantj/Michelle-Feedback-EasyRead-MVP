@@ -13,13 +13,14 @@ credits" line lists the sources of the images used.
 
 import argparse
 import hashlib
+import io
 import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
-from easy_read_common import IMAGES_DIR, load_image_map, load_json, resolve_keyword, schema_errors
+from easy_read_common import load_image_map, open_images, load_json, resolve_keyword, schema_errors
 
 try:
     from docx import Document
@@ -42,26 +43,26 @@ PNG_CACHE = Path(tempfile.gettempdir()) / "easy-read-png-cache"
 
 # --- Images ---
 
-def image_to_raster(path):
-    """Return a PNG/JPEG path for the image, converting SVG with cairosvg (cached)."""
-    if path.suffix.lower() in RASTER_TYPES:
-        return path
+def image_to_raster(name, data):
+    """Return PNG/JPEG bytes for the image, converting SVG with cairosvg (cached)."""
+    if Path(name).suffix.lower() in RASTER_TYPES:
+        return data
     try:
         import cairosvg
     except (ImportError, OSError) as e:
         sys.exit("ERROR: cairosvg is not available, so SVG images cannot be converted. "
                  f"Run: pip install cairosvg (it also needs the Cairo library). Details: {e}")
     PNG_CACHE.mkdir(exist_ok=True)
-    digest = hashlib.sha1(path.read_bytes()).hexdigest()[:16]
-    out = PNG_CACHE / f"{path.stem}-{digest}.png"
+    digest = hashlib.sha1(data).hexdigest()[:16]
+    out = PNG_CACHE / f"{Path(name).stem}-{digest}.png"
     if not out.exists():
-        cairosvg.svg2png(url=str(path), write_to=str(out), output_width=360)
-    return out
+        cairosvg.svg2png(bytestring=data, write_to=str(out), output_width=360)
+    return out.read_bytes()
 
 
-def fit_size(path, box_cm):
+def fit_size(data, box_cm):
     """Width and height that fit the image inside a box_cm square, keeping its shape."""
-    img = DocxImage.from_file(str(path))
+    img = DocxImage.from_blob(data)
     w, h = img.px_width, img.px_height
     if w >= h:
         return Cm(box_cm), Cm(box_cm * h / w)
@@ -216,7 +217,7 @@ def add_summary(doc, summary, size):
     doc.add_paragraph()
 
 
-def add_section(doc, section, image_map, args, stats):
+def add_section(doc, section, image_map, images, args, stats):
     heading = doc.add_heading(section["heading"], level=2)
     paragraph_border(heading, "bottom", AMBER, 18)
 
@@ -247,21 +248,21 @@ def add_section(doc, section, image_map, args, stats):
             stats["fallbacks"].append(f'"{kw}" -> "{match}" – {sentence["text"]}')
 
         entry = image_map[match]
-        src = IMAGES_DIR / entry["file"]
-        if not src.is_file():
-            stats["missing"].append(f'"{kw}" (file {entry["file"]} not found) – {sentence["text"]}')
+        name = entry["file"]
+        if name not in images.namelist():
+            stats["missing"].append(f'"{kw}" (file {name} not found) – {sentence["text"]}')
             continue
-        raster = image_to_raster(src)
+        raster = image_to_raster(name, images.read(name))
         width, height = fit_size(raster, args.image_cm)
         img_para = img_cell.paragraphs[0]
         img_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
         img_para.paragraph_format.line_spacing = 1.0
         img_para.paragraph_format.space_before = Pt(6)
-        shape = img_para.add_run().add_picture(str(raster), width=width, height=height)
+        shape = img_para.add_run().add_picture(io.BytesIO(raster), width=width, height=height)
         set_alt_text(shape, entry.get("alt") or match)
         stats["placed"] += 1
         stats["sources"].add(entry.get("source"))
-        stats["svg_converted"] |= src.suffix.lower() == ".svg"
+        stats["svg_converted"] |= name.lower().endswith(".svg")
 
     doc.add_paragraph()
 
@@ -323,8 +324,9 @@ def main():
     title = doc.add_heading(doc_json["title"], level=1)
     paragraph_border(title, "bottom", AMBER, 24, space=6)
     add_summary(doc, doc_json["summary"], args.size)
-    for section in doc_json["sections"]:
-        add_section(doc, section, image_map, args, stats)
+    with open_images() as images:
+        for section in doc_json["sections"]:
+            add_section(doc, section, image_map, images, args, stats)
     add_credits(doc, attribution, stats, args.size)
     doc.core_properties.title = doc_json["title"]
     doc.save(out)

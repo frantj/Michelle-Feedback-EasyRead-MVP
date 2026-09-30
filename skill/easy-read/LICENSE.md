@@ -9,7 +9,7 @@ Copyright (c) 2026 Jesper Frant
 
 ## Images
 
-The images in `assets/images/` come from the sources below. Each is licensed under a Creative Commons
+The images in `assets/images.zip` come from the sources below. Each is licensed under a Creative Commons
 share-alike license. Each entry in `assets/image-map.json` gives its source in the `source` field.
 
 | Source key | Name | License | URL |
