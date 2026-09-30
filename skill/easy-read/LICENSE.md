@@ -3,7 +3,7 @@
 ## Skill code and instructions
 
 `SKILL.md`, `references/` and `scripts/` are released under the MIT License, the same license as the
-[Easy Read Generator repository](https://github.com/frantj/Michelle-Feedback-EasyRead-MVP) (see `LICENSE` in the repo root).
+[Easy Read Generator repository](https://github.com/frantj/easy-read-generator) (see `LICENSE` in the repo root).
 
 Copyright (c) 2026 Jesper Frant
 

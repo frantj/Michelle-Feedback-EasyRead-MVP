@@ -96,7 +96,7 @@ New images also reach the Claude skill the next time it is packaged (see below).
 
 ## Claude Skill
 
-**Download:** [easy-read.zip](https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/releases/latest/download/easy-read.zip) (always the latest version; older versions are on the [Releases page](https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/releases)). Upload it to Claude as a custom skill, then ask Claude to "make this Easy Read" with some text or a PDF or Word file.
+**Download:** [easy-read.zip](https://github.com/frantj/easy-read-generator/releases/latest/download/easy-read.zip) (always the latest version; older versions are on the [Releases page](https://github.com/frantj/easy-read-generator/releases)). Upload it to Claude as a custom skill, then ask Claude to "make this Easy Read" with some text or a PDF or Word file.
 
 `skill/easy-read/` is a [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that makes Easy Read documents inside Claude. It uses the same rules and image library as the website. It adds to the free site; it does not replace it.
 
