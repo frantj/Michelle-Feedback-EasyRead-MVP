@@ -64,6 +64,13 @@ scripts/
   rebuild-image-map.js       # Rebuild image-map.json from library
   import-mulberry-symbols.js # Import Mulberry symbol set
   fill-image-gaps.js         # Find keywords missing images
+skill/
+  package_skill.py           # Builds dist/easy-read.zip from the site's files
+  easy-read/                 # Claude skill (see "Claude Skill" below)
+    SKILL.md                 # Instructions Claude follows: workflow, rules, image guidance
+    LICENSE.md               # Skill license + image attributions
+    references/              # Detailed rules and examples (catalog is generated)
+    scripts/                 # build_catalog.py, validate.py, build_document.py
 ```
 
 ## How It Works
@@ -84,6 +91,70 @@ Documents saved via share links are stored as JSON files and **automatically del
 4. No restart needed — the image map is re-read on each request
 
 The AI tags each Easy Read sentence with a keyword. The client looks up that keyword in the image map. If found, the image is shown; otherwise a styled placeholder appears.
+
+New images also reach the Claude skill the next time it is packaged (see below).
+
+## Claude Skill
+
+`skill/easy-read/` is a [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that makes Easy Read documents inside Claude. It uses the same rules and image library as the website. It adds to the free site; it does not replace it.
+
+### How it works
+
+Once the skill is installed, ask Claude something like "make this Easy Read" and paste text or upload a PDF or Word file. Claude then:
+
+1. Reads the text
+2. Rewrites it as Easy Read JSON (the same format as the site's API)
+3. Picks an image keyword for every sentence from the image catalog
+4. Runs `scripts/validate.py`, which checks the rules (15 words or fewer per sentence, no contractions, title of 8 words or fewer, summary of 80 words or fewer, every keyword in the catalog, no image more than 3 times) and lists anything to fix
+5. Runs `scripts/build_document.py`, which makes a Word document with the image beside each sentence and an "Image credits" line at the end
+
+The site makes two GPT-4o-mini calls for steps 2 and 3. In the skill, Claude does both itself, so no API key is needed.
+
+### Running the scripts yourself
+
+The scripts need Python 3 with `python-docx` and `cairosvg` (which needs the Cairo library):
+
+```bash
+pip install python-docx cairosvg
+```
+
+```bash
+python3 skill/easy-read/scripts/validate.py easy-read.json
+```
+
+```bash
+python3 skill/easy-read/scripts/build_document.py easy-read.json out.docx
+```
+
+`build_document.py` options: `--font` (default Arial), `--size` (body text in points, default 14), `--image-cm` (image size, default 3), and `--pdf` (also makes a PDF; needs LibreOffice). Documents are A4. Run the packaging command below first, because the scripts read the images from `skill/easy-read/assets/`.
+
+### Packaging
+
+```bash
+python3 skill/package_skill.py
+```
+
+This command:
+
+1. Copies `public/images/library/` and `data/image-map.json` into `skill/easy-read/assets/`
+2. Regenerates `skill/easy-read/references/image-catalog.md`, the list of images Claude chooses from. It stops with an error if any keyword points to a missing image.
+3. Writes `dist/easy-read.zip`, with `easy-read/` at the zip root, ready to upload to Claude
+
+Upload the zip to Claude as a custom skill.
+
+### Keeping the skill in sync with the site
+
+The website's files are the only source of truth. Do not edit the skill's copies.
+
+| What | Source | How it reaches the skill |
+| --- | --- | --- |
+| Images | `public/images/library/` | Copied on every package |
+| Image map | `data/image-map.json` | Copied on every package |
+| Image catalog | Generated from the image map | Rebuilt on every package |
+| Writing rules | `buildMessages()` in `server.js` | **By hand** — copy changes into `SKILL.md` |
+| Image selection guidance | `buildImageSelectionMessages()` in `server.js` | **By hand** — copy changes into `SKILL.md` |
+
+`skill/easy-read/assets/`, the generated catalog and `dist/` are gitignored, so the images are not stored in the repo twice. After you add images or change the rules, run the packaging command again and re-upload the zip.
 
 ## API
 
@@ -152,6 +223,8 @@ Illustrations from:
 - [NDI Easy Read Project](https://easyread.demcloud.org/) — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 - [Mulberry Symbols](https://mulberrysymbols.org) by Steve Lee — [CC BY-SA 2.0 UK](https://creativecommons.org/licenses/by-sa/2.0/uk/)
 - [OpenMoji](https://openmoji.org) — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
+The Claude skill bundles the same illustrations under the same licenses; see [skill/easy-read/LICENSE.md](skill/easy-read/LICENSE.md).
 
 Design inspired by [Easy Read Online](https://www.easy-read-online.co.uk/).
 
