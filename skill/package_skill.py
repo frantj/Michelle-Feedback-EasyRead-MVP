@@ -4,8 +4,8 @@
 Copies the site's image map into the skill, packs the images it uses into
 assets/images.json (a skill upload is limited to 200 files and may not contain
 zip files), regenerates the
-image catalog, and zips the skill folder to dist/easy-read-<version>.zip, with
-the version read from SKILL.md. The copied
+image catalog, and zips the skill folder to dist/easy-read.zip. The version
+is read from SKILL.md for the release tag. The copied
 assets are gitignored, so the site's folders stay the only source of truth.
 
 Usage (from anywhere): python3 skill/package_skill.py
@@ -71,11 +71,11 @@ def read_version():
 
 
 def make_zip(version):
-    zip_path = DIST_DIR / f"easy-read-{version}.zip"
+    # Same name every version, so the README's releases/latest/download link keeps working
+    zip_path = DIST_DIR / "easy-read.zip"
     DIST_DIR.mkdir(exist_ok=True)
-    # Only the current version is kept, because the zip is committed to the repo
-    for old in DIST_DIR.glob("easy-read-*.zip"):
-        old.unlink()
+    if zip_path.exists():
+        zip_path.unlink()
     files = [p for p in sorted(SKILL_DIR.rglob("*"))
              if p.is_file() and p.name != ".DS_Store" and "__pycache__" not in p.parts]
     nested = [p.name for p in files if p.suffix.lower() == ".zip"]
@@ -89,6 +89,8 @@ def make_zip(version):
             zf.write(path, path.relative_to(SKILL_DIR.parent))
     size_mb = zip_path.stat().st_size / 1_000_000
     print(f"Wrote {zip_path.relative_to(REPO)} (version {version}, {len(files)} files, {size_mb:.1f} MB)")
+    print(f'To release: gh release create easy-read-v{version} {zip_path.relative_to(REPO)} '
+          f'--title "Easy Read skill {version}" --notes "<what changed>"')
 
 
 if __name__ == "__main__":

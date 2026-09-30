@@ -96,7 +96,7 @@ New images also reach the Claude skill the next time it is packaged (see below).
 
 ## Claude Skill
 
-**Download:** [dist/easy-read-1.0.1.zip](dist/easy-read-1.0.1.zip) (version 1.0.1). Upload it to Claude as a custom skill, then ask Claude to "make this Easy Read" with some text or a PDF or Word file.
+**Download:** [easy-read.zip](https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/releases/latest/download/easy-read.zip) (always the latest version; older versions are on the [Releases page](https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/releases)). Upload it to Claude as a custom skill, then ask Claude to "make this Easy Read" with some text or a PDF or Word file.
 
 `skill/easy-read/` is a [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that makes Easy Read documents inside Claude. It uses the same rules and image library as the website. It adds to the free site; it does not replace it.
 
@@ -140,9 +140,9 @@ This command:
 
 1. Copies `data/image-map.json` into `skill/easy-read/assets/`, and packs the images it uses from `public/images/library/` into one file, `assets/images.json`. Claude accepts at most 200 files in a skill and no zip files inside it, so the images cannot go in one by one or as a zip.
 2. Regenerates `skill/easy-read/references/image-catalog.md`, the list of images Claude chooses from. It stops with an error if any keyword points to a missing image.
-3. Writes `dist/easy-read-<version>.zip` (for example `dist/easy-read-1.0.0.zip`), with `easy-read/` at the zip root, ready to upload to Claude. It stops with an error if the skill has more than 200 files or contains a zip file.
+3. Writes `dist/easy-read.zip`, with `easy-read/` at the zip root, ready to upload to Claude. It stops with an error if the skill has more than 200 files or contains a zip file.
 
-Upload the zip to Claude as a custom skill. The zip is committed to the repo so people can download it; packaging deletes older versions' zips, so only the current one is kept. After a new version, update the download link at the top of this section.
+`dist/` is gitignored; the zip is shared as a GitHub Release instead (see below).
 
 ### Versioning
 
@@ -153,7 +153,21 @@ metadata:
   version: "1.0.0"
 ```
 
-Raise it before you package a changed skill, so each uploaded zip can be told apart. Use the patch number (1.0.1) for fixes, the minor number (1.1.0) for new features or changed rules, and the major number (2.0.0) for changes to the JSON format.
+Use the patch number (1.0.1) for fixes, the minor number (1.1.0) for new features or changed rules, and the major number (2.0.0) for changes to the JSON format.
+
+### Releasing a new version
+
+1. Raise the version in `skill/easy-read/SKILL.md` and commit.
+2. Package the skill:
+   ```bash
+   python3 skill/package_skill.py
+   ```
+3. Push, then create the release with the zip attached (the packaging command prints this line with the version filled in):
+   ```bash
+   gh release create easy-read-v1.0.1 dist/easy-read.zip --title "Easy Read skill 1.0.1" --notes "What changed"
+   ```
+
+The download link at the top of this section always points to the newest release, so it never needs updating. Keep the file name `easy-read.zip`, or that link breaks.
 
 ### Keeping the skill in sync with the site
 
