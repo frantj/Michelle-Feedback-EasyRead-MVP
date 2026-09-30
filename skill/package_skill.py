@@ -73,8 +73,9 @@ def read_version():
 def make_zip(version):
     zip_path = DIST_DIR / f"easy-read-{version}.zip"
     DIST_DIR.mkdir(exist_ok=True)
-    if zip_path.exists():
-        zip_path.unlink()
+    # Only the current version is kept, because the zip is committed to the repo
+    for old in DIST_DIR.glob("easy-read-*.zip"):
+        old.unlink()
     files = [p for p in sorted(SKILL_DIR.rglob("*"))
              if p.is_file() and p.name != ".DS_Store" and "__pycache__" not in p.parts]
     nested = [p.name for p in files if p.suffix.lower() == ".zip"]

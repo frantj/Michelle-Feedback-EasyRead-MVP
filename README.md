@@ -96,6 +96,8 @@ New images also reach the Claude skill the next time it is packaged (see below).
 
 ## Claude Skill
 
+**Download:** [dist/easy-read-1.0.1.zip](dist/easy-read-1.0.1.zip) (version 1.0.1). Upload it to Claude as a custom skill, then ask Claude to "make this Easy Read" with some text or a PDF or Word file.
+
 `skill/easy-read/` is a [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that makes Easy Read documents inside Claude. It uses the same rules and image library as the website. It adds to the free site; it does not replace it.
 
 ### How it works
@@ -140,7 +142,7 @@ This command:
 2. Regenerates `skill/easy-read/references/image-catalog.md`, the list of images Claude chooses from. It stops with an error if any keyword points to a missing image.
 3. Writes `dist/easy-read-<version>.zip` (for example `dist/easy-read-1.0.0.zip`), with `easy-read/` at the zip root, ready to upload to Claude. It stops with an error if the skill has more than 200 files or contains a zip file.
 
-Upload the zip to Claude as a custom skill.
+Upload the zip to Claude as a custom skill. The zip is committed to the repo so people can download it; packaging deletes older versions' zips, so only the current one is kept. After a new version, update the download link at the top of this section.
 
 ### Versioning
 
