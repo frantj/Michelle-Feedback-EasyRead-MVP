@@ -61,6 +61,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   margin-left: 2rem;
+  white-space: nowrap;
 }
 .site-nav a:hover { text-decoration: underline; }
 
@@ -301,6 +302,74 @@ textarea:focus {
   padding: 3rem 2rem;
   text-align: center;
 }
+
+/* === Content pages (e.g. Claude skill page) === */
+.hero-lead {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.download-note {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+.download-note a { color: var(--black); }
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+.content-page section { margin-bottom: 2.5rem; }
+.content-page h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.content-page p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.content-page ol,
+.content-page ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 1rem 1.5rem;
+}
+.content-page li { margin-bottom: 0.5rem; padding-left: 0.25rem; }
+.content-page a { color: var(--black); }
+.content-page .amber-section p:last-child { margin-bottom: 0; }
+.content-page .steps li::marker { font-weight: 700; }
+.content-page .prompts {
+  list-style: none;
+  margin-left: 0;
+}
+.content-page .prompts li {
+  background: var(--gray-light);
+  border-left: 4px solid var(--teal);
+  padding: 0.75rem 1rem;
+  border-radius: 0 8px 8px 0;
+}
+.table-wrap { overflow-x: auto; }
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gray-border);
+}
+.compare-table thead th {
+  border-bottom: 3px solid var(--amber);
+  font-size: 1.1rem;
+}
+.compare-table tbody th { font-weight: 600; width: 28%; }
 
 /* === Footer === */
 .site-footer {

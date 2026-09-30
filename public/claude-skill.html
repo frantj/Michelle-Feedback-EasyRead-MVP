@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Easy Read Skill for Claude | Easy Read Generator</title>
+  <meta name="description" content="Free Claude skill that turns text, PDF and Word files into illustrated Easy Read Word documents, with a picture beside every sentence. Same rules and images as Easy Read Generator.">
+  <meta name="theme-color" content="#f7a823">
+  <link rel="canonical" href="https://easyreadgenerator.com/claude-skill">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Easy Read Skill for Claude">
+  <meta property="og:description" content="Turn text, PDF and Word files into illustrated Easy Read Word documents inside Claude. Free download.">
+  <meta property="og:url" content="https://easyreadgenerator.com/claude-skill">
+  <meta property="og:image" content="https://easyreadgenerator.com/images/social-share.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Easy Read Skill for Claude">
+  <meta name="twitter:description" content="Turn text, PDF and Word files into illustrated Easy Read Word documents inside Claude. Free download.">
+  <meta name="twitter:image" content="https://easyreadgenerator.com/images/social-share.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="top-bar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="/" class="site-logo">
+      <span class="site-logo-icon" aria-hidden="true">ER</span>
+      Easy Read Generator
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/claude-skill" aria-current="page">Use in Claude</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <h1 id="hero-heading">Easy Read Skill for Claude</h1>
+    <p class="hero-lead">
+      Make Easy Read documents inside Claude. Give Claude some text, a PDF or a Word file.
+      You get back a Word document with short sentences and a picture beside every sentence.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/releases/latest/download/easy-read.zip">
+        Download the skill (free)
+      </a>
+      <a class="btn btn-outline" href="#install">How to install it</a>
+    </div>
+    <p class="download-note">
+      A .zip file of about 5 MB. Always the latest version —
+      <a href="https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/releases">see what changed</a>.
+    </p>
+  </section>
+
+  <main class="content-page">
+    <section aria-labelledby="what-heading">
+      <h2 id="what-heading">What the skill does</h2>
+      <p>The skill uses the same Easy Read rules and picture library as this website. When you ask Claude to make something Easy Read, it:</p>
+      <ol class="steps">
+        <li>Reads your text, PDF or Word file</li>
+        <li>Rewrites it in short sentences, with one idea in each sentence</li>
+        <li>Picks a picture for every sentence from over 370 pictures</li>
+        <li>Checks the result against the Easy Read rules and fixes any problems</li>
+        <li>Gives you a Word document to download, edit and print</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="compare-heading">
+      <h2 id="compare-heading">Website or Claude skill?</h2>
+      <p>Both are free. Use whichever suits you.</p>
+      <div class="table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">This website</th>
+              <th scope="col">Claude skill</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Account needed</th>
+              <td>No</td>
+              <td>Yes, a Claude account</td>
+            </tr>
+            <tr>
+              <th scope="row">What you give it</th>
+              <td>Pasted text, up to 30,000 characters</td>
+              <td>Pasted text, PDF or Word files</td>
+            </tr>
+            <tr>
+              <th scope="row">What you get</th>
+              <td>A web page to copy, print or share for 24 hours</td>
+              <td>A Word document</td>
+            </tr>
+            <tr>
+              <th scope="row">Changes afterwards</th>
+              <td>Edit the text yourself</td>
+              <td>Ask Claude, for example "make the second section shorter"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="need-heading">
+      <h2 id="need-heading">What you need</h2>
+      <ul class="bullets">
+        <li>A Claude account at <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. Skills work on the free plan and on paid plans.</li>
+        <li><strong>Code execution</strong> turned on. In Claude, go to <strong>Settings → Capabilities</strong> and turn it on. Claude needs it to build the Word document.</li>
+        <li>On a Claude Team or Enterprise plan, an owner of your organisation may need to allow skills and code execution first.</li>
+      </ul>
+    </section>
+
+    <section id="install" aria-labelledby="install-heading">
+      <h2 id="install-heading">How to install it</h2>
+      <ol class="steps">
+        <li><a href="https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/releases/latest/download/easy-read.zip">Download the skill</a>. Do not unzip it.</li>
+        <li>In Claude, go to <strong>Customize → Skills</strong>.</li>
+        <li>Select <strong>+</strong>, then <strong>Create skill</strong>, then <strong>Upload a skill</strong>.</li>
+        <li>Choose the <strong>easy-read.zip</strong> file you downloaded.</li>
+        <li>Check that the skill is turned on in your list of skills.</li>
+      </ol>
+      <p>To update to a new version, download the skill again and upload it in place of the old one.</p>
+    </section>
+
+    <section aria-labelledby="try-heading">
+      <h2 id="try-heading">Try it</h2>
+      <p>Start a new chat in Claude and try one of these:</p>
+      <ul class="prompts">
+        <li>"Make this Easy Read:" and then paste your text</li>
+        <li>"Turn this leaflet into an Easy Read version", with a PDF or Word file attached</li>
+        <li>"Make an Easy Read summary of this letter for my client", with the letter attached</li>
+      </ul>
+    </section>
+
+    <section class="amber-section" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">Your privacy</h2>
+      <p>
+        When you use the skill, your text stays in your own Claude account.
+        It is not sent to this website or to OpenAI.
+        Anthropic, the company that makes Claude, handles it under your Claude account's terms and privacy settings.
+      </p>
+    </section>
+
+    <section aria-labelledby="licence-heading">
+      <h2 id="licence-heading">Licence and picture credits</h2>
+      <p>
+        The skill is free and open source under the
+        <a href="https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>.
+        You can share it with anyone.
+      </p>
+      <p>
+        The pictures come from Mulberry Symbols, OpenMoji and the Easy Read Online Dictionary, under Creative Commons
+        share-alike licences. Every document the skill makes ends with a line crediting the pictures it uses. Please keep that line.
+      </p>
+      <p>
+        The code is on <a href="https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/tree/main/skill/easy-read" target="_blank" rel="noopener">GitHub</a>.
+        Questions or feedback? <a href="mailto:jesperfrant+easyread@gmail.com?subject=Easy%20Read%20Claude%20skill">Email me</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Easy Read Generator — built with accessibility and privacy in mind.</p>
+    <p style="margin: 1rem 0;">
+      Made by <a href="https://secondhandworlds.org/" target="_blank" rel="noopener">Jesper Frant</a>
+      • Questions or feedback? <a href="mailto:jesperfrant+easyread@gmail.com?subject=Easy%20Read%20Generator%20feedback">Email me</a>
+      • <a href="https://www.buymeacoffee.com/jesperfrant" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+    </p>
+    <p class="attribution">
+      Illustrations from <a href="https://easyread.demcloud.org/" target="_blank" rel="noopener">NDI Easy Read Project</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>,
+      <a href="https://mulberrysymbols.org" target="_blank" rel="noopener">Mulberry Symbols</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/2.0/uk/" target="_blank" rel="noopener">CC BY-SA 2.0 UK</a>,
+      and <a href="https://openmoji.org" target="_blank" rel="noopener">OpenMoji</a>
+      — <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+    </p>
+    <p class="privacy-notice" style="margin-top: 1.5rem;">
+      <strong>Privacy:</strong> Generated documents are deleted after 24 hours.
+      Content submitted is processed by OpenAI in alignment with their
+      <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener">privacy policy</a>.
+    </p>
+    <p class="copyright">
+      © 2026 Jesper Frant. Code released under the <a href="https://github.com/frantj/Michelle-Feedback-EasyRead-MVP/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>.
+    </p>
+  </footer>
+</body>
+</html>

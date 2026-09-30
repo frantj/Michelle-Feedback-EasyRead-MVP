@@ -111,6 +111,11 @@ app.use(express.static(path.join(__dirname, 'public'), {
   },
 }));
 
+// Claude skill page
+app.get('/claude-skill', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'claude-skill.html'));
+});
+
 // Health check
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', env: NODE_ENV });
