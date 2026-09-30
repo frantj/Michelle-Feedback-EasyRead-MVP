@@ -2,7 +2,8 @@
 """Package the Easy Read skill for upload to Claude.
 
 Copies the site's image map into the skill, packs the images it uses into
-assets/images.zip (a skill upload is limited to 200 files), regenerates the
+assets/images.json (a skill upload is limited to 200 files and may not contain
+zip files), regenerates the
 image catalog, and zips the skill folder to dist/easy-read-<version>.zip, with
 the version read from SKILL.md. The copied
 assets are gitignored, so the site's folders stay the only source of truth.
@@ -10,6 +11,7 @@ assets are gitignored, so the site's folders stay the only source of truth.
 Usage (from anywhere): python3 skill/package_skill.py
 """
 
+import base64
 import json
 import re
 import shutil
@@ -37,12 +39,20 @@ def copy_assets():
     image_map = json.loads((ASSETS_DIR / "image-map.json").read_text(encoding="utf-8"))
     used = sorted({v["file"] for k, v in image_map.items()
                    if not k.startswith("_") and isinstance(v, dict) and v.get("file")})
-    with zipfile.ZipFile(ASSETS_DIR / "images.zip", "w", zipfile.ZIP_DEFLATED) as zf:
-        for name in used:
-            if (LIBRARY_DIR / name).is_file():
-                zf.write(LIBRARY_DIR / name, name)
+    files = {}
+    for name in used:
+        path = LIBRARY_DIR / name
+        if not path.is_file():
+            continue
+        if path.suffix.lower() == ".svg":
+            files[name] = {"encoding": "text", "data": path.read_text(encoding="utf-8")}
+        else:
+            files[name] = {"encoding": "base64", "data": base64.b64encode(path.read_bytes()).decode("ascii")}
+    with open(ASSETS_DIR / "images.json", "w", encoding="utf-8") as f:
+        json.dump({"_note": "Packed by skill/package_skill.py. Do not read this file into the conversation; "
+                            "scripts/extract_image.py extracts single images.", "files": files}, f)
     unused = len([f for f in LIBRARY_DIR.iterdir() if f.is_file()]) - len(used)
-    print(f"Packed {len(used)} images into assets/images.zip ({unused} unused library files left out)")
+    print(f"Packed {len(files)} images into assets/images.json ({unused} unused library files left out)")
 
 
 def build_catalog():
@@ -67,6 +77,9 @@ def make_zip(version):
         zip_path.unlink()
     files = [p for p in sorted(SKILL_DIR.rglob("*"))
              if p.is_file() and p.name != ".DS_Store" and "__pycache__" not in p.parts]
+    nested = [p.name for p in files if p.suffix.lower() == ".zip"]
+    if nested:
+        sys.exit(f"ERROR: Claude does not accept zip files inside a skill: {', '.join(nested)}")
     if len(files) > MAX_FILES:
         sys.exit(f"ERROR: the skill has {len(files)} files; Claude accepts at most {MAX_FILES}.")
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:

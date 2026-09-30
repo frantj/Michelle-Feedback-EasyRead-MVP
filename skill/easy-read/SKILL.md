@@ -2,7 +2,7 @@
 name: easy-read
 description: Converts complex text or uploaded documents (PDF, Word) into an illustrated Easy Read Word document, with one picture beside each short sentence. Use when the user asks to make text or a document "Easy Read", "easy to read", "accessible", "plain language with pictures", or suitable for people with intellectual or learning disabilities, or when they ask for an Easy Read version, leaflet or summary.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Easy Read
@@ -118,7 +118,7 @@ For worked examples and more detail, read `SKILL_DIR/references/easy-read-rules.
 
 No single image may appear next to more than 3 sentences in one document. Aliases of the same image count as the same image.
 
-When two catalog entries seem equally good, you may look at the image files before choosing. They are packed in `SKILL_DIR/assets/images.zip`; the file name is in `assets/image-map.json`. Extract one with `unzip -o SKILL_DIR/assets/images.zip <file> -d /tmp/easy-read-images`. This is slower, so only do it when it matters.
+When two catalog entries seem equally good, you may look at the image files before choosing. They are packed in one large file, `SKILL_DIR/assets/images.json`; never read that file directly. Extract the image for a keyword with `python3 SKILL_DIR/scripts/extract_image.py <keyword>`, which prints where it saved it. This is slower, so only do it when it matters.
 
 ## Image credits
 

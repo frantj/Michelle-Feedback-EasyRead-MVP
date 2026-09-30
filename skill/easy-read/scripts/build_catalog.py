@@ -11,12 +11,11 @@ Usage: python3 scripts/build_catalog.py [--check]
 
 import json
 import sys
-import zipfile
 from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 MAP_PATH = SKILL_DIR / "assets" / "image-map.json"
-IMAGES_ZIP = SKILL_DIR / "assets" / "images.zip"
+IMAGES_BUNDLE = SKILL_DIR / "assets" / "images.json"
 CATALOG_PATH = SKILL_DIR / "references" / "image-catalog.md"
 
 
@@ -43,8 +42,8 @@ def build_lines(image_map):
 
 
 def missing_files(image_map):
-    with zipfile.ZipFile(IMAGES_ZIP) as zf:
-        packed = set(zf.namelist())
+    with open(IMAGES_BUNDLE, encoding="utf-8") as f:
+        packed = set(json.load(f)["files"])
     return sorted({img["file"] for img in image_map.values() if img["file"] not in packed})
 
 

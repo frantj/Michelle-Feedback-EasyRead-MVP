@@ -70,7 +70,7 @@ skill/
     SKILL.md                 # Instructions Claude follows: workflow, rules, image guidance
     LICENSE.md               # Skill license + image attributions
     references/              # Detailed rules and examples (catalog is generated)
-    scripts/                 # build_catalog.py, validate.py, build_document.py
+    scripts/                 # build_catalog.py, validate.py, build_document.py, extract_image.py
 ```
 
 ## How It Works
@@ -136,9 +136,9 @@ python3 skill/package_skill.py
 
 This command:
 
-1. Copies `data/image-map.json` into `skill/easy-read/assets/`, and packs the images it uses from `public/images/library/` into one file, `assets/images.zip`. Claude accepts at most 200 files in a skill, so the images cannot go in one by one.
+1. Copies `data/image-map.json` into `skill/easy-read/assets/`, and packs the images it uses from `public/images/library/` into one file, `assets/images.json`. Claude accepts at most 200 files in a skill and no zip files inside it, so the images cannot go in one by one or as a zip.
 2. Regenerates `skill/easy-read/references/image-catalog.md`, the list of images Claude chooses from. It stops with an error if any keyword points to a missing image.
-3. Writes `dist/easy-read-<version>.zip` (for example `dist/easy-read-1.0.0.zip`), with `easy-read/` at the zip root, ready to upload to Claude. It stops with an error if the skill has more than 200 files.
+3. Writes `dist/easy-read-<version>.zip` (for example `dist/easy-read-1.0.0.zip`), with `easy-read/` at the zip root, ready to upload to Claude. It stops with an error if the skill has more than 200 files or contains a zip file.
 
 Upload the zip to Claude as a custom skill.
 

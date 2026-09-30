@@ -1,14 +1,15 @@
 """Shared helpers for validate.py and build_document.py: loading files and matching image keywords."""
 
+import base64
 import json
 import sys
-import zipfile
 from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 MAP_PATH = SKILL_DIR / "assets" / "image-map.json"
-# The images are packed in one zip, because a skill upload is limited to 200 files
-IMAGES_ZIP = SKILL_DIR / "assets" / "images.zip"
+# The images are packed in one JSON file, because a skill upload is limited to 200 files
+# and may not contain zip files. Format: {"files": {name: {"encoding": "text"|"base64", "data": ...}}}
+IMAGES_BUNDLE = SKILL_DIR / "assets" / "images.json"
 
 
 def load_json(path):
@@ -29,12 +30,30 @@ def load_image_map():
     return image_map, data.get("_attribution", {})
 
 
+class ImageBundle:
+    """The packed images: .namelist() lists file names, .read(name) returns a file's bytes."""
+
+    def __init__(self, path):
+        self._files = load_json(path)["files"]
+
+    def namelist(self):
+        return list(self._files)
+
+    def read(self, name):
+        entry = self._files[name]
+        if entry["encoding"] == "base64":
+            return base64.b64decode(entry["data"])
+        return entry["data"].encode("utf-8")
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+
 def open_images():
-    """Open the image archive; read a file with .read(name), list with .namelist()."""
-    try:
-        return zipfile.ZipFile(IMAGES_ZIP)
-    except FileNotFoundError:
-        sys.exit(f"ERROR: image archive not found: {IMAGES_ZIP}")
+    return ImageBundle(IMAGES_BUNDLE)
 
 
 def schema_errors(doc):
